@@ -1,8 +1,16 @@
 # ambisgis-geodb
 
-Experimental FND-04 branch engine for AmbisGIS, covering R06/R07 foundation
-acceptance. This is a runnable typed PostgreSQL/PostGIS prototype, not the managed
-geodatabase product, a server, an installer, or Esri branch protocol support.
+Owned AmbisGIS geodatabase source. DB-01 adds the [managed dataset/schema and
+identity foundation](docs/managed-schema.md), with real typed per-dataset
+PostgreSQL/PostGIS tables, immutable schema revisions, stable UUID/ObjectID
+mappings and DEFAULT version identity. Its migrations are separate from the
+retained experimental FND-04 branch engine below. Neither increment is a server,
+installer, complete managed editing product or Esri branch protocol support.
+
+The DB-01 fixture command and exact native export contract are documented in
+[managed-schema.md](docs/managed-schema.md). Migration/security review and
+protected merge are required before task acceptance; local test evidence is
+recorded separately. No implicit adoption of the experimental schema is allowed.
 
 The prototype has two typed PointZ datasets in one atomic version group, eager
 immutable bases, optimistic branch heads, a pure merge oracle, explicit
