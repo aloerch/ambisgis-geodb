@@ -124,15 +124,20 @@ def grant_service(connection, role):
                 cursor.execute('''SELECT
                     has_schema_privilege(%s,'managed','CREATE'),
                     EXISTS(SELECT 1 FROM pg_database WHERE datname=current_database() AND datdba=%s),
+                    EXISTS(SELECT 1 FROM pg_namespace WHERE nspname='managed' AND nspowner=%s),
+                    EXISTS(SELECT 1 FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace WHERE n.nspname='managed' AND c.relowner=%s),
+                    EXISTS(SELECT 1 FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace WHERE n.nspname='managed' AND p.proowner=%s),
+                    EXISTS(SELECT 1 FROM pg_type t JOIN pg_namespace n ON n.oid=t.typnamespace WHERE n.nspname='managed' AND t.typowner=%s),
+                    EXISTS(SELECT 1 FROM pg_extension WHERE extname='postgis' AND extowner=%s),
                     EXISTS(SELECT 1 FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace
-                      WHERE n.nspname='managed' AND c.relkind IN ('r','p','v','m','f') AND
+                      WHERE CASE WHEN n.nspname='managed' AND c.relkind IN ('r','p','v','m','f') THEN
                       (has_table_privilege(%s,c.oid,'INSERT,UPDATE,DELETE,TRUNCATE,REFERENCES,TRIGGER') OR
-                       has_any_column_privilege(%s,c.oid,'INSERT,UPDATE,REFERENCES'))),
+                       has_any_column_privilege(%s,c.oid,'INSERT,UPDATE,REFERENCES')) ELSE false END),
                     EXISTS(SELECT 1 FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace
-                      WHERE n.nspname='managed' AND c.relkind='S' AND has_sequence_privilege(%s,c.oid,'USAGE,UPDATE')),
+                      WHERE CASE WHEN n.nspname='managed' AND c.relkind='S' THEN has_sequence_privilege(%s,c.oid,'USAGE,UPDATE') ELSE false END),
                     EXISTS(SELECT 1 FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace
                       WHERE n.nspname='managed' AND p.oid<>'managed.apply_rows(uuid,uuid,uuid,jsonb,boolean)'::regprocedure
-                      AND has_function_privilege(%s,p.oid,'EXECUTE'))''',(actor,actor,actor,actor,actor,actor))
+                      AND has_function_privilege(%s,p.oid,'EXECUTE'))''',(actor,)*11)
                 if any(cursor.fetchone()): raise ValueError('backend role has existing managed bypass privileges')
             cursor.execute(f'GRANT USAGE ON SCHEMA managed TO "{role}"')
             cursor.execute(f'GRANT EXECUTE ON FUNCTION managed.apply_rows(uuid,uuid,uuid,jsonb,boolean) TO "{role}"')

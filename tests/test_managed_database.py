@@ -351,3 +351,12 @@ class ManagedDatabaseTests(unittest.TestCase):
             before=self.query("SELECT has_function_privilege(%s,'managed.apply_rows(uuid,uuid,uuid,jsonb,boolean)','EXECUTE')",(role,))
             with self.subTest(role=role),self.assertRaisesRegex(ValueError,'backend role has'):grant_service(self.connection,role)
             self.assertEqual(self.query("SELECT has_function_privilege(%s,'managed.apply_rows(uuid,uuid,uuid,jsonb,boolean)','EXECUTE')",(role,)),before)
+
+    def test_owner_cannot_be_mistaken_for_safe_role_after_acl_revocation(self):
+        suffix=uuid.uuid4().hex;role='revoked_'+suffix;child='member_'+suffix;owned='owned_'+suffix
+        self.query(f'CREATE ROLE "{role}" NOINHERIT; CREATE ROLE "{child}" NOINHERIT; GRANT "{role}" TO "{child}"')
+        self.query(f'CREATE TABLE managed."{owned}" (value integer); ALTER TABLE managed."{owned}" OWNER TO "{role}"; REVOKE ALL ON managed."{owned}" FROM "{role}"')
+        self.assertEqual(self.query('SELECT has_table_privilege(%s,%s,\'UPDATE\'),has_schema_privilege(%s,\'managed\',\'CREATE\')',(role,'managed.'+owned,role)),[(False,False)])
+        for actor in (role,child):
+            with self.assertRaisesRegex(ValueError,'existing managed bypass'):grant_service(self.connection,actor)
+            self.assertEqual(self.query("SELECT has_function_privilege(%s,'managed.apply_rows(uuid,uuid,uuid,jsonb,boolean)','EXECUTE')",(actor,)),[(False,)])
