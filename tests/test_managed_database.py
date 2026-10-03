@@ -360,3 +360,11 @@ class ManagedDatabaseTests(unittest.TestCase):
         for actor in (role,child):
             with self.assertRaisesRegex(ValueError,'existing managed bypass'):grant_service(self.connection,actor)
             self.assertEqual(self.query("SELECT has_function_privilege(%s,'managed.apply_rows(uuid,uuid,uuid,jsonb,boolean)','EXECUTE')",(actor,)),[(False,)])
+
+    def test_server_capability_memberships_are_not_backend_roles(self):
+        # Membership checks only: never execute a program or read/write files.
+        for capability in ('pg_read_server_files','pg_write_server_files','pg_execute_server_program','pg_signal_backend','pg_read_all_data','pg_write_all_data','pg_checkpoint'):
+            role='cap_'+uuid.uuid4().hex
+            self.query(f'CREATE ROLE "{role}" NOINHERIT; GRANT "{capability}" TO "{role}"')
+            with self.subTest(capability=capability),self.assertRaisesRegex(ValueError,'privileged membership'):grant_service(self.connection,role)
+            self.assertEqual(self.query("SELECT has_function_privilege(%s,'managed.apply_rows(uuid,uuid,uuid,jsonb,boolean)','EXECUTE')",(role,)),[(False,)])

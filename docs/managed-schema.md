@@ -142,6 +142,10 @@ Before adding grants, the helper refuses existing effective managed table or
 column mutation grants, sequence allocation/reset, schema creation, other
 managed function execution and privileged/owner memberships. It checks every
 role reachable through membership, including SET ROLE with NOINHERIT. It refuses
+server-defined `pg_*` capability memberships, including file/program, global
+data, signaling and checkpoint powers, without exercising those capabilities.
+It rejects explicit object ownership even when an owner revoked its own ACLs.
+It refuses
 unsafe preexisting roles rather than revoking unrelated grants. Deployment must
 keep role provisioning and subsequent membership/grant changes controlled;
 this check cannot prevent a trusted administrator from granting new powers later.

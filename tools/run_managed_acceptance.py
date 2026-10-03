@@ -18,6 +18,28 @@ from prototype.database import Cluster,sha256
 
 
 class ManagedCluster(Cluster):
+    def __init__(self,*args,**kwargs):
+        super().__init__(*args,**kwargs)
+        marker=self.root/'JOB_OWNERSHIP.json'
+        record=json.loads(marker.read_text());record.update(task='DB-01',fixture_producer='prototype.database.Cluster')
+        marker.write_text(json.dumps(record,indent=2)+'\n')
+
+    def __enter__(self):
+        super().__enter__()
+        try:
+            legacy=self.evidence/'runtime.json';legacy.rename(self.evidence/'fixture-runtime.json')
+            record=json.loads((self.evidence/'fixture-runtime.json').read_text())
+            record['fixture_prototype_reference_sha256']=record.pop('schema_sha256')
+            record.update(task='DB-01',database_encoding=self.sql('SHOW server_encoding;'),
+                fixture_runtime_sha256=sha256(self.evidence/'fixture-runtime.json'),
+                managed_migrations={p.name:sha256(p) for p in sorted((ROOT/'migrations').glob('*.sql'))},
+                schema_scope='Managed migrations under test; inherited prototype SQL hash is a fixture source reference only, not executed managed DDL.')
+            (self.evidence/'runtime.json').write_text(json.dumps(record,indent=2,sort_keys=True)+'\n')
+            return self
+        except BaseException:
+            self.__exit__(*sys.exc_info())
+            raise
+
     def tool(self,name,*args,**kwargs):
         # Keep the accepted prototype fixture unchanged. Managed Unicode data
         # explicitly requires UTF8 even with the deterministic C locale.

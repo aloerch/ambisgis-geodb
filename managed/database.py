@@ -116,11 +116,14 @@ def grant_service(connection, role):
             if target is None: raise ValueError('expected existing backend role')
             # MEMBER includes roles reachable by SET ROLE even when NOINHERIT
             # prevents their privileges from being active initially.
-            cursor.execute('''SELECT oid,rolsuper,rolbypassrls,rolcreaterole,rolcreatedb,rolreplication
+            cursor.execute('''SELECT oid,rolname,rolsuper,rolbypassrls,rolcreaterole,rolcreatedb,rolreplication
                               FROM pg_roles WHERE pg_has_role(%s,oid,'MEMBER')''',(target[0],))
             actors=cursor.fetchall()
-            for actor,*privileged in actors:
-                if any(privileged): raise ValueError('backend role has privileged membership')
+            for actor,actor_name,*privileged in actors:
+                # Server capability roles can bypass ordinary ACLs without any
+                # of the rolsuper-style attributes (file/program execution etc).
+                if any(privileged) or actor_name.startswith('pg_'):
+                    raise ValueError('backend role has privileged membership')
                 cursor.execute('''SELECT
                     has_schema_privilege(%s,'managed','CREATE'),
                     EXISTS(SELECT 1 FROM pg_database WHERE datname=current_database() AND datdba=%s),
