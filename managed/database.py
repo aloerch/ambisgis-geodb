@@ -111,8 +111,29 @@ def grant_service(connection, role):
     role = identifier(role)
     with connection:
         with connection.cursor() as cursor:
-            cursor.execute('SELECT rolsuper,rolbypassrls FROM pg_roles WHERE rolname=%s', (role,))
-            if cursor.fetchone() != (False,False): raise ValueError('expected existing unprivileged backend role')
+            cursor.execute('SELECT oid FROM pg_roles WHERE rolname=%s', (role,))
+            target=cursor.fetchone()
+            if target is None: raise ValueError('expected existing backend role')
+            # MEMBER includes roles reachable by SET ROLE even when NOINHERIT
+            # prevents their privileges from being active initially.
+            cursor.execute('''SELECT oid,rolsuper,rolbypassrls,rolcreaterole,rolcreatedb,rolreplication
+                              FROM pg_roles WHERE pg_has_role(%s,oid,'MEMBER')''',(target[0],))
+            actors=cursor.fetchall()
+            for actor,*privileged in actors:
+                if any(privileged): raise ValueError('backend role has privileged membership')
+                cursor.execute('''SELECT
+                    has_schema_privilege(%s,'managed','CREATE'),
+                    EXISTS(SELECT 1 FROM pg_database WHERE datname=current_database() AND datdba=%s),
+                    EXISTS(SELECT 1 FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace
+                      WHERE n.nspname='managed' AND c.relkind IN ('r','p','v','m','f') AND
+                      (has_table_privilege(%s,c.oid,'INSERT,UPDATE,DELETE,TRUNCATE,REFERENCES,TRIGGER') OR
+                       has_any_column_privilege(%s,c.oid,'INSERT,UPDATE,REFERENCES'))),
+                    EXISTS(SELECT 1 FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace
+                      WHERE n.nspname='managed' AND c.relkind='S' AND has_sequence_privilege(%s,c.oid,'USAGE,UPDATE')),
+                    EXISTS(SELECT 1 FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace
+                      WHERE n.nspname='managed' AND p.oid<>'managed.apply_rows(uuid,uuid,uuid,jsonb,boolean)'::regprocedure
+                      AND has_function_privilege(%s,p.oid,'EXECUTE'))''',(actor,actor,actor,actor,actor,actor))
+                if any(cursor.fetchone()): raise ValueError('backend role has existing managed bypass privileges')
             cursor.execute(f'GRANT USAGE ON SCHEMA managed TO "{role}"')
             cursor.execute(f'GRANT EXECUTE ON FUNCTION managed.apply_rows(uuid,uuid,uuid,jsonb,boolean) TO "{role}"')
 

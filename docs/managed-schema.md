@@ -138,6 +138,13 @@ PUBLIC receives no managed schema, table, sequence or function grants. End users
 notebooks, QGIS and render clients never receive the trusted backend or schema
 owner role. The granted backend can execute only the fixed write primitive;
 direct table writes, identity updates, sequence reset and managed DDL fail.
+Before adding grants, the helper refuses existing effective managed table or
+column mutation grants, sequence allocation/reset, schema creation, other
+managed function execution and privileged/owner memberships. It checks every
+role reachable through membership, including SET ROLE with NOINHERIT. It refuses
+unsafe preexisting roles rather than revoking unrelated grants. Deployment must
+keep role provisioning and subsequent membership/grant changes controlled;
+this check cannot prevent a trusted administrator from granting new powers later.
 Render roles can receive SELECT on an approved view. The security-definer
 function fixes its search path with `pg_temp` last and qualifies registry,
 PostGIS and generated physical table references. Actual tests try temporary-name

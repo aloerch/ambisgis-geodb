@@ -332,3 +332,22 @@ class ManagedDatabaseTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'idle transactional connection'):operation()
         self.connection.rollback()
         self.assertEqual(self.query("SELECT to_regclass('pg_temp.caller_pending')"),[(None,)])
+
+    def test_service_grant_rejects_direct_inherited_and_owner_bypass(self):
+        definition=copy.deepcopy(DEFINITION);definition['geometry']=None
+        d=self.dataset(definition);t=table(d['dataset_id'])
+        suffix=uuid.uuid4().hex
+        direct='direct_'+suffix;column='column_'+suffix;parent='parent_'+suffix;child='child_'+suffix
+        seq='seq_'+suffix;owner='owner_'+suffix;function='function_'+suffix
+        for role in (direct,column,parent,child,seq,owner,function):self.query(f'CREATE ROLE "{role}" NOINHERIT')
+        self.query(f'GRANT UPDATE ON managed."{t}" TO "{direct}"')
+        self.query(f'GRANT UPDATE(name) ON managed."{t}" TO "{column}"')
+        self.query(f'GRANT DELETE ON managed."{t}" TO "{parent}"; GRANT "{parent}" TO "{child}"')
+        self.assertEqual(self.query('SELECT has_table_privilege(%s,%s,\'DELETE\'),pg_has_role(%s,%s,\'MEMBER\')',(child,'managed.'+t,child,parent)),[(False,True)])
+        self.query(f'GRANT UPDATE ON SEQUENCE managed."oid_{uuid.UUID(d["dataset_id"]).hex}" TO "{seq}"')
+        self.query(f'GRANT prototype_owner TO "{owner}"')
+        self.query(f'GRANT EXECUTE ON FUNCTION managed.geometry_finite(public.geometry) TO "{function}"')
+        for role in (direct,column,child,seq,owner,function):
+            before=self.query("SELECT has_function_privilege(%s,'managed.apply_rows(uuid,uuid,uuid,jsonb,boolean)','EXECUTE')",(role,))
+            with self.subTest(role=role),self.assertRaisesRegex(ValueError,'backend role has'):grant_service(self.connection,role)
+            self.assertEqual(self.query("SELECT has_function_privilege(%s,'managed.apply_rows(uuid,uuid,uuid,jsonb,boolean)','EXECUTE')",(role,)),before)
