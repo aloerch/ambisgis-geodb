@@ -1,3 +1,32 @@
+# Current geodatabase work: DB-01
+
+Repository `aloerch/ambisgis-geodb` / ID `1376927417`.
+[DB-01 issue #2](https://github.com/aloerch/ambisgis-geodb/issues/2) is claimed
+[In progress](https://github.com/aloerch/ambisgis-geodb/issues/2#issuecomment-5968690345)
+after actual FND06 acceptance. Local branch `db-01/managed-schema` starts at
+accepted FND04 merge `b7e5888b11a4b3d2246daeffe0173113f1628f2d`.
+
+Tested runtime producer `f3fb30ba844c4098c4544e097c582495b516bb22` implements
+checksummed transactional migrations, immutable canonical typed schemas,
+per-dataset typed tables, stable UUID/ObjectID mappings and DEFAULT/group/feature
+revision identities. It rejects prototype adoption and ordinary-role write
+bypass. [Contract and limits](docs/managed-schema.md) remain explicit.
+
+Final actual managed suite: 25 tests passed (22 real database methods and 3 pure
+guards), zero skips, unchanged source and stopped database. The exact-source
+negative baseline fails as intended. The unchanged FND04 database 25 and oracle
+12 tests passed. Independent review identified role precondition gaps; focused
+repairs and failing attempts are preserved in [the evidence](docs/db01-evidence.md).
+Final separate-context review and protected PR merge remain integrator gates.
+The implementer made no remote writes. This is not full editing, branch,
+authorization, restore, production or release acceptance.
+
+---
+
+The following is the retained original FND04 premerge local handoff. Its pending
+wording describes that historical checkpoint, not current remote state; FND04's
+actual accepted merge is the DB01 base above.
+
 # FND-04 working status
 
 Repository: `aloerch/ambisgis-geodb`, ID `1376927417`.
