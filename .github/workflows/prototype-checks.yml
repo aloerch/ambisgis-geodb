@@ -32,3 +32,4 @@ jobs:
           set -eu
           python3 -c 'import sys; assert sys.version_info[:2] == (3, 12), sys.version'
           python3 -m unittest discover -s tests -p test_reference.py -v
+          python3 -m unittest discover -s tests -p test_schema.py -v
