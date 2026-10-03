@@ -1,0 +1,34 @@
+name: AmbisGIS geodatabase prototype checks
+on:
+  pull_request:
+    branches: [ambisgis/main]
+  push:
+    branches: [ambisgis/main]
+permissions: {}
+concurrency:
+  group: prototype-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  prototype-reference:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Fetch exact public owned source
+        env:
+          SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          SOURCE_REPOSITORY: ${{ github.repository }}
+        run: |
+          set -eu
+          test "$SOURCE_REPOSITORY" = aloerch/ambisgis-geodb
+          printf '%s' "$SOURCE_SHA" | grep -Eq '^[0-9a-f]{40}$'
+          git init source
+          git -C source remote add origin https://github.com/aloerch/ambisgis-geodb.git
+          git -C source fetch --no-tags origin "$SOURCE_SHA"
+          git -C source checkout --detach FETCH_HEAD
+          test "$(git -C source rev-parse HEAD)" = "$SOURCE_SHA"
+      - name: Check independent reference model
+        working-directory: source
+        run: |
+          set -eu
+          python3 -c 'import sys; assert sys.version_info[:2] == (3, 12), sys.version'
+          python3 -m unittest discover -s tests -p test_reference.py -v
