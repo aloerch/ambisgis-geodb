@@ -101,7 +101,8 @@ class SchemaRulesDatabaseTests(ManagedDatabaseTests):
             dump=fixture.CLUSTER.evidence/('db01-backup-'+uuid.uuid4().hex+'.sql')
             fixture.CLUSTER.tool('pg_dump','-d',conn.info.dbname,'-f',dump)
             migrate(conn)
-            self.assertEqual(database.export_schema(conn,d['dataset_id']),before)
+            upgraded=copy.deepcopy(before);upgraded['group_schema_generation']+=1
+            self.assertEqual(database.export_schema(conn,d['dataset_id']),upgraded)
             with conn,conn.cursor() as c:
                 c.execute("SELECT has_function_privilege(%s,'managed.apply_rows(uuid,uuid,uuid,jsonb,boolean)','EXECUTE'),has_function_privilege(%s,'managed.raw_apply_rows(uuid,uuid,uuid,jsonb,boolean)','EXECUTE')",(writer,writer))
                 self.assertEqual(c.fetchone(),(True,False))
@@ -112,7 +113,7 @@ class SchemaRulesDatabaseTests(ManagedDatabaseTests):
             restore=connect(restored)
             try:
                 self.assertEqual(database.export_schema(restore,d['dataset_id']),before)
-                migrate(restore);self.assertEqual(database.export_schema(restore,d['dataset_id']),before)
+                migrate(restore);self.assertEqual(database.export_schema(restore,d['dataset_id']),upgraded)
                 database.apply_rows(restore,before,[row])
             finally:restore.close()
 

@@ -42,6 +42,7 @@ def create_dataset(connection, *, managed_name, catalog_item_id, policy_ref, def
                 row = cursor.fetchone()
                 if row is None: raise ValueError('unknown version group')
                 version_id = str(row[0])
+                _require_unpinned_schema(cursor,group_id)
                 cursor.execute('UPDATE managed.version SET head_revision=%s WHERE version_id=%s', (str(uuid.uuid4()),version_id))
                 cursor.execute('UPDATE managed.version_group SET schema_generation=schema_generation+1 WHERE group_id=%s', (group_id,))
             if definition['geometry'] is not None:
@@ -67,6 +68,7 @@ def create_dataset(connection, *, managed_name, catalog_item_id, policy_ref, def
                 cursor.execute(f'CREATE INDEX ON managed."{table(dataset_id)}" USING gist(geom)')
             cursor.execute(f'REVOKE ALL ON TABLE managed."{table(dataset_id)}" FROM PUBLIC')
             cursor.execute(f'REVOKE ALL ON SEQUENCE managed."{sequence}" FROM PUBLIC')
+            _install_snapshots(cursor,dataset_id)
     return export_schema(connection,dataset_id)
 
 
@@ -106,7 +108,7 @@ def apply_rows(connection, descriptor, rows, *, replace=False):
             return str(cursor.fetchone()[0])
 
 
-def grant_service(connection, role):
+def _grant_backend(connection, role, grants):
     """Deployment/migrator-only, for a trusted backend role; not end-user ACLs."""
     require_idle(connection)
     role = identifier(role)
@@ -140,11 +142,11 @@ def grant_service(connection, role):
                     EXISTS(SELECT 1 FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace
                       WHERE CASE WHEN n.nspname='managed' AND c.relkind='S' THEN has_sequence_privilege(%s,c.oid,'USAGE,UPDATE') ELSE false END),
                     EXISTS(SELECT 1 FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace
-                      WHERE n.nspname='managed' AND p.oid NOT IN ('managed.apply_rows(uuid,uuid,uuid,jsonb,boolean)'::regprocedure,'managed.apply_group(uuid,uuid,jsonb)'::regprocedure)
-                      AND has_function_privilege(%s,p.oid,'EXECUTE'))''',(actor,)*11)
+                      WHERE n.nspname='managed' AND p.oid NOT IN (SELECT to_regprocedure(f) FROM unnest(%s::text[]) f WHERE to_regprocedure(f) IS NOT NULL)
+                      AND has_function_privilege(%s,p.oid,'EXECUTE'))''',(actor,)*10+(list(SERVICE_FUNCTIONS+BRANCH_FUNCTIONS),actor))
                 if any(cursor.fetchone()): raise ValueError('backend role has existing managed bypass privileges')
             cursor.execute(f'GRANT USAGE ON SCHEMA managed TO "{role}"')
-            cursor.execute(f'GRANT EXECUTE ON FUNCTION managed.apply_rows(uuid,uuid,uuid,jsonb,boolean), managed.apply_group(uuid,uuid,jsonb) TO "{role}"')
+            cursor.execute('GRANT EXECUTE ON FUNCTION '+', '.join(grants)+f' TO "{role}"')
 
 
 def export_identity(fid, object_id, feature_revision):
@@ -192,8 +194,7 @@ def revise_schema(connection, descriptor, definition):
             cursor.execute('SELECT d.active_schema_revision,r.definition FROM managed.dataset d JOIN managed.schema_revision r ON r.schema_revision_id=d.active_schema_revision WHERE d.dataset_id=%s',(dataset_id,))
             revision,old=cursor.fetchone()
             if str(revision)!=descriptor['schema_revision_id'] or head!=descriptor['current']['head_revision']:raise ValueError('STALE_SCHEMA')
-            cursor.execute('SELECT count(*) FROM managed.version WHERE group_id=%s',(group_id,))
-            if cursor.fetchone()[0]!=1:raise ValueError('ACTIVE_BRANCH_SCHEMA_CHANGE_UNSUPPORTED')
+            _require_unpinned_schema(cursor,group_id)
             def physical(value):
                 return {'geometry':value['geometry'],'fields':[{k:v for k,v in f.items() if k not in ('default','domain')} for f in value['fields']]}
             if physical(old)!=physical(definition):raise ValueError('PHYSICAL_SCHEMA_CHANGE_REQUIRES_MIGRATION')
@@ -207,6 +208,7 @@ def revise_schema(connection, descriptor, definition):
                 cursor.execute('INSERT INTO managed.schema_revision VALUES(%s,%s,%s,%s,%s::jsonb,%s)',
                                (revision_id,dataset_id,encoding(definition),text,text,fingerprint(definition)))
                 cursor.execute('UPDATE managed.dataset SET active_schema_revision=%s WHERE dataset_id=%s',(revision_id,dataset_id))
+                _install_snapshots(cursor,dataset_id)
                 cursor.execute('UPDATE managed.version_group SET schema_generation=schema_generation+1 WHERE group_id=%s',(group_id,))
                 cursor.execute('UPDATE managed.version SET head_revision=%s WHERE version_id=%s',(str(uuid.uuid4()),version_id))
     return export_schema(connection,dataset_id)
@@ -221,3 +223,49 @@ def apply_group(connection, descriptor, edits):
                            (descriptor['current']['version_id'],descriptor['current']['head_revision'],
                             json.dumps(edits,ensure_ascii=False,separators=(',',':'),allow_nan=False)))
             return str(cursor.fetchone()[0])
+
+
+SERVICE_FUNCTIONS = ('managed.apply_rows(uuid,uuid,uuid,jsonb,boolean)',
+                     'managed.apply_group(uuid,uuid,jsonb)')
+BRANCH_FUNCTIONS = (
+    'managed.branch_get(uuid,boolean)', 'managed.branch_list(uuid)',
+    'managed.branch_reserve(uuid,uuid,text,uuid,text,uuid[],uuid)',
+    'managed.branch_populate(uuid,uuid)', 'managed.branch_fail(uuid,uuid,text)',
+    'managed.branch_cancel(uuid,uuid)', 'managed.branch_recover(uuid,uuid)',
+    'managed.branch_update(uuid,uuid,text,text,uuid[])',
+    'managed.branch_transition(uuid,uuid,text)',
+)
+
+
+def grant_service(connection, role):
+    """Grant DEFAULT edit primitives only, after the existing bypass checks."""
+    _grant_backend(connection, role, SERVICE_FUNCTIONS)
+
+
+def grant_branch_worker(connection, role):
+    """Grant finite branch routines only; external policy checks remain required."""
+    _grant_backend(connection, role, BRANCH_FUNCTIONS)
+
+
+def _require_unpinned_schema(cursor, group_id):
+    # The caller already owns the group FOR UPDATE guard. Failed reservations
+    # do not pin a schema; retained sealed data does, even after logical delete.
+    cursor.execute("SELECT to_regclass('managed.branch')")
+    if cursor.fetchone()[0] is None:
+        cursor.execute('SELECT count(*) FROM managed.version WHERE group_id=%s',(group_id,))
+        blocked = cursor.fetchone()[0] != 1
+    else:
+        cursor.execute("""SELECT EXISTS(SELECT 1 FROM managed.branch WHERE group_id=%s
+          AND state IN ('active','archived','deletion_pending'))
+          OR EXISTS(SELECT 1 FROM managed.snapshot WHERE group_id=%s)""",(group_id,group_id))
+        blocked = cursor.fetchone()[0]
+    if blocked:
+        raise ValueError('ACTIVE_BRANCH_SCHEMA_CHANGE_UNSUPPORTED')
+
+
+def _install_snapshots(cursor, dataset_id):
+    # Older installs are supported for explicit forward-migration tests.
+    cursor.execute("SELECT to_regprocedure('managed.install_snapshot_table(uuid)')")
+    if cursor.fetchone()[0] is not None:
+        cursor.execute('SELECT managed.install_snapshot_table(%s)',(dataset_id,))
+        cursor.execute('SELECT managed.install_snapshot_relations(%s)',(dataset_id,))
