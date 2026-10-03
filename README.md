@@ -10,7 +10,8 @@ installer, complete managed editing product or Esri branch protocol support.
 The DB-01 fixture command and exact native export contract are documented in
 [managed-schema.md](docs/managed-schema.md). Migration/security review and
 protected merge are required before task acceptance; local test evidence is
-recorded separately. No implicit adoption of the experimental schema is allowed.
+recorded in [DB-01 evidence](docs/db01-evidence.md). No implicit adoption of the
+experimental schema is allowed.
 
 The prototype has two typed PointZ datasets in one atomic version group, eager
 immutable bases, optimistic branch heads, a pure merge oracle, explicit
