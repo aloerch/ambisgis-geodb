@@ -1,0 +1,5 @@
+{
+  "initial_assembly": "asserted socket directory removal, stopped fixture actually retains empty directory",
+  "actual": "no postmaster PID, no socket entries, no matching postgres process; check corrected to socket entries absent",
+  "runtime_mutation": false
+}

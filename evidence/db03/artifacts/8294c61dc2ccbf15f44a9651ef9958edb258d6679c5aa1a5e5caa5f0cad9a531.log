@@ -1,0 +1,77 @@
+test_default_writer_finishes_while_snapshot_schema_guard_is_held (test_branch_snapshot_database.BranchSnapshotDatabaseTests.test_default_writer_finishes_while_snapshot_schema_guard_is_held) ... ERROR
+test_branch_captures_typed_group_base_and_later_default_edits_do_not_leak (test_branch_snapshot_database.BranchSnapshotDatabaseTests.test_branch_captures_typed_group_base_and_later_default_edits_do_not_leak) ... ERROR
+test_creating_and_cancelled_branches_are_absent_from_normal_reads (test_branch_snapshot_database.BranchSnapshotDatabaseTests.test_creating_and_cancelled_branches_are_absent_from_normal_reads) ... ERROR
+test_named_branch_writes_stay_unavailable_until_edit_pipeline (test_branch_snapshot_database.BranchSnapshotDatabaseTests.test_named_branch_writes_stay_unavailable_until_edit_pipeline) ... ERROR
+test_snapshot_catalog_contract_exists (test_branch_snapshot_database.BranchSnapshotDatabaseTests.test_snapshot_catalog_contract_exists) ... FAIL
+
+======================================================================
+ERROR: test_default_writer_finishes_while_snapshot_schema_guard_is_held (test_branch_snapshot_database.BranchSnapshotDatabaseTests.test_default_writer_finishes_while_snapshot_schema_guard_is_held)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db03-worktree/tests/test_branch_snapshot_database.py", line 65, in test_default_writer_finishes_while_snapshot_schema_guard_is_held
+    self.assertIsNotNone(future.result(timeout=3))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib64/python3.12/concurrent/futures/_base.py", line 458, in result
+    raise TimeoutError()
+TimeoutError
+
+======================================================================
+ERROR: test_branch_captures_typed_group_base_and_later_default_edits_do_not_leak (test_branch_snapshot_database.BranchSnapshotDatabaseTests.test_branch_captures_typed_group_base_and_later_default_edits_do_not_leak)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db03-worktree/tests/test_branch_snapshot_database.py", line 79, in test_branch_captures_typed_group_base_and_later_default_edits_do_not_leak
+    self.configure(first)
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db03-worktree/tests/test_branch_snapshot_database.py", line 22, in configure
+    self.query("SELECT managed.configure_branch_quotas(%s,%s::jsonb)",
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db03-worktree/tests/test_managed_database.py", line 52, in query
+    c.execute(statement,parameters)
+psycopg2.errors.UndefinedFunction: function managed.configure_branch_quotas(unknown, jsonb) does not exist
+LINE 1: SELECT managed.configure_branch_quotas('bdce2b29-de8a-4ce3-b...
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+
+
+======================================================================
+ERROR: test_creating_and_cancelled_branches_are_absent_from_normal_reads (test_branch_snapshot_database.BranchSnapshotDatabaseTests.test_creating_and_cancelled_branches_are_absent_from_normal_reads)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db03-worktree/tests/test_branch_snapshot_database.py", line 94, in test_creating_and_cancelled_branches_are_absent_from_normal_reads
+    self.configure(d)
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db03-worktree/tests/test_branch_snapshot_database.py", line 22, in configure
+    self.query("SELECT managed.configure_branch_quotas(%s,%s::jsonb)",
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db03-worktree/tests/test_managed_database.py", line 52, in query
+    c.execute(statement,parameters)
+psycopg2.errors.UndefinedFunction: function managed.configure_branch_quotas(unknown, jsonb) does not exist
+LINE 1: SELECT managed.configure_branch_quotas('a7c82dc0-b50f-4bd8-a...
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+
+
+======================================================================
+ERROR: test_named_branch_writes_stay_unavailable_until_edit_pipeline (test_branch_snapshot_database.BranchSnapshotDatabaseTests.test_named_branch_writes_stay_unavailable_until_edit_pipeline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db03-worktree/tests/test_branch_snapshot_database.py", line 108, in test_named_branch_writes_stay_unavailable_until_edit_pipeline
+    self.configure(d)
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db03-worktree/tests/test_branch_snapshot_database.py", line 22, in configure
+    self.query("SELECT managed.configure_branch_quotas(%s,%s::jsonb)",
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db03-worktree/tests/test_managed_database.py", line 52, in query
+    c.execute(statement,parameters)
+psycopg2.errors.UndefinedFunction: function managed.configure_branch_quotas(unknown, jsonb) does not exist
+LINE 1: SELECT managed.configure_branch_quotas('0e14ebd1-586c-4326-b...
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+
+
+======================================================================
+FAIL: test_snapshot_catalog_contract_exists (test_branch_snapshot_database.BranchSnapshotDatabaseTests.test_snapshot_catalog_contract_exists)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db03-worktree/tests/test_branch_snapshot_database.py", line 119, in test_snapshot_catalog_contract_exists
+    self.assertIsNotNone(self.query("SELECT to_regclass(%s)", ("managed." + relation,))[0][0], relation)
+AssertionError: unexpectedly None : branch
+
+----------------------------------------------------------------------
+Ran 5 tests in 3.406s
+
+FAILED (failures=1, errors=4)

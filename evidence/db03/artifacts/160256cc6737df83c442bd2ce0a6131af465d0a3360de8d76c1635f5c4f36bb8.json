@@ -1,0 +1,72 @@
+{
+  "dataset": {
+    "canonical_encoding": "ambisgis-typed-schema-json-v1",
+    "catalog_item_id": "83bb7b06-5cab-4da5-bc69-436dc6ad940e",
+    "contract": "ambisgis-managed-dataset-v1",
+    "current": {
+      "head_revision": "40cf8f5d-c4d8-4702-8cd0-93c3ad2c965e",
+      "version_id": "e2c42a20-82b1-4b5f-9284-d4eb3b7aa4f0"
+    },
+    "dataset_id": "00d851f0-a50b-459d-9eb5-7ef6b728604a",
+    "default_version_id": "e2c42a20-82b1-4b5f-9284-d4eb3b7aa4f0",
+    "definition": {
+      "fields": [
+        {
+          "max_length": 8,
+          "name": "name",
+          "nullable": true,
+          "type": "string"
+        },
+        {
+          "name": "amount",
+          "nullable": false,
+          "precision": 12,
+          "scale": 3,
+          "type": "decimal"
+        }
+      ],
+      "geometry": {
+        "allow_empty": false,
+        "dimensions": "XY",
+        "nullable": false,
+        "require_valid": true,
+        "srid": 4326,
+        "type": "Point"
+      },
+      "schema_version": 1
+    },
+    "group_schema_generation": 1,
+    "identity": {
+      "feature_revision_field": "feature_revision",
+      "feature_revision_type": "uuid",
+      "feature_uuid_field": "fid",
+      "never_recycled": true,
+      "object_id_field": "object_id",
+      "object_id_json_encoding": "positive-decimal-string",
+      "object_id_type": "int64",
+      "version_field": "version_id"
+    },
+    "managed_name": "d_f106b5e2a29d4351814b375f1bd276a0",
+    "policy_ref": "6490bd65-1091-4a79-bddb-609ba052b615",
+    "schema_revision_id": "ffc8ff50-fb5c-4b40-ad3e-bdad3124aa89",
+    "schema_sha256": "2e04395e99cac7ecffec7cbaee41f5e9152a65818967046ea548e5f617d5087a",
+    "schema_version": 1,
+    "version_group_id": "1eb1bc7a-d9f1-466d-b3c3-2d4a6fbac01c"
+  },
+  "feature_identity": {
+    "feature_revision": "ebd4619d-6eb0-4bec-ba86-d198d39c779e",
+    "fid": "854ad3d0-6fa0-4613-838d-69bf697bdae4",
+    "object_id": "1"
+  },
+  "physical_types": {
+    "amount": "numeric",
+    "dataset_id": "uuid",
+    "feature_revision": "uuid",
+    "fid": "uuid",
+    "geom": "geometry",
+    "name": "text",
+    "object_id": "bigint",
+    "version_group_id": "uuid",
+    "version_id": "uuid"
+  }
+}

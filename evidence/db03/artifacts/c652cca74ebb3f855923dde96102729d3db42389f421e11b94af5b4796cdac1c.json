@@ -1,0 +1,14 @@
+{
+  "baseline": false,
+  "database_stopped": true,
+  "errors": 2,
+  "failures": 2,
+  "inputs_sha256": "fdfe6f43b2bc0b88160675087bd9e2fce32ab791256a7f91fbc7bd38f15a41ec",
+  "passed": false,
+  "seconds": 9.487118625998846,
+  "skipped": 0,
+  "source_unchanged": true,
+  "task": "DB-03",
+  "test_log_sha256": "b95f501338be083e8c2aefb4121ad60fd4f30599935b1a98732dcf419482b20d",
+  "tests": 8
+}

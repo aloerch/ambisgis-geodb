@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "/home/revelberry/Projects/AmbisGIS/build-worktrees/geonode-role-propagation/run-003/venv/bin/python",
+    "-B",
+    "tools/run_managed_acceptance.py",
+    "--branches",
+    "--prefix",
+    "/home/revelberry/Projects/AmbisGIS/build-worktrees/postgis-slice/run-003/prefix",
+    "--runtime-evidence",
+    "/home/revelberry/Projects/AmbisGIS/build-worktrees/postgis-slice/run-003-evidence-final.json",
+    "--evidence",
+    "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db03-worktree/.runs/db03-dev-001"
+  ],
+  "cwd": "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db03-worktree",
+  "started_at": "2026-10-03T19:27:37.801652+00:00",
+  "head": "79392accfcc7289f4255e2b03673b9e85613651d",
+  "returncode": 0,
+  "ended_at": "2026-10-03T19:27:40.830658+00:00",
+  "stdout_sha256": "facd78d91d99205287687928d5f0ae8bd53a4274ba50f34f01a13d8621c3feb1"
+}

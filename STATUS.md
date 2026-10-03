@@ -10,9 +10,11 @@ Delivery is In progress.
 Implemented: append-only migration 003, typed immutable branch bases,
 atomic group capture while DEFAULT writes continue, finite backend branch
 lifecycle/recovery, retained schema pins and bounded named-branch accounting.
-See [the contract](docs/branch-snapshots.md). Latest development runs pass
-20/20 real DB-03 cases, 28/28 DB-01/schema cases and 12/12 DB-02 cases, with zero
-skips and stopped clusters. Exact clean-source evidence is being assembled.
+See [the contract](docs/branch-snapshots.md). Clean implementation `e47001431d903363bb8d84979eb1e12b396ff916` passes
+20/20 real DB-03 cases, 28/28 DB-01/schema cases, 12/12 DB-02 cases, 25/25
+prototype database cases and 12 reference examples. All runs have zero skips;
+all clusters are stopped. [Exact-source evidence](docs/db03-evidence.md)
+preserves the failing baselines and intermediate failures.
 
 Independent exact-head review, publication, protected merge and postmerge
 acceptance remain pending. This worker made no remote writes. Named-branch

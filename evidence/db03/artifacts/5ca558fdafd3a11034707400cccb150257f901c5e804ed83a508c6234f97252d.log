@@ -1,0 +1,136 @@
+2026-10-03 13:15:03.269 PDT [474325] LOG:  starting PostgreSQL 15.19 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit
+2026-10-03 13:15:03.269 PDT [474325] LOG:  listening on Unix socket "/tmp/ambisgis-fnd04-socket-w1panuso/.s.PGSQL.55484"
+2026-10-03 13:15:03.284 PDT [474337] LOG:  database system was shut down at 2026-10-03 13:15:02 PDT
+2026-10-03 13:15:03.312 PDT [474325] LOG:  database system is ready to accept connections
+2026-10-03 13:15:04.087 PDT [474372] ERROR:  INVALID_SUBTYPE
+2026-10-03 13:15:04.087 PDT [474372] CONTEXT:  PL/pgSQL function apply_group(uuid,uuid,jsonb) line 55 at RAISE
+	PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 9 at RETURN
+2026-10-03 13:15:04.087 PDT [474372] STATEMENT:  SELECT managed.apply_rows('f8cc98f1-2ee3-41a7-83e1-1ce082d554c7','29ad8de5-cea0-40c7-8d51-df4ec0f78176','d84a47fe-e920-4313-9296-ab41b949eca2','[{"fid":"bc65e09c-7cb0-4994-9952-9f67d77d7369","values":{}},{"fid":"db5bf84c-8f92-4958-9bc6-569b66e5e777","values":{"kind":3}}]'::jsonb,true)
+2026-10-03 13:15:04.089 PDT [474372] ERROR:  new row for relation "d_f8cc98f12ee341a783e11ce082d554c7" violates check constraint "db02_f8cc98f12ee341a783e11ce082d554c7_2"
+2026-10-03 13:15:04.089 PDT [474372] DETAIL:  Failing row contains (f8cc98f1-2ee3-41a7-83e1-1ce082d554c7, 6e114f57-784b-4513-b27e-84217c751e92, 29ad8de5-cea0-40c7-8d51-df4ec0f78176, f827f8d0-7eae-4eed-82ef-a0fdf2180775, 3, b9083be2-8a0b-4949-ac9d-0d3e27aa8f37, 2, special, 5, 10, new).
+2026-10-03 13:15:04.089 PDT [474372] CONTEXT:  SQL statement "INSERT INTO managed.d_f8cc98f12ee341a783e11ce082d554c7 (dataset_id,version_group_id,version_id,fid,object_id,feature_revision,kind,label,amount,limit_value,status) VALUES ('f8cc98f1-2ee3-41a7-83e1-1ce082d554c7'::uuid,'6e114f57-784b-4513-b27e-84217c751e92'::uuid,'29ad8de5-cea0-40c7-8d51-df4ec0f78176'::uuid,'f827f8d0-7eae-4eed-82ef-a0fdf2180775'::uuid,'3'::bigint,gen_random_uuid(),'2'::integer,'special'::text,'5'::integer,'10'::integer,'new'::text) ON CONFLICT(version_id,fid) DO UPDATE SET feature_revision=EXCLUDED.feature_revision,kind=EXCLUDED.kind,label=EXCLUDED.label,amount=EXCLUDED.amount,limit_value=EXCLUDED.limit_value,status=EXCLUDED.status"
+	PL/pgSQL function raw_apply_rows(uuid,uuid,uuid,jsonb,boolean) line 89 at EXECUTE
+	PL/pgSQL function apply_group(uuid,uuid,jsonb) line 68 at assignment
+	PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 9 at RETURN
+2026-10-03 13:15:04.089 PDT [474372] STATEMENT:  SELECT managed.apply_rows('f8cc98f1-2ee3-41a7-83e1-1ce082d554c7','29ad8de5-cea0-40c7-8d51-df4ec0f78176','d84a47fe-e920-4313-9296-ab41b949eca2','[{"fid":"899b8786-4781-41bd-9b02-65caa071b79b","values":{}},{"fid":"f827f8d0-7eae-4eed-82ef-a0fdf2180775","values":{"kind":2,"amount":5}}]'::jsonb,true)
+2026-10-03 13:15:04.093 PDT [474372] ERROR:  new row for relation "d_f8cc98f12ee341a783e11ce082d554c7" violates check constraint "db02_f8cc98f12ee341a783e11ce082d554c7_1"
+2026-10-03 13:15:04.093 PDT [474372] DETAIL:  Failing row contains (f8cc98f1-2ee3-41a7-83e1-1ce082d554c7, 6e114f57-784b-4513-b27e-84217c751e92, 29ad8de5-cea0-40c7-8d51-df4ec0f78176, 70e4fbcf-8a5c-4c51-9df4-ee6ca128d65c, 5, 4bfae62d-c2f2-4a28-955f-a4353449d7e5, 1, plain, 21, 10, new).
+2026-10-03 13:15:04.093 PDT [474372] CONTEXT:  SQL statement "INSERT INTO managed.d_f8cc98f12ee341a783e11ce082d554c7 (dataset_id,version_group_id,version_id,fid,object_id,feature_revision,kind,label,amount,limit_value,status) VALUES ('f8cc98f1-2ee3-41a7-83e1-1ce082d554c7'::uuid,'6e114f57-784b-4513-b27e-84217c751e92'::uuid,'29ad8de5-cea0-40c7-8d51-df4ec0f78176'::uuid,'70e4fbcf-8a5c-4c51-9df4-ee6ca128d65c'::uuid,'5'::bigint,gen_random_uuid(),'1'::integer,'plain'::text,'21'::integer,'10'::integer,'new'::text) ON CONFLICT(version_id,fid) DO UPDATE SET feature_revision=EXCLUDED.feature_revision,kind=EXCLUDED.kind,label=EXCLUDED.label,amount=EXCLUDED.amount,limit_value=EXCLUDED.limit_value,status=EXCLUDED.status"
+	PL/pgSQL function raw_apply_rows(uuid,uuid,uuid,jsonb,boolean) line 89 at EXECUTE
+	PL/pgSQL function apply_group(uuid,uuid,jsonb) line 68 at assignment
+	PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 9 at RETURN
+2026-10-03 13:15:04.093 PDT [474372] STATEMENT:  SELECT managed.apply_rows('f8cc98f1-2ee3-41a7-83e1-1ce082d554c7','29ad8de5-cea0-40c7-8d51-df4ec0f78176','d84a47fe-e920-4313-9296-ab41b949eca2','[{"fid":"e4a1c857-e211-4acd-b7e7-b3fc4c00f932","values":{}},{"fid":"70e4fbcf-8a5c-4c51-9df4-ee6ca128d65c","values":{"amount":21}}]'::jsonb,true)
+2026-10-03 13:15:04.095 PDT [474372] ERROR:  new row for relation "d_f8cc98f12ee341a783e11ce082d554c7" violates check constraint "db02_f8cc98f12ee341a783e11ce082d554c7_3"
+2026-10-03 13:15:04.095 PDT [474372] DETAIL:  Failing row contains (f8cc98f1-2ee3-41a7-83e1-1ce082d554c7, 6e114f57-784b-4513-b27e-84217c751e92, 29ad8de5-cea0-40c7-8d51-df4ec0f78176, 5e8dcc8b-fb51-4b1f-b881-9bf7bb2eaced, 7, 90d06568-92f4-4960-a54d-30d02d3d7671, 1, plain, 5, 10, other).
+2026-10-03 13:15:04.095 PDT [474372] CONTEXT:  SQL statement "INSERT INTO managed.d_f8cc98f12ee341a783e11ce082d554c7 (dataset_id,version_group_id,version_id,fid,object_id,feature_revision,kind,label,amount,limit_value,status) VALUES ('f8cc98f1-2ee3-41a7-83e1-1ce082d554c7'::uuid,'6e114f57-784b-4513-b27e-84217c751e92'::uuid,'29ad8de5-cea0-40c7-8d51-df4ec0f78176'::uuid,'5e8dcc8b-fb51-4b1f-b881-9bf7bb2eaced'::uuid,'7'::bigint,gen_random_uuid(),'1'::integer,'plain'::text,'5'::integer,'10'::integer,'other'::text) ON CONFLICT(version_id,fid) DO UPDATE SET feature_revision=EXCLUDED.feature_revision,kind=EXCLUDED.kind,label=EXCLUDED.label,amount=EXCLUDED.amount,limit_value=EXCLUDED.limit_value,status=EXCLUDED.status"
+	PL/pgSQL function raw_apply_rows(uuid,uuid,uuid,jsonb,boolean) line 89 at EXECUTE
+	PL/pgSQL function apply_group(uuid,uuid,jsonb) line 68 at assignment
+	PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 9 at RETURN
+2026-10-03 13:15:04.095 PDT [474372] STATEMENT:  SELECT managed.apply_rows('f8cc98f1-2ee3-41a7-83e1-1ce082d554c7','29ad8de5-cea0-40c7-8d51-df4ec0f78176','d84a47fe-e920-4313-9296-ab41b949eca2','[{"fid":"b92187c4-633a-4024-94cc-08aadb08f68f","values":{}},{"fid":"5e8dcc8b-fb51-4b1f-b881-9bf7bb2eaced","values":{"status":"other"}}]'::jsonb,true)
+2026-10-03 13:15:04.098 PDT [474372] ERROR:  new row for relation "d_f8cc98f12ee341a783e11ce082d554c7" violates check constraint "db02_f8cc98f12ee341a783e11ce082d554c7_5"
+2026-10-03 13:15:04.098 PDT [474372] DETAIL:  Failing row contains (f8cc98f1-2ee3-41a7-83e1-1ce082d554c7, 6e114f57-784b-4513-b27e-84217c751e92, 29ad8de5-cea0-40c7-8d51-df4ec0f78176, eab1d263-b81b-404f-8d75-31194ad6d805, 9, 0e829ff2-4b13-4259-8bc1-7cfe92aec520, 1, plain, 11, 10, new).
+2026-10-03 13:15:04.098 PDT [474372] CONTEXT:  SQL statement "INSERT INTO managed.d_f8cc98f12ee341a783e11ce082d554c7 (dataset_id,version_group_id,version_id,fid,object_id,feature_revision,kind,label,amount,limit_value,status) VALUES ('f8cc98f1-2ee3-41a7-83e1-1ce082d554c7'::uuid,'6e114f57-784b-4513-b27e-84217c751e92'::uuid,'29ad8de5-cea0-40c7-8d51-df4ec0f78176'::uuid,'eab1d263-b81b-404f-8d75-31194ad6d805'::uuid,'9'::bigint,gen_random_uuid(),'1'::integer,'plain'::text,'11'::integer,'10'::integer,'new'::text) ON CONFLICT(version_id,fid) DO UPDATE SET feature_revision=EXCLUDED.feature_revision,kind=EXCLUDED.kind,label=EXCLUDED.label,amount=EXCLUDED.amount,limit_value=EXCLUDED.limit_value,status=EXCLUDED.status"
+	PL/pgSQL function raw_apply_rows(uuid,uuid,uuid,jsonb,boolean) line 89 at EXECUTE
+	PL/pgSQL function apply_group(uuid,uuid,jsonb) line 68 at assignment
+	PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 9 at RETURN
+2026-10-03 13:15:04.098 PDT [474372] STATEMENT:  SELECT managed.apply_rows('f8cc98f1-2ee3-41a7-83e1-1ce082d554c7','29ad8de5-cea0-40c7-8d51-df4ec0f78176','d84a47fe-e920-4313-9296-ab41b949eca2','[{"fid":"2590658d-7c8a-432e-a311-943836c84e77","values":{}},{"fid":"eab1d263-b81b-404f-8d75-31194ad6d805","values":{"amount":11}}]'::jsonb,true)
+2026-10-03 13:15:04.100 PDT [474372] ERROR:  NULL_NOT_ALLOWED
+2026-10-03 13:15:04.100 PDT [474372] CONTEXT:  PL/pgSQL function raw_apply_rows(uuid,uuid,uuid,jsonb,boolean) line 56 at RAISE
+	PL/pgSQL function apply_group(uuid,uuid,jsonb) line 68 at assignment
+	PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 9 at RETURN
+2026-10-03 13:15:04.100 PDT [474372] STATEMENT:  SELECT managed.apply_rows('f8cc98f1-2ee3-41a7-83e1-1ce082d554c7','29ad8de5-cea0-40c7-8d51-df4ec0f78176','d84a47fe-e920-4313-9296-ab41b949eca2','[{"fid":"a4b96108-0d83-459c-b60d-03fc501659a1","values":{}},{"fid":"22a15aed-838b-4a3a-9a49-abc264faf19b","values":{"amount":null}}]'::jsonb,true)
+2026-10-03 13:15:04.110 PDT [474372] ERROR:  FIELD_SET_MISMATCH
+2026-10-03 13:15:04.110 PDT [474372] CONTEXT:  PL/pgSQL function raw_apply_rows(uuid,uuid,uuid,jsonb,boolean) line 39 at RAISE
+	PL/pgSQL function apply_group(uuid,uuid,jsonb) line 68 at assignment
+	PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 9 at RETURN
+2026-10-03 13:15:04.110 PDT [474372] STATEMENT:  SELECT managed.apply_rows('f8cc98f1-2ee3-41a7-83e1-1ce082d554c7','29ad8de5-cea0-40c7-8d51-df4ec0f78176','5008e9df-5f55-4c6f-b80f-ca4957a63c49','[{"fid":"8fc29022-a1f9-4905-8774-9170cf528d55","values":{"kind":2}}]'::jsonb,true)
+2026-10-03 13:15:04.286 PDT [474417] ERROR:  duplicate key value violates unique constraint "db02_e51abc8af17241c3ad66f66d0fd5f378_7"
+2026-10-03 13:15:04.286 PDT [474417] DETAIL:  Key (version_id, parent)=(40ed3122-b46d-45f4-9394-0fd0803082fb, 14b0c211-4941-4433-ba10-609223679fa1) already exists.
+2026-10-03 13:15:04.286 PDT [474417] CONTEXT:  SQL statement "SET CONSTRAINTS managed.db02_e51abc8af17241c3ad66f66d0fd5f378_7 IMMEDIATE"
+	PL/pgSQL function apply_group(uuid,uuid,jsonb) line 78 at EXECUTE
+	PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 9 at RETURN
+2026-10-03 13:15:04.286 PDT [474417] STATEMENT:  SELECT managed.apply_rows('e51abc8a-f172-41c3-ad66-f66d0fd5f378','40ed3122-b46d-45f4-9394-0fd0803082fb','5d9685d2-41d9-40bb-b726-4979d370d037','[{"fid":"8c193823-4f60-43d0-bdba-6e9299c5e0d8","values":{"parent":"14b0c211-4941-4433-ba10-609223679fa1"}},{"fid":"650c1561-04d6-42ab-893f-4aa2315c9519","values":{"parent":"14b0c211-4941-4433-ba10-609223679fa1"}}]'::jsonb,true)
+2026-10-03 13:15:04.289 PDT [474417] ERROR:  update or delete on table "d_421e8a21ee4f4b6283bf9342554bb2d3" violates foreign key constraint "db02_e51abc8af17241c3ad66f66d0fd5f378_6" on table "d_e51abc8af17241c3ad66f66d0fd5f378"
+2026-10-03 13:15:04.289 PDT [474417] DETAIL:  Key (version_id, fid)=(40ed3122-b46d-45f4-9394-0fd0803082fb, 14b0c211-4941-4433-ba10-609223679fa1) is still referenced from table "d_e51abc8af17241c3ad66f66d0fd5f378".
+2026-10-03 13:15:04.289 PDT [474417] CONTEXT:  SQL statement "SET CONSTRAINTS managed.db02_e51abc8af17241c3ad66f66d0fd5f378_6 IMMEDIATE"
+	PL/pgSQL function apply_group(uuid,uuid,jsonb) line 78 at EXECUTE
+	PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 9 at RETURN
+2026-10-03 13:15:04.289 PDT [474417] STATEMENT:  SELECT managed.apply_rows('421e8a21-ee4f-4b62-83bf-9342554bb2d3','40ed3122-b46d-45f4-9394-0fd0803082fb','5d9685d2-41d9-40bb-b726-4979d370d037','[]'::jsonb,true)
+2026-10-03 13:15:04.291 PDT [474417] ERROR:  insert or update on table "d_e51abc8af17241c3ad66f66d0fd5f378" violates foreign key constraint "db02_e51abc8af17241c3ad66f66d0fd5f378_6"
+2026-10-03 13:15:04.291 PDT [474417] DETAIL:  Key (version_id, parent)=(40ed3122-b46d-45f4-9394-0fd0803082fb, 75be2bb1-6d58-4ac3-ba1a-a75c5271fd9c) is not present in table "d_421e8a21ee4f4b6283bf9342554bb2d3".
+2026-10-03 13:15:04.291 PDT [474417] CONTEXT:  SQL statement "SET CONSTRAINTS managed.db02_e51abc8af17241c3ad66f66d0fd5f378_6 IMMEDIATE"
+	PL/pgSQL function apply_group(uuid,uuid,jsonb) line 78 at EXECUTE
+2026-10-03 13:15:04.291 PDT [474417] STATEMENT:  SELECT managed.apply_group('40ed3122-b46d-45f4-9394-0fd0803082fb','5d9685d2-41d9-40bb-b726-4979d370d037','[{"dataset_id":"e51abc8a-f172-41c3-ad66-f66d0fd5f378","rows":[{"fid":"2162c73d-6030-49b8-a898-9ce1a6aa6f20","values":{"parent":"75be2bb1-6d58-4ac3-ba1a-a75c5271fd9c"}}],"replace":false},{"dataset_id":"421e8a21-ee4f-4b62-83bf-9342554bb2d3","rows":[{"fid":"14b0c211-4941-4433-ba10-609223679fa1","values":{"name":"parent"}}],"replace":false}]'::jsonb)
+2026-10-03 13:15:04.383 PDT [474417] ERROR:  DATASET_VERSION_MISMATCH
+2026-10-03 13:15:04.383 PDT [474417] CONTEXT:  PL/pgSQL function apply_group(uuid,uuid,jsonb) line 35 at RAISE
+2026-10-03 13:15:04.383 PDT [474417] STATEMENT:  SELECT managed.apply_group('40ed3122-b46d-45f4-9394-0fd0803082fb','5d9685d2-41d9-40bb-b726-4979d370d037','[{"dataset_id":"c5f20d87-5644-498a-b635-774c743b8e08","rows":[],"replace":true}]'::jsonb)
+2026-10-03 13:15:04.480 PDT [474438] ERROR:  check constraint "db02_7e5c8d66ce674f6d8ac5602c588d23bf_1" of relation "d_7e5c8d66ce674f6d8ac5602c588d23bf" is violated by some row
+2026-10-03 13:15:04.480 PDT [474438] STATEMENT:  ALTER TABLE managed."d_7e5c8d66ce674f6d8ac5602c588d23bf" ADD CONSTRAINT "db02_7e5c8d66ce674f6d8ac5602c588d23bf_1" CHECK (("kind" <> E'1'::integer OR "amount" BETWEEN E'0'::integer AND E'6'::integer))
+2026-10-03 13:15:06.762 PDT [474638] ERROR:  insert or update on table "d_1777baae5d26478798effe9f2fa05dd2" violates foreign key constraint "db02_1777baae5d26478798effe9f2fa05dd2_6"
+2026-10-03 13:15:06.762 PDT [474638] DETAIL:  Key (version_id, parent)=(0f79214c-373a-48a1-bf89-85452c60ed0a, e79ebfb9-d3ff-4ba7-92fa-127e46fcd143) is not present in table "d_0b78db480ce74011bc12e557e98a61a2".
+2026-10-03 13:15:06.762 PDT [474638] STATEMENT:  ALTER TABLE managed."d_1777baae5d26478798effe9f2fa05dd2" ADD CONSTRAINT "db02_1777baae5d26478798effe9f2fa05dd2_6" FOREIGN KEY(version_id,"parent") REFERENCES managed."d_0b78db480ce74011bc12e557e98a61a2"(version_id,fid) DEFERRABLE INITIALLY IMMEDIATE
+2026-10-03 13:15:07.000 PDT [474640] ERROR:  insert or update on table "d_ce5b4fd2ed684279b29a753ccdfce2cc" violates foreign key constraint "db02_ce5b4fd2ed684279b29a753ccdfce2cc_6"
+2026-10-03 13:15:07.000 PDT [474640] DETAIL:  Key (version_id, parent)=(13f439e4-31f3-415c-b0f4-c2e5bfd31af5, 0b22c754-6780-44ae-a862-995efd48e586) is not present in table "d_ab67a3f9bc5b4954b3cacc0b2b054a2e".
+2026-10-03 13:15:07.000 PDT [474640] CONTEXT:  SQL statement "SET CONSTRAINTS managed.db02_ce5b4fd2ed684279b29a753ccdfce2cc_6 IMMEDIATE"
+	PL/pgSQL function apply_group(uuid,uuid,jsonb) line 78 at EXECUTE
+2026-10-03 13:15:07.000 PDT [474640] STATEMENT:  SELECT managed.apply_group('13f439e4-31f3-415c-b0f4-c2e5bfd31af5','448a8025-f6cb-4797-b413-d5ab83c3b00f','[{"dataset_id": "ce5b4fd2-ed68-4279-b29a-753ccdfce2cc", "rows": [{"fid": "e79526e0-44a0-4bd5-b483-38ca0de9ce12", "values": {"parent": "0b22c754-6780-44ae-a862-995efd48e586"}}], "replace": false}]'::jsonb)
+2026-10-03 13:15:07.001 PDT [474640] ERROR:  INVALID_MANAGED_GROUP
+2026-10-03 13:15:07.001 PDT [474640] CONTEXT:  PL/pgSQL function apply_group(uuid,uuid,jsonb) line 9 at RAISE
+2026-10-03 13:15:07.001 PDT [474640] STATEMENT:  SELECT managed.apply_group('13f439e4-31f3-415c-b0f4-c2e5bfd31af5','448a8025-f6cb-4797-b413-d5ab83c3b00f','[]'::jsonb)
+2026-10-03 13:15:07.002 PDT [474640] ERROR:  INVALID_MANAGED_GROUP_EDIT
+2026-10-03 13:15:07.002 PDT [474640] CONTEXT:  PL/pgSQL function apply_group(uuid,uuid,jsonb) line 28 at RAISE
+2026-10-03 13:15:07.002 PDT [474640] STATEMENT:  SELECT managed.apply_group('13f439e4-31f3-415c-b0f4-c2e5bfd31af5','448a8025-f6cb-4797-b413-d5ab83c3b00f','[{}]'::jsonb)
+2026-10-03 13:15:07.003 PDT [474640] ERROR:  INVALID_MANAGED_GROUP_EDIT
+2026-10-03 13:15:07.003 PDT [474640] CONTEXT:  PL/pgSQL function apply_group(uuid,uuid,jsonb) line 28 at RAISE
+2026-10-03 13:15:07.003 PDT [474640] STATEMENT:  SELECT managed.apply_group('13f439e4-31f3-415c-b0f4-c2e5bfd31af5','448a8025-f6cb-4797-b413-d5ab83c3b00f','[{"dataset_id":"ce5b4fd2-ed68-4279-b29a-753ccdfce2cc","rows":[],"replace":null}]'::jsonb)
+2026-10-03 13:15:07.004 PDT [474640] ERROR:  DUPLICATE_DATASET_EDIT
+2026-10-03 13:15:07.004 PDT [474640] CONTEXT:  PL/pgSQL function apply_group(uuid,uuid,jsonb) line 30 at RAISE
+2026-10-03 13:15:07.004 PDT [474640] STATEMENT:  SELECT managed.apply_group('13f439e4-31f3-415c-b0f4-c2e5bfd31af5','448a8025-f6cb-4797-b413-d5ab83c3b00f','[{"dataset_id":"ce5b4fd2-ed68-4279-b29a-753ccdfce2cc","rows":[],"replace":false},{"dataset_id":"ce5b4fd2-ed68-4279-b29a-753ccdfce2cc","rows":[],"replace":false}]'::jsonb)
+2026-10-03 13:15:07.172 PDT [474651] ERROR:  new row for relation "d_a7e3f1bc17204e3dbeb4cba33ec3e475" violates check constraint "db02_a7e3f1bc17204e3dbeb4cba33ec3e475_6"
+2026-10-03 13:15:07.172 PDT [474651] DETAIL:  Failing row contains (a7e3f1bc-1720-4e3d-beb4-cba33ec3e475, 301f0d99-31a5-4088-938a-a12417347b4e, c9968672-4cce-4dc4-a981-31546545b7fc, d0e471c5-ca9b-4cbe-bfbd-21da59b46f13, 1, d55710ce-8703-4696-bd93-d59779b74fee, 1, plain, 5, 10, null).
+2026-10-03 13:15:07.172 PDT [474651] CONTEXT:  SQL statement "INSERT INTO managed.d_a7e3f1bc17204e3dbeb4cba33ec3e475 (dataset_id,version_group_id,version_id,fid,object_id,feature_revision,kind,label,amount,limit_value,status) VALUES ('a7e3f1bc-1720-4e3d-beb4-cba33ec3e475'::uuid,'301f0d99-31a5-4088-938a-a12417347b4e'::uuid,'c9968672-4cce-4dc4-a981-31546545b7fc'::uuid,'d0e471c5-ca9b-4cbe-bfbd-21da59b46f13'::uuid,'1'::bigint,gen_random_uuid(),'1'::integer,'plain'::text,'5'::integer,'10'::integer,NULL::text) ON CONFLICT(version_id,fid) DO UPDATE SET feature_revision=EXCLUDED.feature_revision,kind=EXCLUDED.kind,label=EXCLUDED.label,amount=EXCLUDED.amount,limit_value=EXCLUDED.limit_value,status=EXCLUDED.status"
+	PL/pgSQL function raw_apply_rows(uuid,uuid,uuid,jsonb,boolean) line 89 at EXECUTE
+	PL/pgSQL function apply_group(uuid,uuid,jsonb) line 68 at assignment
+	PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 9 at RETURN
+2026-10-03 13:15:07.172 PDT [474651] STATEMENT:  SELECT managed.apply_rows('a7e3f1bc-1720-4e3d-beb4-cba33ec3e475','c9968672-4cce-4dc4-a981-31546545b7fc','602da3a9-719a-4d57-85f6-92113de41c38','[{"fid":"d0e471c5-ca9b-4cbe-bfbd-21da59b46f13","values":{"status":null}}]'::jsonb,true)
+2026-10-03 13:15:07.242 PDT [474651] ERROR:  new row for relation "d_9cd8e73e77404d719bb57f2c2f7f686a" violates check constraint "db02_9cd8e73e77404d719bb57f2c2f7f686a_6"
+2026-10-03 13:15:07.242 PDT [474651] DETAIL:  Failing row contains (9cd8e73e-7740-4d71-9bb5-7f2c2f7f686a, ae67853d-d038-45ad-a3b0-33606e35c3a1, eee57ca0-2058-4824-99ea-f1a81cfa3610, 1edcd926-97ac-46ca-ad37-71b1e1ce723f, 1, 6bdf6b99-1e8e-46d5-b5e6-f9aafc01cd47, 1, plain, 5, 10, old).
+2026-10-03 13:15:07.242 PDT [474651] CONTEXT:  SQL statement "INSERT INTO managed.d_9cd8e73e77404d719bb57f2c2f7f686a (dataset_id,version_group_id,version_id,fid,object_id,feature_revision,kind,label,amount,limit_value,status) VALUES ('9cd8e73e-7740-4d71-9bb5-7f2c2f7f686a'::uuid,'ae67853d-d038-45ad-a3b0-33606e35c3a1'::uuid,'eee57ca0-2058-4824-99ea-f1a81cfa3610'::uuid,'1edcd926-97ac-46ca-ad37-71b1e1ce723f'::uuid,'1'::bigint,gen_random_uuid(),'1'::integer,'plain'::text,'5'::integer,'10'::integer,'old'::text) ON CONFLICT(version_id,fid) DO UPDATE SET feature_revision=EXCLUDED.feature_revision,kind=EXCLUDED.kind,label=EXCLUDED.label,amount=EXCLUDED.amount,limit_value=EXCLUDED.limit_value,status=EXCLUDED.status"
+	PL/pgSQL function raw_apply_rows(uuid,uuid,uuid,jsonb,boolean) line 89 at EXECUTE
+	PL/pgSQL function apply_group(uuid,uuid,jsonb) line 68 at assignment
+	PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 9 at RETURN
+2026-10-03 13:15:07.242 PDT [474651] STATEMENT:  SELECT managed.apply_rows('9cd8e73e-7740-4d71-9bb5-7f2c2f7f686a','eee57ca0-2058-4824-99ea-f1a81cfa3610','e6f9f2f3-a75b-4c9f-9875-3c49966009fa','[{"fid":"1edcd926-97ac-46ca-ad37-71b1e1ce723f","values":{"status":"old"}}]'::jsonb,true)
+2026-10-03 13:15:07.244 PDT [474651] ERROR:  new row for relation "d_9cd8e73e77404d719bb57f2c2f7f686a" violates check constraint "db02_9cd8e73e77404d719bb57f2c2f7f686a_6"
+2026-10-03 13:15:07.244 PDT [474651] DETAIL:  Failing row contains (9cd8e73e-7740-4d71-9bb5-7f2c2f7f686a, ae67853d-d038-45ad-a3b0-33606e35c3a1, eee57ca0-2058-4824-99ea-f1a81cfa3610, 41e18374-9281-4b3b-b574-99ed1890ad63, 2, 6232d0ce-bdd5-4483-a9f2-6d811b200380, 1, plain, 5, 10, null).
+2026-10-03 13:15:07.244 PDT [474651] CONTEXT:  SQL statement "INSERT INTO managed.d_9cd8e73e77404d719bb57f2c2f7f686a (dataset_id,version_group_id,version_id,fid,object_id,feature_revision,kind,label,amount,limit_value,status) VALUES ('9cd8e73e-7740-4d71-9bb5-7f2c2f7f686a'::uuid,'ae67853d-d038-45ad-a3b0-33606e35c3a1'::uuid,'eee57ca0-2058-4824-99ea-f1a81cfa3610'::uuid,'41e18374-9281-4b3b-b574-99ed1890ad63'::uuid,'2'::bigint,gen_random_uuid(),'1'::integer,'plain'::text,'5'::integer,'10'::integer,NULL::text) ON CONFLICT(version_id,fid) DO UPDATE SET feature_revision=EXCLUDED.feature_revision,kind=EXCLUDED.kind,label=EXCLUDED.label,amount=EXCLUDED.amount,limit_value=EXCLUDED.limit_value,status=EXCLUDED.status"
+	PL/pgSQL function raw_apply_rows(uuid,uuid,uuid,jsonb,boolean) line 89 at EXECUTE
+	PL/pgSQL function apply_group(uuid,uuid,jsonb) line 68 at assignment
+	PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 9 at RETURN
+2026-10-03 13:15:07.244 PDT [474651] STATEMENT:  SELECT managed.apply_rows('9cd8e73e-7740-4d71-9bb5-7f2c2f7f686a','eee57ca0-2058-4824-99ea-f1a81cfa3610','e6f9f2f3-a75b-4c9f-9875-3c49966009fa','[{"fid":"41e18374-9281-4b3b-b574-99ed1890ad63","values":{"status":null}}]'::jsonb,true)
+2026-10-03 13:15:07.405 PDT [474684] ERROR:  new row for relation "d_18e6babe3cf54b53a33f5ca9587037cb" violates check constraint "db02_18e6babe3cf54b53a33f5ca9587037cb_2"
+2026-10-03 13:15:07.405 PDT [474684] DETAIL:  Failing row contains (18e6babe-3cf5-4b53-a33f-5ca9587037cb, 9dfe7c1f-6859-4676-a137-c1c1341435bd, edb128b5-5357-46c9-a8de-57f84069fbdf, 6d29335b-b2bc-480e-9181-6bf069eb9acf, 2, b58c2b78-6b6b-49dd-bdd1-a6747ea0af33, 1, 999999999999999999999999999999999999.98, 2026-10-03).
+2026-10-03 13:15:07.405 PDT [474684] CONTEXT:  SQL statement "INSERT INTO managed.d_18e6babe3cf54b53a33f5ca9587037cb (dataset_id,version_group_id,version_id,fid,object_id,feature_revision,kind,value,when_date) VALUES ('18e6babe-3cf5-4b53-a33f-5ca9587037cb'::uuid,'9dfe7c1f-6859-4676-a137-c1c1341435bd'::uuid,'edb128b5-5357-46c9-a8de-57f84069fbdf'::uuid,'6d29335b-b2bc-480e-9181-6bf069eb9acf'::uuid,'2'::bigint,gen_random_uuid(),'1'::integer,'999999999999999999999999999999999999.98'::numeric,'2026-10-03'::date) ON CONFLICT(version_id,fid) DO UPDATE SET feature_revision=EXCLUDED.feature_revision,kind=EXCLUDED.kind,value=EXCLUDED.value,when_date=EXCLUDED.when_date"
+	PL/pgSQL function raw_apply_rows(uuid,uuid,uuid,jsonb,boolean) line 89 at EXECUTE
+	PL/pgSQL function apply_group(uuid,uuid,jsonb) line 68 at assignment
+	PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 9 at RETURN
+2026-10-03 13:15:07.405 PDT [474684] STATEMENT:  SELECT managed.apply_rows('18e6babe-3cf5-4b53-a33f-5ca9587037cb','edb128b5-5357-46c9-a8de-57f84069fbdf','64f9ec76-8c8b-4bd5-884f-1033c3ce88ae','[{"fid":"6d29335b-b2bc-480e-9181-6bf069eb9acf","values":{"value":"999999999999999999999999999999999999.98"}}]'::jsonb,true)
+2026-10-03 13:15:07.407 PDT [474684] ERROR:  new row for relation "d_18e6babe3cf54b53a33f5ca9587037cb" violates check constraint "db02_18e6babe3cf54b53a33f5ca9587037cb_1"
+2026-10-03 13:15:07.407 PDT [474684] DETAIL:  Failing row contains (18e6babe-3cf5-4b53-a33f-5ca9587037cb, 9dfe7c1f-6859-4676-a137-c1c1341435bd, edb128b5-5357-46c9-a8de-57f84069fbdf, 802b4fe0-dc83-4d30-bce9-965868e04a6e, 3, 402eda77-66a4-41ef-beb5-3ab43a95228e, 1, 999999999999999999999999999999999999.99, 2027-01-01).
+2026-10-03 13:15:07.407 PDT [474684] CONTEXT:  SQL statement "INSERT INTO managed.d_18e6babe3cf54b53a33f5ca9587037cb (dataset_id,version_group_id,version_id,fid,object_id,feature_revision,kind,value,when_date) VALUES ('18e6babe-3cf5-4b53-a33f-5ca9587037cb'::uuid,'9dfe7c1f-6859-4676-a137-c1c1341435bd'::uuid,'edb128b5-5357-46c9-a8de-57f84069fbdf'::uuid,'802b4fe0-dc83-4d30-bce9-965868e04a6e'::uuid,'3'::bigint,gen_random_uuid(),'1'::integer,'999999999999999999999999999999999999.99'::numeric,'2027-01-01'::date) ON CONFLICT(version_id,fid) DO UPDATE SET feature_revision=EXCLUDED.feature_revision,kind=EXCLUDED.kind,value=EXCLUDED.value,when_date=EXCLUDED.when_date"
+	PL/pgSQL function raw_apply_rows(uuid,uuid,uuid,jsonb,boolean) line 89 at EXECUTE
+	PL/pgSQL function apply_group(uuid,uuid,jsonb) line 68 at assignment
+	PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 9 at RETURN
+2026-10-03 13:15:07.407 PDT [474684] STATEMENT:  SELECT managed.apply_rows('18e6babe-3cf5-4b53-a33f-5ca9587037cb','edb128b5-5357-46c9-a8de-57f84069fbdf','64f9ec76-8c8b-4bd5-884f-1033c3ce88ae','[{"fid":"802b4fe0-dc83-4d30-bce9-965868e04a6e","values":{"when_date":"2027-01-01"}}]'::jsonb,true)
+2026-10-03 13:15:07.409 PDT [474684] ERROR:  date/time field value out of range: "2026-02-30" at character 431
+2026-10-03 13:15:07.409 PDT [474684] QUERY:  INSERT INTO managed.d_18e6babe3cf54b53a33f5ca9587037cb (dataset_id,version_group_id,version_id,fid,object_id,feature_revision,kind,value,when_date) VALUES ('18e6babe-3cf5-4b53-a33f-5ca9587037cb'::uuid,'9dfe7c1f-6859-4676-a137-c1c1341435bd'::uuid,'edb128b5-5357-46c9-a8de-57f84069fbdf'::uuid,'653d24ee-089e-48f7-8cea-cc7a8fc2a651'::uuid,'4'::bigint,gen_random_uuid(),'1'::integer,'999999999999999999999999999999999999.99'::numeric,'2026-02-30'::date) ON CONFLICT(version_id,fid) DO UPDATE SET feature_revision=EXCLUDED.feature_revision,kind=EXCLUDED.kind,value=EXCLUDED.value,when_date=EXCLUDED.when_date
+2026-10-03 13:15:07.409 PDT [474684] CONTEXT:  PL/pgSQL function raw_apply_rows(uuid,uuid,uuid,jsonb,boolean) line 89 at EXECUTE
+	PL/pgSQL function apply_group(uuid,uuid,jsonb) line 68 at assignment
+	PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 9 at RETURN
+2026-10-03 13:15:07.409 PDT [474684] STATEMENT:  SELECT managed.apply_rows('18e6babe-3cf5-4b53-a33f-5ca9587037cb','edb128b5-5357-46c9-a8de-57f84069fbdf','64f9ec76-8c8b-4bd5-884f-1033c3ce88ae','[{"fid":"653d24ee-089e-48f7-8cea-cc7a8fc2a651","values":{"when_date":"2026-02-30"}}]'::jsonb,true)
+2026-10-03 13:15:07.925 PDT [474325] LOG:  received fast shutdown request
+2026-10-03 13:15:07.933 PDT [474325] LOG:  aborting any active transactions
+2026-10-03 13:15:07.934 PDT [474325] LOG:  background worker "logical replication launcher" (PID 474345) exited with exit code 1
+2026-10-03 13:15:07.934 PDT [474333] LOG:  shutting down
+2026-10-03 13:15:07.943 PDT [474333] LOG:  checkpoint starting: shutdown immediate
+2026-10-03 13:15:08.667 PDT [474333] LOG:  checkpoint complete: wrote 6224 buffers (38.0%); 0 WAL file(s) added, 0 removed, 3 recycled; write=0.076 s, sync=0.575 s, total=0.734 s; sync files=1357, longest=0.022 s, average=0.001 s; distance=44882 kB, estimate=44882 kB
+2026-10-03 13:15:08.674 PDT [474325] LOG:  database system is shut down

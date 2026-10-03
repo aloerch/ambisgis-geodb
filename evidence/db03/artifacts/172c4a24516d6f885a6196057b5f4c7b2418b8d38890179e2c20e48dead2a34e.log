@@ -1,0 +1,14 @@
+2026-10-03 12:27:38.187 PDT [465165] LOG:  starting PostgreSQL 15.19 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit
+2026-10-03 12:27:38.188 PDT [465165] LOG:  listening on Unix socket "/tmp/ambisgis-fnd04-socket-0ius0c3j/.s.PGSQL.55484"
+2026-10-03 12:27:38.202 PDT [465168] LOG:  database system was shut down at 2026-10-03 12:27:38 PDT
+2026-10-03 12:27:38.219 PDT [465165] LOG:  database system is ready to accept connections
+2026-10-03 12:27:39.111 PDT [465192] ERROR:  DATASET_VERSION_MISMATCH
+2026-10-03 12:27:39.111 PDT [465192] CONTEXT:  PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 7 at RAISE
+2026-10-03 12:27:39.111 PDT [465192] STATEMENT:  SELECT managed.apply_rows('878da30c-71fa-4761-bee0-4d939920adbd','550c6ffc-a6dc-48a0-a159-1b62e091bce3','66abb9f4-c745-40c2-b877-9bfaa8611b3d','[{"fid":"850d6793-f3d5-44ce-996f-c469c8227c05","values":{"name":"München","amount":"1.125"},"geometry":"SRID=4326;POINT(1 2)"}]'::jsonb,false)
+2026-10-03 12:27:39.116 PDT [465165] LOG:  received fast shutdown request
+2026-10-03 12:27:39.120 PDT [465165] LOG:  aborting any active transactions
+2026-10-03 12:27:39.120 PDT [465165] LOG:  background worker "logical replication launcher" (PID 465171) exited with exit code 1
+2026-10-03 12:27:39.121 PDT [465166] LOG:  shutting down
+2026-10-03 12:27:39.126 PDT [465166] LOG:  checkpoint starting: shutdown immediate
+2026-10-03 12:27:40.761 PDT [465166] LOG:  checkpoint complete: wrote 2092 buffers (12.8%); 0 WAL file(s) added, 0 removed, 1 recycled; write=0.023 s, sync=1.586 s, total=1.641 s; sync files=434, longest=0.015 s, average=0.004 s; distance=14475 kB, estimate=14475 kB
+2026-10-03 12:27:40.764 PDT [465165] LOG:  database system is shut down

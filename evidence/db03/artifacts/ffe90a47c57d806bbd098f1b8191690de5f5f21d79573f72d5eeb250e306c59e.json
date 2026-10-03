@@ -1,0 +1,7 @@
+{
+  "task": "DB-03",
+  "synthetic_only": true,
+  "pid": 465697,
+  "cluster": "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db03-worktree/.runs/db03-review-baseline-002/cluster-vfo9ovl0",
+  "socket": "/tmp/ambisgis-fnd04-socket-5m4uxoth"
+}

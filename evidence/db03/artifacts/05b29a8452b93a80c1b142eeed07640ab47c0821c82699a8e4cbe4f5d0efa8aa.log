@@ -1,0 +1,31 @@
+test_defaults_domains_subtypes_and_atomic_rejection (test_schema_rules_database.SchemaRulesDatabaseTests.test_defaults_domains_subtypes_and_atomic_rejection) ... ok
+test_relation_group_atomicity_restrict_cardinality_and_version_scope (test_schema_rules_database.SchemaRulesDatabaseTests.test_relation_group_atomicity_restrict_cardinality_and_version_scope) ... ok
+test_retained_schema_revision_and_failed_change_preserve_identity (test_schema_rules_database.SchemaRulesDatabaseTests.test_retained_schema_revision_and_failed_change_preserve_identity) ... ok
+test_service_cannot_execute_raw_or_schema_functions (test_schema_rules_database.SchemaRulesDatabaseTests.test_service_cannot_execute_raw_or_schema_functions) ... ERROR
+test_existing_v1_backup_restore_and_forward_migration_preserve_grants (test_schema_rules_database.SchemaRulesDatabaseTests.test_existing_v1_backup_restore_and_forward_migration_preserve_grants) ... ok
+test_relation_revision_rejects_existing_orphan_and_cross_group_target (test_schema_rules_database.SchemaRulesDatabaseTests.test_relation_revision_rejects_existing_orphan_and_cross_group_target) ... ok
+test_group_constraints_fail_inside_call_and_no_raw_execution (test_schema_rules_database.SchemaRulesDatabaseTests.test_group_constraints_fail_inside_call_and_no_raw_execution) ... ok
+test_group_and_schema_change_serialize_with_stale_head (test_schema_rules_database.SchemaRulesDatabaseTests.test_group_and_schema_change_serialize_with_stale_head) ... ok
+test_typed_rules_literals_unknown_operators_and_null_semantics (test_schema_rules_database.SchemaRulesDatabaseTests.test_typed_rules_literals_unknown_operators_and_null_semantics) ... ok
+test_exact_decimal_date_and_literal_comparison_constraints (test_schema_rules_database.SchemaRulesDatabaseTests.test_exact_decimal_date_and_literal_comparison_constraints) ... ok
+test_constraint_checks_do_not_flush_unrelated_group_work (test_schema_rules_database.SchemaRulesDatabaseTests.test_constraint_checks_do_not_flush_unrelated_group_work) ... ok
+test_unrelated_schema_ddl_does_not_block_group_edit (test_schema_rules_database.SchemaRulesDatabaseTests.test_unrelated_schema_ddl_does_not_block_group_edit) ... ok
+
+======================================================================
+ERROR: test_service_cannot_execute_raw_or_schema_functions (test_schema_rules_database.SchemaRulesDatabaseTests.test_service_cannot_execute_raw_or_schema_functions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db03-worktree/tests/test_schema_rules_database.py", line 80, in test_service_cannot_execute_raw_or_schema_functions
+    database.apply_rows(conn,d,[self.row2()])
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db03-worktree/managed/database.py", line 102, in apply_rows
+    with connection:
+         ^^^^^^^^^^
+psycopg2.errors.InsufficientPrivilege: permission denied for table version_group
+CONTEXT:  SQL expression "EXISTS(SELECT 1 FROM managed.version_group WHERE default_version_id=NEW.version_id)"
+PL/pgSQL function branch_version_guard() line 3 at IF
+
+
+----------------------------------------------------------------------
+Ran 12 tests in 3.858s
+
+FAILED (errors=1)

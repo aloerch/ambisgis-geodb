@@ -1,0 +1,20 @@
+2026-10-03 12:34:41.832 PDT [465565] LOG:  starting PostgreSQL 15.19 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit
+2026-10-03 12:34:41.832 PDT [465565] LOG:  listening on Unix socket "/tmp/ambisgis-fnd04-socket-0egxewt8/.s.PGSQL.55484"
+2026-10-03 12:34:41.846 PDT [465568] LOG:  database system was shut down at 2026-10-03 12:34:41 PDT
+2026-10-03 12:34:41.863 PDT [465565] LOG:  database system is ready to accept connections
+2026-10-03 12:34:42.756 PDT [465593] ERROR:  DATASET_VERSION_MISMATCH
+2026-10-03 12:34:42.756 PDT [465593] CONTEXT:  PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 7 at RAISE
+2026-10-03 12:34:42.756 PDT [465593] STATEMENT:  SELECT managed.apply_rows('098864db-3f41-46cc-b471-fa409c4dc561','bb387666-f73c-4970-804e-8e13bb92252e','4fe08bbc-db95-4b37-91a0-7ee18d3407db','[{"fid":"08a72c06-381b-4f5a-b105-4f1fa9d25c87","values":{"name":"München","amount":"1.125"},"geometry":"SRID=4326;POINT(1 2)"}]'::jsonb,false)
+2026-10-03 12:34:45.860 PDT [465598] ERROR:  could not serialize access due to concurrent update
+2026-10-03 12:34:45.860 PDT [465598] CONTEXT:  SQL statement "SELECT 1 FROM ONLY "managed"."version" x WHERE "group_id" OPERATOR(pg_catalog.=) $1 AND "version_id" OPERATOR(pg_catalog.=) $2 FOR KEY SHARE OF x"
+	SQL statement "INSERT INTO managed.snapshot(snapshot_id,group_id,branch_id,source_version_id,source_head,schema_generation,state)
+	 VALUES(snapshot_value,g.group_id,p_branch,g.default_version_id,source_head,g.schema_generation,'building')"
+	PL/pgSQL function branch_populate(uuid,uuid) line 39 at SQL statement
+2026-10-03 12:34:45.860 PDT [465598] STATEMENT:  SELECT managed.branch_populate('52f960d6-467e-4b0d-9a61-f4d00db4823c','080744a0-fd97-4c08-a373-8d74540d2e6a')
+2026-10-03 12:34:46.029 PDT [465565] LOG:  received fast shutdown request
+2026-10-03 12:34:46.034 PDT [465565] LOG:  aborting any active transactions
+2026-10-03 12:34:46.035 PDT [465565] LOG:  background worker "logical replication launcher" (PID 465571) exited with exit code 1
+2026-10-03 12:34:46.035 PDT [465566] LOG:  shutting down
+2026-10-03 12:34:46.039 PDT [465566] LOG:  checkpoint starting: shutdown immediate
+2026-10-03 12:34:47.704 PDT [465566] LOG:  checkpoint complete: wrote 2120 buffers (12.9%); 0 WAL file(s) added, 0 removed, 1 recycled; write=0.023 s, sync=1.613 s, total=1.669 s; sync files=473, longest=0.007 s, average=0.004 s; distance=14761 kB, estimate=14761 kB
+2026-10-03 12:34:47.707 PDT [465565] LOG:  database system is shut down
