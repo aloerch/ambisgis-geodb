@@ -1,0 +1,37 @@
+[
+  {
+    "tool": "initdb",
+    "seconds": 0.2908860649986309,
+    "exit_code": 0
+  },
+  {
+    "tool": "pg_ctl",
+    "seconds": 0.10352435899403645,
+    "exit_code": 0
+  },
+  {
+    "tool": "createdb",
+    "seconds": 0.04833091399632394,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.18970299099601107,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013017666999076027,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0020271920002414845,
+    "exit_code": 0
+  },
+  {
+    "tool": "pg_ctl",
+    "seconds": 2.004961453996657,
+    "exit_code": 0
+  }
+]

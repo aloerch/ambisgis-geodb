@@ -1,0 +1,204 @@
+{
+  "prefix": "/home/revelberry/Projects/AmbisGIS/build-worktrees/postgis-slice/run-003/prefix",
+  "job_root": "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db03-worktree/.runs/db02-regression-002/cluster-c4l9h2xg",
+  "owned_builds": {
+    "postgresql": {
+      "sha256": "77445a4fa0864e1ef48ec0219598d264bf335a13744128cbfacff035aebc1ffd",
+      "record": {
+        "input": {
+          "name": "postgresql",
+          "version": "15.19",
+          "artifact": "postgresql-15.19.tar",
+          "archive_root": "postgresql-15.19",
+          "sha256": "2b72bd0340b66c8f824e5d4d44b19685e6a89c2cfeb6ae45c98aa87fb285336f",
+          "bytes": 126228480,
+          "commit": "2ff1375b5dd8bf09d8cb0e795974528180fd75ca",
+          "source_url": "https://github.com/aloerch/ambisgis-postgresql/commit/2ff1375b5dd8bf09d8cb0e795974528180fd75ca",
+          "owned_repository": "ambisgis-postgresql",
+          "owned_reference": "REL_15_19",
+          "acquisition": "git archive from retained owned clone",
+          "license_evidence": [
+            {
+              "original_path": "COPYRIGHT",
+              "sha256": "3d6af92ff8a4c2cdf69afb1cf44edea727922f5cd0cf8b5f72b11cdecac8fdfd",
+              "retained_path": "licenses/postgresql/COPYRIGHT",
+              "bytes": 1198
+            },
+            {
+              "original_path": "src/backend/jit/llvm/SectionMemoryManager.LICENSE",
+              "sha256": "8d85c1057d742e597985c7d4e6320b015a9139385cff4cbae06ffc0ebe89afee",
+              "retained_path": "licenses/postgresql/src/backend/jit/llvm/SectionMemoryManager.LICENSE",
+              "bytes": 15141
+            },
+            {
+              "original_path": "src/backend/regex/COPYRIGHT",
+              "sha256": "5027cfe4f54842896b01ca6be28becc9a018623aaadc0f5b51350da71118cb0e",
+              "retained_path": "licenses/postgresql/src/backend/regex/COPYRIGHT",
+              "bytes": 4362
+            }
+          ],
+          "usage": [
+            "build",
+            "runtime"
+          ],
+          "required_inputs": [
+            "zlib",
+            "libxml2"
+          ],
+          "build_recipe": "build.py, stage postgresql",
+          "review_status": "Candidate input only; license, provenance and security approval pending",
+          "repository_id": 1376927644,
+          "retained_git_bundle": {
+            "workspace_relative_path": "source-archives/ambisgis-postgresql-c62b330912e2.bundle",
+            "sha256": "9480530afa7045636f0e0ea6636e42ec688cd477d8355089e29499e8e6837c6c",
+            "external_git_object_prerequisite_count": 0
+          }
+        },
+        "recipe_sha256": "9ea56440f9eedf0aef7a75b40fcdc87cf9194b6e9f24015b926bc433ff058b98",
+        "finished_utc": "2026-09-19T17:46:09.816088+00:00"
+      }
+    },
+    "postgis": {
+      "sha256": "f9fb6f85c7afe65b597bad9ac1487368dede1a7d6fbbfb11dedd6f6415b04a62",
+      "record": {
+        "input": {
+          "name": "postgis",
+          "version": "3.5.7",
+          "artifact": "postgis-3.5.7.tar",
+          "archive_root": "postgis-3.5.7",
+          "sha256": "56c28571f8e93cd0fb5232b62d4802f7c603df4cab397ca436fb2018795caca0",
+          "bytes": 64911360,
+          "commit": "9816f82458db774e62906cfb2c4f01f8b262c862",
+          "source_url": "https://github.com/aloerch/ambisgis-postgis/commit/9816f82458db774e62906cfb2c4f01f8b262c862",
+          "owned_repository": "ambisgis-postgis",
+          "owned_reference": "3.5.7",
+          "acquisition": "git archive from retained owned clone",
+          "license_evidence": [
+            {
+              "original_path": "COPYING",
+              "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+              "retained_path": "licenses/postgis/COPYING",
+              "bytes": 18092
+            },
+            {
+              "original_path": "LICENSE.TXT",
+              "sha256": "81749eea887e78402c9b85896cd629b155bc29256927f818f01001f038146391",
+              "retained_path": "licenses/postgis/LICENSE.TXT",
+              "bytes": 3002
+            },
+            {
+              "original_path": "deps/flatgeobuf/include/flatbuffers/LICENSE",
+              "sha256": "e55b7f3aaf3a9db897cc6a63fd6a79ae8fbbcaa32ffbe382ae77ce1f0db33f99",
+              "retained_path": "licenses/postgis/deps/flatgeobuf/include/flatbuffers/LICENSE",
+              "bytes": 11343
+            },
+            {
+              "original_path": "deps/ryu/LICENSE",
+              "sha256": "087edee322a9d2e527453ddc6731ccb4f015a36e55864b30715934f32a4879c1",
+              "retained_path": "licenses/postgis/deps/ryu/LICENSE",
+              "bytes": 205
+            },
+            {
+              "original_path": "deps/ryu/LICENSE-Apache2",
+              "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+              "retained_path": "licenses/postgis/deps/ryu/LICENSE-Apache2",
+              "bytes": 11357
+            },
+            {
+              "original_path": "deps/ryu/LICENSE-Boost",
+              "sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+              "retained_path": "licenses/postgis/deps/ryu/LICENSE-Boost",
+              "bytes": 1338
+            },
+            {
+              "original_path": "deps/uthash/LICENSE",
+              "sha256": "e821299139af6b90b9dcc959c1082b04cfe9819ff5c515329f952c5e6d61b787",
+              "retained_path": "licenses/postgis/deps/uthash/LICENSE",
+              "bytes": 1140
+            },
+            {
+              "original_path": "deps/wagyu/LICENSE.README",
+              "sha256": "7d7a20ccebbd86587b82a6d5be3250ab2af5fcea8061bd8c1f6dfdda23a9331b",
+              "retained_path": "licenses/postgis/deps/wagyu/LICENSE.README",
+              "bytes": 1700
+            },
+            {
+              "original_path": "deps/wagyu/LICENSE.geometry",
+              "sha256": "44b7f71c4d7f3da85e5e6a5d0cfa6942055d326a24f4d60a3728ebed26ea2b9d",
+              "retained_path": "licenses/postgis/deps/wagyu/LICENSE.geometry",
+              "bytes": 724
+            },
+            {
+              "original_path": "deps/wagyu/LICENSE.wagyu",
+              "sha256": "fa512859289fe038057411764168eadb059bf28c1f1cb6c539dc07bc88137ef8",
+              "retained_path": "licenses/postgis/deps/wagyu/LICENSE.wagyu",
+              "bytes": 1864
+            },
+            {
+              "original_path": "doc/xsl/LICENSE",
+              "sha256": "91181a0b9c93d487896f306e8adc962117d4518868eafe53ae9b7450696a2515",
+              "retained_path": "licenses/postgis/doc/xsl/LICENSE",
+              "bytes": 1511
+            },
+            {
+              "original_path": "extensions/address_standardizer/COPYING",
+              "sha256": "ac49639709022abcdc78cdc0123e9cd4aeda8764523f248a0bf14a11e200f10a",
+              "retained_path": "licenses/postgis/extensions/address_standardizer/COPYING",
+              "bytes": 1151
+            },
+            {
+              "original_path": "extras/tiger_geocoder/COPYING",
+              "sha256": "189b1af95d661151e054cea10c91b3d754e4de4d3fecfb074c1fb29476f7167b",
+              "retained_path": "licenses/postgis/extras/tiger_geocoder/COPYING",
+              "bytes": 18431
+            },
+            {
+              "original_path": "postgis/geobuf.LICENSE",
+              "sha256": "66781fb12e25a44ff9c78e869c2c8c2325fe1071cdfdc006e25bbd62515c392c",
+              "retained_path": "licenses/postgis/postgis/geobuf.LICENSE",
+              "bytes": 737
+            },
+            {
+              "original_path": "postgis/vector_tile.LICENSE",
+              "sha256": "08bb164892939c1d45529ef688dc83be5ea08cc5a42a640ad4f241cec52bea7f",
+              "retained_path": "licenses/postgis/postgis/vector_tile.LICENSE",
+              "bytes": 12831
+            }
+          ],
+          "usage": [
+            "build",
+            "runtime"
+          ],
+          "required_inputs": [
+            "postgresql",
+            "geos",
+            "proj",
+            "gdal",
+            "protobuf-c",
+            "json-c",
+            "libxml2",
+            "cunit"
+          ],
+          "build_recipe": "build.py, stage postgis",
+          "review_status": "Candidate input only; license, provenance and security approval pending",
+          "repository_id": 1376927690,
+          "retained_git_bundle": {
+            "workspace_relative_path": "source-archives/ambisgis-postgis-84890ccbe535.bundle",
+            "sha256": "bc2bdd1cc3ae18ca532120c854b4502ff5b78762262876cc546fd20bf1e2c4cf",
+            "external_git_object_prerequisite_count": 0
+          }
+        },
+        "recipe_sha256": "e0593a9eba755145afc1ed7b16eef651e54ef2df4169d20823bdf75041ef9d8d",
+        "finished_utc": "2026-09-19T17:49:13.968738+00:00"
+      }
+    }
+  },
+  "versions": "PostgreSQL 15.19 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit\nPOSTGIS=\"3.5.7 0\" [EXTENSION] PGSQL=\"150\" GEOS=\"3.13.1-CAPI-1.19.2\" PROJ=\"9.6.2 NETWORK_ENABLED=OFF URL_ENDPOINT=https://cdn.proj.org USER_WRITABLE_DIRECTORY=/home/revelberry/.local/share/proj DATABASE_PATH=/home/revelberry/Projects/AmbisGIS/build-worktrees/postgis-slice/run-003/prefix/share/proj/proj.db\" (compiled against PROJ 9.6.2) LIBXML=\"2.14.6\" LIBJSON=\"0.18\" LIBPROTOBUF=\"1.5.2\" WAGYU=\"0.5.0 (Internal)\"",
+  "binaries": {
+    "postgres": "d5d338b740822d5616c9baf5414b51bc1cab22da26e635d04a75a2f4c97a4268",
+    "psql": "12f9474d8580c9001761b2888a94f7a7df43b92639b06dee589e6c454e98de77",
+    "initdb": "80474d7e2c50ca42387ffedb8296e3fa0d3e6301168a2780cc32eaabbcad833c",
+    "pg_ctl": "1eb36fa09784c5de77cc9e5963e598ea29502f8b9ba040c71e8a75c4d0a10284"
+  },
+  "schema_sha256": "998abaf163fb7720da9c82dc5176e14c4fd353624fd81d91246640ab36c1efd5"
+}

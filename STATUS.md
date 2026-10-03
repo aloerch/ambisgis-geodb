@@ -1,3 +1,32 @@
+# DB-03 local implementation candidate
+
+Repository `aloerch/ambisgis-geodb` (ID `1376927417`), issue
+[#4](https://github.com/aloerch/ambisgis-geodb/issues/4), branch
+`db-03/typed-snapshots`, base `c963e2baae1901935b25b0d436e988b47e153eb8`.
+DB-02 PR #12 is [accepted](https://github.com/aloerch/ambisgis-geodb/issues/3#issuecomment-5972547940).
+The integrator [claimed DB-03](https://github.com/aloerch/ambisgis-geodb/issues/4#issuecomment-5972562596);
+Delivery is In progress.
+
+Implemented: append-only migration 003, typed immutable branch bases,
+atomic group capture while DEFAULT writes continue, finite backend branch
+lifecycle/recovery, retained schema pins and bounded named-branch accounting.
+See [the contract](docs/branch-snapshots.md). Clean implementation `e47001431d903363bb8d84979eb1e12b396ff916` passes
+20/20 real DB-03 cases, 28/28 DB-01/schema cases, 12/12 DB-02 cases, 25/25
+prototype database cases and 12 reference examples. All runs have zero skips;
+all clusters are stopped. [Exact-source evidence](docs/db03-evidence.md)
+preserves the failing baselines and intermediate failures.
+
+Independent exact-head review, publication, protected merge and postmerge
+acceptance remain pending. This worker made no remote writes. Named-branch
+editing, reconcile/post, end-user authorization, full history and product
+release remain later tasks.
+
+---
+
+The following entries preserve earlier local premerge handoffs. Their pending
+wording describes those historical checkpoints; DB-02's accepted merge is the
+DB-03 base above.
+
 # DB-02 implementation candidate
 
 Issue #3, branch `db-02/schema-validation`, base

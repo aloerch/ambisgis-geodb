@@ -1,0 +1,47 @@
+[
+  {
+    "tool": "initdb",
+    "seconds": 0.26487238299887395,
+    "exit_code": 0
+  },
+  {
+    "tool": "pg_ctl",
+    "seconds": 0.10381900500215124,
+    "exit_code": 0
+  },
+  {
+    "tool": "createdb",
+    "seconds": 0.04186668599868426,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.17856275400117738,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013814027995977085,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002265823000925593,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002750947001914028,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0027635910009848885,
+    "exit_code": 0
+  },
+  {
+    "tool": "pg_ctl",
+    "seconds": 1.70312158500019,
+    "exit_code": 0
+  }
+]

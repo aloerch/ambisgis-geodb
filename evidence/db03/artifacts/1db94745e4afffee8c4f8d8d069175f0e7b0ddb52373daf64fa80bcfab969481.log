@@ -1,0 +1,123 @@
+2026-10-03 13:10:06.649 PDT [472064] LOG:  starting PostgreSQL 15.19 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit
+2026-10-03 13:10:06.650 PDT [472064] LOG:  listening on Unix socket "/tmp/ambisgis-fnd04-socket-zpeyb_81/.s.PGSQL.55484"
+2026-10-03 13:10:06.685 PDT [472073] LOG:  database system was shut down at 2026-10-03 13:10:06 PDT
+2026-10-03 13:10:06.721 PDT [472064] LOG:  database system is ready to accept connections
+2026-10-03 13:10:08.250 PDT [472133] ERROR:  DATASET_VERSION_MISMATCH
+2026-10-03 13:10:08.250 PDT [472133] CONTEXT:  PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 7 at RAISE
+2026-10-03 13:10:08.250 PDT [472133] STATEMENT:  SELECT managed.apply_rows('46ad3dad-a10a-43e8-87f7-dbc0e565943c','7c07d688-869d-4943-aba0-99b48a602d8b','8fbcc53f-636e-4329-87e5-2830560e7c0e','[{"fid":"66218ad6-ad8e-4666-a646-dbb3874a5d2b","values":{"name":"München","amount":"1.125"},"geometry":"SRID=4326;POINT(1 2)"}]'::jsonb,false)
+2026-10-03 13:10:08.633 PDT [472140] ERROR:  IMMUTABLE_SEALED_SNAPSHOT
+2026-10-03 13:10:08.633 PDT [472140] CONTEXT:  PL/pgSQL function snapshot_rows_guard() line 4 at RAISE
+2026-10-03 13:10:08.633 PDT [472140] STATEMENT:  UPDATE managed."s_7c259e5b46c742858398a7fec087f9bf" SET parent='a7352ed0-e4dd-4384-ab0b-3c8c8b520a85'
+2026-10-03 13:10:08.968 PDT [472166] ERROR:  could not serialize access due to concurrent update
+2026-10-03 13:10:08.968 PDT [472166] CONTEXT:  SQL statement "SELECT *        FROM managed.branch_quota WHERE group_id=p_group FOR UPDATE"
+	PL/pgSQL function branch_reserve(uuid,uuid,text,uuid,text,uuid[],uuid) line 15 at SQL statement
+2026-10-03 13:10:08.968 PDT [472166] STATEMENT:  SELECT managed.branch_reserve('96caf541-fa35-40d3-bf98-d451b04217b4','407b5bc0-d61e-477b-8682-857852ab1af2','other_bff5eb70fdac40a0aa0d19c10501a3bc','04035d15-e9c7-4810-bf3f-961e435f1d68','private','{}'::uuid[],'323334f2-b8be-4005-9939-a5b1af03fdc8')
+2026-10-03 13:10:09.122 PDT [472172] ERROR:  could not serialize access due to concurrent update
+2026-10-03 13:10:09.122 PDT [472172] CONTEXT:  SQL statement "INSERT INTO managed.branch_quota(group_id,limits) VALUES(p_group,p_limits) ON CONFLICT DO NOTHING"
+	PL/pgSQL function configure_branch_quotas(uuid,jsonb) line 20 at SQL statement
+2026-10-03 13:10:09.122 PDT [472172] STATEMENT:  SELECT managed.configure_branch_quotas('067de595-0cd7-4a09-880e-c5558f41769c','{"max_branches": 1, "max_current_rows": 100, "max_snapshot_rows": 100, "max_current_bytes": 1048576, "max_snapshot_bytes": 1048576, "max_source_rows": 100, "max_source_bytes": 1048576, "max_history_rows": 100, "max_attachment_bytes": 0, "max_idle_seconds": 86400}'::jsonb)
+2026-10-03 13:10:11.835 PDT [472224] ERROR:  could not serialize access due to concurrent update
+2026-10-03 13:10:11.835 PDT [472224] CONTEXT:  SQL statement "SELECT vg.*        FROM managed.version_group vg JOIN managed.branch br ON br.group_id=vg.group_id
+	 WHERE br.branch_id=p_branch FOR SHARE OF vg"
+	PL/pgSQL function branch_populate(uuid,uuid) line 12 at SQL statement
+2026-10-03 13:10:11.835 PDT [472224] STATEMENT:  SELECT managed.branch_populate('d4a1c9b6-200d-4a85-a923-05d802ebf05e','ea057869-ef72-41c7-b2c2-51bb7ddeee84')
+2026-10-03 13:10:12.032 PDT [472237] ERROR:  could not serialize access due to concurrent update
+2026-10-03 13:10:12.032 PDT [472237] CONTEXT:  SQL statement "SELECT vg.*        FROM managed.version_group vg JOIN managed.branch br ON br.group_id=vg.group_id
+	 WHERE br.branch_id=p_branch FOR SHARE OF vg"
+	PL/pgSQL function branch_populate(uuid,uuid) line 12 at SQL statement
+2026-10-03 13:10:12.032 PDT [472237] STATEMENT:  SELECT managed.branch_populate('049e109b-7220-499e-9708-28dcbde57c6b','ee75f590-209b-455a-8fe1-4ef99c62b55b')
+2026-10-03 13:10:12.373 PDT [472255] ERROR:  canceling statement due to user request
+2026-10-03 13:10:12.373 PDT [472255] CONTEXT:  SQL statement "SELECT pg_advisory_xact_lock(891440803)"
+	PL/pgSQL function public.pause_a7adba02ed064e11b098cea97c06c7dc() line 1 at PERFORM
+	SQL statement "INSERT INTO managed.s_a5e78c31a177409f859059974b722561(_snapshot_id,dataset_id,version_group_id,fid,object_id,feature_revision,name,amount,geom) SELECT $1,dataset_id,version_group_id,fid,object_id,feature_revision,name,amount,geom FROM managed.d_a5e78c31a177409f859059974b722561 WHERE version_id=$2"
+	PL/pgSQL function branch_populate(uuid,uuid) line 56 at EXECUTE
+2026-10-03 13:10:12.373 PDT [472255] STATEMENT:  SELECT managed.branch_populate('da69a854-72b1-4505-b203-7b3809606229','5a1ac588-d5b5-4560-8ee0-4f41be69c633')
+2026-10-03 13:10:12.809 PDT [472268] ERROR:  canceling statement due to user request
+2026-10-03 13:10:12.809 PDT [472268] CONTEXT:  SQL statement "SELECT pg_advisory_xact_lock(1995410363)"
+	PL/pgSQL function public.pause_c2b2a36ca9264af296f90da7d9c03ed8() line 1 at PERFORM
+	SQL statement "INSERT INTO managed.s_9d3b5ab568264c498a7a729e9cfedd6b(_snapshot_id,dataset_id,version_group_id,fid,object_id,feature_revision,name,amount,geom) SELECT $1,dataset_id,version_group_id,fid,object_id,feature_revision,name,amount,geom FROM managed.d_9d3b5ab568264c498a7a729e9cfedd6b WHERE version_id=$2"
+	PL/pgSQL function branch_populate(uuid,uuid) line 56 at EXECUTE
+2026-10-03 13:10:12.809 PDT [472268] STATEMENT:  SELECT managed.branch_populate('cf243f4c-f23d-4877-a65d-4bfe07ac6f26','e615b9ca-3578-4e22-884b-8d14e40fb1cf')
+2026-10-03 13:10:13.294 PDT [472289] ERROR:  canceling statement due to user request
+2026-10-03 13:10:13.294 PDT [472289] CONTEXT:  SQL statement "SELECT pg_advisory_xact_lock(1269893001)"
+	PL/pgSQL function public.pause_05c83ff82d58483685d7a803ec1a0d4d() line 1 at PERFORM
+	SQL statement "UPDATE managed.snapshot SET state='sealed',sealed_at=transaction_timestamp() WHERE snapshot_id=snapshot_value"
+	PL/pgSQL function branch_populate(uuid,uuid) line 77 at SQL statement
+2026-10-03 13:10:13.294 PDT [472289] STATEMENT:  SELECT managed.branch_populate('ffd1067e-4d51-4875-9ea1-0fedb3f73f84','314d55f0-9b80-420a-be72-d6d31c77eeab')
+2026-10-03 13:10:13.678 PDT [472301] FATAL:  terminating connection due to administrator command
+2026-10-03 13:10:13.678 PDT [472301] CONTEXT:  SQL statement "SELECT pg_advisory_xact_lock(251472800)"
+	PL/pgSQL function public.pause_4c454879a44c40909777985f88bf8727() line 1 at PERFORM
+	SQL statement "INSERT INTO managed.s_cc58e6dad4ba4986b5a3cad46c5050cc(_snapshot_id,dataset_id,version_group_id,fid,object_id,feature_revision,name,amount,geom) SELECT $1,dataset_id,version_group_id,fid,object_id,feature_revision,name,amount,geom FROM managed.d_cc58e6dad4ba4986b5a3cad46c5050cc WHERE version_id=$2"
+	PL/pgSQL function branch_populate(uuid,uuid) line 56 at EXECUTE
+2026-10-03 13:10:13.678 PDT [472301] STATEMENT:  SELECT managed.branch_populate('fbd3bf10-90a2-467f-9287-1484fe8a7efa','89a44a3b-604a-4dd5-8dcd-31e5cff7e62b')
+2026-10-03 13:10:14.938 PDT [472310] ERROR:  canceling statement due to statement timeout
+2026-10-03 13:10:14.938 PDT [472310] CONTEXT:  SQL statement "SELECT pg_advisory_xact_lock(560715464)"
+	PL/pgSQL function public.pause_17e7cf3e1f0e4cc39db4e58bda045517() line 1 at PERFORM
+	SQL statement "INSERT INTO managed.s_a5cb21479f7b4e13af580a6b7567cbd9(_snapshot_id,dataset_id,version_group_id,fid,object_id,feature_revision,name,amount,geom) SELECT $1,dataset_id,version_group_id,fid,object_id,feature_revision,name,amount,geom FROM managed.d_a5cb21479f7b4e13af580a6b7567cbd9 WHERE version_id=$2"
+	PL/pgSQL function branch_populate(uuid,uuid) line 56 at EXECUTE
+2026-10-03 13:10:14.938 PDT [472310] STATEMENT:  SELECT managed.branch_populate('52379827-ba0a-4441-887f-d5aef7e3861a','00092346-79e9-48a7-9cd3-1c72c5b678c7')
+2026-10-03 13:10:15.258 PDT [472318] ERROR:  BRANCH_OPERATION_CONFLICT
+2026-10-03 13:10:15.258 PDT [472318] CONTEXT:  PL/pgSQL function branch_reserve(uuid,uuid,text,uuid,text,uuid[],uuid) line 19 at RAISE
+2026-10-03 13:10:15.258 PDT [472318] STATEMENT:  SELECT managed.branch_reserve('c250999a-34cb-432a-ab43-da4b265f5ac5','56ca699c-5a3c-4c66-ac3e-d18a76de3b71','changed_request','b235d665-8b86-4369-b543-e4c6da24c861','private','{}'::uuid[],'c6d09365-0220-4901-9bfb-c3341ddbdf47')
+2026-10-03 13:10:15.259 PDT [472318] ERROR:  INVALID_BRANCH_REQUEST
+2026-10-03 13:10:15.259 PDT [472318] CONTEXT:  PL/pgSQL function branch_update(uuid,uuid,text,text,uuid[]) line 6 at RAISE
+2026-10-03 13:10:15.259 PDT [472318] STATEMENT:  SELECT managed.branch_update('56ca699c-5a3c-4c66-ac3e-d18a76de3b71','41ce6eb6-7b1f-4bbe-a757-efce2d59f018','_deleted_56ca699c5a3c4c66ac3ed18a76de3b71','private','{}'::uuid[])
+2026-10-03 13:10:15.259 PDT [472318] ERROR:  INVALID_BRANCH_REQUEST
+2026-10-03 13:10:15.259 PDT [472318] CONTEXT:  PL/pgSQL function branch_update(uuid,uuid,text,text,uuid[]) line 6 at RAISE
+2026-10-03 13:10:15.259 PDT [472318] STATEMENT:  SELECT managed.branch_update('56ca699c-5a3c-4c66-ac3e-d18a76de3b71','41ce6eb6-7b1f-4bbe-a757-efce2d59f018','_private','private','{}'::uuid[])
+2026-10-03 13:10:15.259 PDT [472318] ERROR:  INVALID_ACTIVE_BRANCH_IDENTITY
+2026-10-03 13:10:15.259 PDT [472318] CONTEXT:  PL/pgSQL function branch_version_guard() line 16 at RAISE
+2026-10-03 13:10:15.259 PDT [472318] STATEMENT:  COMMIT
+2026-10-03 13:10:15.269 PDT [472318] ERROR:  RETAINED_SNAPSHOT_REFERENCE
+2026-10-03 13:10:15.269 PDT [472318] CONTEXT:  PL/pgSQL function branch_transition(uuid,uuid,text) line 17 at RAISE
+2026-10-03 13:10:15.269 PDT [472318] STATEMENT:  SELECT managed.branch_transition('56ca699c-5a3c-4c66-ac3e-d18a76de3b71','41ce6eb6-7b1f-4bbe-a757-efce2d59f018','deletion_pending')
+2026-10-03 13:10:15.281 PDT [472318] ERROR:  STALE_BRANCH_METADATA
+2026-10-03 13:10:15.281 PDT [472318] CONTEXT:  PL/pgSQL function branch_transition(uuid,uuid,text) line 10 at RAISE
+2026-10-03 13:10:15.281 PDT [472318] STATEMENT:  SELECT managed.branch_transition('56ca699c-5a3c-4c66-ac3e-d18a76de3b71','41ce6eb6-7b1f-4bbe-a757-efce2d59f018','deletion_pending')
+2026-10-03 13:10:15.604 PDT [472320] ERROR:  permission denied for table branch
+2026-10-03 13:10:15.604 PDT [472320] STATEMENT:  SELECT * FROM managed.branch
+2026-10-03 13:10:15.604 PDT [472320] ERROR:  permission denied for table branch
+2026-10-03 13:10:15.604 PDT [472320] STATEMENT:  UPDATE managed.branch SET state='deleted'
+2026-10-03 13:10:15.604 PDT [472320] ERROR:  permission denied for function configure_branch_quotas
+2026-10-03 13:10:15.604 PDT [472320] STATEMENT:  SELECT managed.configure_branch_quotas(NULL,NULL)
+2026-10-03 13:10:15.604 PDT [472320] ERROR:  permission denied for function install_snapshot_table
+2026-10-03 13:10:15.604 PDT [472320] STATEMENT:  SELECT managed.install_snapshot_table(NULL)
+2026-10-03 13:10:15.604 PDT [472320] ERROR:  permission denied for function snapshot_measure
+2026-10-03 13:10:15.604 PDT [472320] STATEMENT:  SELECT managed.snapshot_measure(NULL,NULL,false,NULL)
+2026-10-03 13:10:15.605 PDT [472320] ERROR:  permission denied for function raw_apply_rows
+2026-10-03 13:10:15.605 PDT [472320] STATEMENT:  SELECT managed.raw_apply_rows(NULL,NULL,NULL,NULL,false)
+2026-10-03 13:10:15.605 PDT [472320] ERROR:  permission denied for table d_cfdd13c1e67d47aab02a9da93f14379b
+2026-10-03 13:10:15.605 PDT [472320] STATEMENT:  DELETE FROM managed."d_cfdd13c1e67d47aab02a9da93f14379b"
+2026-10-03 13:10:15.605 PDT [472320] ERROR:  permission denied for table s_cfdd13c1e67d47aab02a9da93f14379b
+2026-10-03 13:10:15.605 PDT [472320] STATEMENT:  TRUNCATE managed."s_cfdd13c1e67d47aab02a9da93f14379b"
+2026-10-03 13:10:15.605 PDT [472320] ERROR:  permission denied for table snapshot_reference
+2026-10-03 13:10:15.605 PDT [472320] STATEMENT:  DELETE FROM managed.snapshot_reference
+2026-10-03 13:10:15.605 PDT [472320] ERROR:  permission denied for table commit
+2026-10-03 13:10:15.605 PDT [472320] STATEMENT:  DELETE FROM managed.commit
+2026-10-03 13:10:15.605 PDT [472320] ERROR:  permission denied for function apply_rows
+2026-10-03 13:10:15.605 PDT [472320] STATEMENT:  SELECT managed.apply_rows('cfdd13c1-e67d-47aa-b02a-9da93f14379b','2199d155-63d3-438a-a782-24a0b22ad857','26876442-f281-41a9-a845-43e036bda7b5','[{"fid":"ef401117-31ab-4472-a16d-e153810fd160","values":{"name":"München","amount":"1.125"},"geometry":"SRID=4326;POINT(1 2)"}]'::jsonb,false)
+2026-10-03 13:10:15.607 PDT [472321] ERROR:  permission denied for schema managed at character 8
+2026-10-03 13:10:15.607 PDT [472321] STATEMENT:  SELECT managed.branch_list('f6d22475-8773-4fd5-86f0-b47c28a4d9d5')
+2026-10-03 13:10:15.841 PDT [472325] ERROR:  could not serialize access due to concurrent update
+2026-10-03 13:10:15.841 PDT [472325] CONTEXT:  SQL statement "SELECT *        FROM managed.branch_quota WHERE group_id=g.group_id FOR UPDATE"
+	PL/pgSQL function branch_populate(uuid,uuid) line 15 at SQL statement
+2026-10-03 13:10:15.841 PDT [472325] STATEMENT:  SELECT managed.branch_populate('28daba0b-43a7-4b45-b3fa-bcb6eaa3c9cf','f23baa53-4d9c-4cc6-bfe8-583a48acd736')
+2026-10-03 13:10:15.846 PDT [472325] ERROR:  BRANCH_STORAGE_QUOTA
+2026-10-03 13:10:15.846 PDT [472325] CONTEXT:  PL/pgSQL function branch_populate(uuid,uuid) line 46 at RAISE
+2026-10-03 13:10:15.846 PDT [472325] STATEMENT:  SELECT managed.branch_populate('28daba0b-43a7-4b45-b3fa-bcb6eaa3c9cf','f23baa53-4d9c-4cc6-bfe8-583a48acd736')
+2026-10-03 13:10:16.012 PDT [472334] ERROR:  BRANCH_SOURCE_BOUND
+2026-10-03 13:10:16.012 PDT [472334] CONTEXT:  PL/pgSQL function branch_populate(uuid,uuid) line 40 at RAISE
+2026-10-03 13:10:16.012 PDT [472334] STATEMENT:  SELECT managed.branch_populate('e443b68f-e3d3-4cb1-b158-acb7bb992a50','2120fe89-fd15-4fd3-a791-d4405be1771f')
+2026-10-03 13:10:16.059 PDT [472334] ERROR:  BRANCH_IDLE_EXPIRED
+2026-10-03 13:10:16.059 PDT [472334] CONTEXT:  PL/pgSQL function branch_populate(uuid,uuid) line 21 at RAISE
+2026-10-03 13:10:16.059 PDT [472334] STATEMENT:  SELECT managed.branch_populate('1a21ce62-0be9-4a36-b22a-beb0c9ee80db','94f4afe7-908b-4020-9c9a-c830ccf98ae1')
+2026-10-03 13:10:16.290 PDT [472337] ERROR:  BRANCH_SOURCE_BOUND
+2026-10-03 13:10:16.290 PDT [472337] CONTEXT:  PL/pgSQL function branch_populate(uuid,uuid) line 40 at RAISE
+2026-10-03 13:10:16.290 PDT [472337] STATEMENT:  SELECT managed.branch_populate('8099a6c6-6581-4ea2-9946-2361883518f8','e827f2b9-48dc-4317-9d39-9c62577fb78b')
+2026-10-03 13:10:16.304 PDT [472064] LOG:  received fast shutdown request
+2026-10-03 13:10:16.314 PDT [472064] LOG:  aborting any active transactions
+2026-10-03 13:10:16.315 PDT [472064] LOG:  background worker "logical replication launcher" (PID 472082) exited with exit code 1
+2026-10-03 13:10:16.315 PDT [472071] LOG:  shutting down
+2026-10-03 13:10:16.327 PDT [472071] LOG:  checkpoint starting: shutdown immediate
+2026-10-03 13:10:16.635 PDT [472071] LOG:  checkpoint complete: wrote 6559 buffers (40.0%); 0 WAL file(s) added, 0 removed, 3 recycled; write=0.083 s, sync=0.135 s, total=0.320 s; sync files=1529, longest=0.020 s, average=0.001 s; distance=45888 kB, estimate=45888 kB
+2026-10-03 13:10:16.643 PDT [472064] LOG:  database system is shut down

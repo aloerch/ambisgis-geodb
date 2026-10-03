@@ -1,0 +1,1 @@
+{"task": "DB-01", "baseline": false, "tests": 28, "failures": 0, "errors": 1, "skipped": 0, "seconds": 15.850559366001107, "source_unchanged": true, "database_stopped": true, "passed": false, "inputs_sha256": "9212f2481b0ea189dcf3f0f2276c289497d59caa14c20b6badddffe4397b4393", "test_log_sha256": "deeae3055acf57506081766eec325e665fd657eab819646b1de4e2f7b86b30f2"}

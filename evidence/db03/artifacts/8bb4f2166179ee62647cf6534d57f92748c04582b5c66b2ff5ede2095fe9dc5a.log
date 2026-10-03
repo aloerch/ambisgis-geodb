@@ -1,0 +1,10 @@
+test_default_writer_finishes_while_snapshot_schema_guard_is_held (test_branch_snapshot_database.BranchSnapshotDatabaseTests.test_default_writer_finishes_while_snapshot_schema_guard_is_held) ... ok
+test_branch_captures_typed_group_base_and_later_default_edits_do_not_leak (test_branch_snapshot_database.BranchSnapshotDatabaseTests.test_branch_captures_typed_group_base_and_later_default_edits_do_not_leak) ... ok
+test_creating_and_cancelled_branches_are_absent_from_normal_reads (test_branch_snapshot_database.BranchSnapshotDatabaseTests.test_creating_and_cancelled_branches_are_absent_from_normal_reads) ... ok
+test_named_branch_writes_stay_unavailable_until_edit_pipeline (test_branch_snapshot_database.BranchSnapshotDatabaseTests.test_named_branch_writes_stay_unavailable_until_edit_pipeline) ... ok
+test_snapshot_catalog_contract_exists (test_branch_snapshot_database.BranchSnapshotDatabaseTests.test_snapshot_catalog_contract_exists) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.605s
+
+OK

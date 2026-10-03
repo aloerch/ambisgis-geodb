@@ -1,0 +1,25 @@
+2026-10-03 12:40:52.279 PDT [466404] LOG:  starting PostgreSQL 15.19 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit
+2026-10-03 12:40:52.279 PDT [466404] LOG:  listening on Unix socket "/tmp/ambisgis-fnd04-socket-_25pphdg/.s.PGSQL.55484"
+2026-10-03 12:40:52.293 PDT [466407] LOG:  database system was shut down at 2026-10-03 12:40:52 PDT
+2026-10-03 12:40:52.309 PDT [466404] LOG:  database system is ready to accept connections
+2026-10-03 12:40:53.208 PDT [466432] ERROR:  DATASET_VERSION_MISMATCH
+2026-10-03 12:40:53.208 PDT [466432] CONTEXT:  PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 7 at RAISE
+2026-10-03 12:40:53.208 PDT [466432] STATEMENT:  SELECT managed.apply_rows('73e8e787-fbb5-442d-b615-286e4ff8771a','9e54d66b-e436-48a0-8055-dde7e4f96542','b403c7da-697f-41ae-ad70-e772bb07030c','[{"fid":"64ab3ca0-e90a-41d7-921c-9621338080e0","values":{"name":"München","amount":"1.125"},"geometry":"SRID=4326;POINT(1 2)"}]'::jsonb,false)
+2026-10-03 12:40:53.414 PDT [466434] ERROR:  IMMUTABLE_SEALED_SNAPSHOT
+2026-10-03 12:40:53.414 PDT [466434] CONTEXT:  PL/pgSQL function snapshot_rows_guard() line 4 at RAISE
+2026-10-03 12:40:53.414 PDT [466434] STATEMENT:  UPDATE managed."s_2e1647d14ad54d9aab1c9c375bf70583" SET parent='c0fb5013-2c20-4dbc-ae7c-244e917896d8'
+2026-10-03 12:40:53.608 PDT [466450] ERROR:  could not serialize access due to concurrent update
+2026-10-03 12:40:53.608 PDT [466450] CONTEXT:  SQL statement "SELECT *        FROM managed.branch_quota WHERE group_id=p_group FOR UPDATE"
+	PL/pgSQL function branch_reserve(uuid,uuid,text,uuid,text,uuid[],uuid) line 15 at SQL statement
+2026-10-03 12:40:53.608 PDT [466450] STATEMENT:  SELECT managed.branch_reserve('f0b9cb3b-93ed-4b31-bf9f-80fae12c68e3','88c42ca1-2532-4747-a43c-77cc28da747b','other_836b0ae0428f4b159059e18f27576ce9','89d3bf0e-f788-4bee-850d-f2f701cd8c93','private','{}'::uuid[],'2b565ca6-c1bf-4c00-af73-fe1a4caf7a1d')
+2026-10-03 12:40:53.684 PDT [466455] ERROR:  could not serialize access due to concurrent update
+2026-10-03 12:40:53.684 PDT [466455] CONTEXT:  SQL statement "INSERT INTO managed.branch_quota(group_id,limits) VALUES(p_group,p_limits) ON CONFLICT DO NOTHING"
+	PL/pgSQL function configure_branch_quotas(uuid,jsonb) line 20 at SQL statement
+2026-10-03 12:40:53.684 PDT [466455] STATEMENT:  SELECT managed.configure_branch_quotas('d6f931c7-f1e4-46c1-a99c-40b2ee1f1a7a','{"max_branches": 1, "max_current_rows": 100, "max_snapshot_rows": 100, "max_current_bytes": 1048576, "max_snapshot_bytes": 1048576, "max_source_rows": 100, "max_source_bytes": 1048576, "max_history_rows": 100, "max_attachment_bytes": 0, "max_idle_seconds": 86400}'::jsonb)
+2026-10-03 12:40:55.033 PDT [466404] LOG:  received fast shutdown request
+2026-10-03 12:40:55.037 PDT [466404] LOG:  aborting any active transactions
+2026-10-03 12:40:55.037 PDT [466404] LOG:  background worker "logical replication launcher" (PID 466410) exited with exit code 1
+2026-10-03 12:40:55.038 PDT [466405] LOG:  shutting down
+2026-10-03 12:40:55.043 PDT [466405] LOG:  checkpoint starting: shutdown immediate
+2026-10-03 12:40:59.685 PDT [466405] LOG:  checkpoint complete: wrote 6176 buffers (37.7%); 0 WAL file(s) added, 0 removed, 2 recycled; write=0.065 s, sync=4.533 s, total=4.648 s; sync files=1245, longest=0.015 s, average=0.004 s; distance=43131 kB, estimate=43131 kB
+2026-10-03 12:40:59.691 PDT [466404] LOG:  database system is shut down

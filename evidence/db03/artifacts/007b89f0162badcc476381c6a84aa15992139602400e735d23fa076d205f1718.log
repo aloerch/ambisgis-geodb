@@ -1,0 +1,11 @@
+test_canonical_v2_preserves_exact_literals_and_changes_rule_hash (test_schema.SchemaRulesTests.test_canonical_v2_preserves_exact_literals_and_changes_rule_hash) ... ok
+test_domain_defaults_subtypes_and_relationship_envelopes_fail_closed (test_schema.SchemaRulesTests.test_domain_defaults_subtypes_and_relationship_envelopes_fail_closed) ... ok
+test_typed_defaults_domains_and_nonexecutable_rules (test_schema.SchemaRulesTests.test_typed_defaults_domains_and_nonexecutable_rules) ... ok
+test_canonical_is_versioned_explicit_and_ordered (test_schema.SchemaTests.test_canonical_is_versioned_explicit_and_ordered) ... ok
+test_exact_large_identity_projection (test_schema.SchemaTests.test_exact_large_identity_projection) ... ok
+test_rejects_ambiguous_or_executable_definitions (test_schema.SchemaTests.test_rejects_ambiguous_or_executable_definitions) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.005s
+
+OK

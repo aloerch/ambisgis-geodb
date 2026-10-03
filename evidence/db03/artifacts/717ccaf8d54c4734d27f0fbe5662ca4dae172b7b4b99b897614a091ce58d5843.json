@@ -1,0 +1,7 @@
+{
+  "task": "DB-01",
+  "synthetic_only": true,
+  "pid": 472025,
+  "cluster": "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db03-worktree/.runs/db01-regression-002/cluster-vessnayy",
+  "socket": "/tmp/ambisgis-fnd04-socket-j8mh97jb"
+}

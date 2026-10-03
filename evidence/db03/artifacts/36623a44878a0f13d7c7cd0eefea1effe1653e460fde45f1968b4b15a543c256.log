@@ -1,0 +1,20 @@
+2026-10-03 12:15:42.397 PDT [463337] LOG:  starting PostgreSQL 15.19 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit
+2026-10-03 12:15:42.397 PDT [463337] LOG:  listening on Unix socket "/tmp/ambisgis-fnd04-socket-0aid3bzw/.s.PGSQL.55484"
+2026-10-03 12:15:42.415 PDT [463340] LOG:  database system was shut down at 2026-10-03 12:15:42 PDT
+2026-10-03 12:15:42.434 PDT [463337] LOG:  database system is ready to accept connections
+2026-10-03 12:15:46.039 PDT [463378] ERROR:  function managed.configure_branch_quotas(unknown, jsonb) does not exist at character 8
+2026-10-03 12:15:46.039 PDT [463378] HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2026-10-03 12:15:46.039 PDT [463378] STATEMENT:  SELECT managed.configure_branch_quotas('bdce2b29-de8a-4ce3-b445-f1e9d57ccacc','{"max_branches": 4, "max_current_rows": 100, "max_snapshot_rows": 100, "max_current_bytes": 1048576, "max_snapshot_bytes": 1048576, "max_source_rows": 100, "max_source_bytes": 1048576, "max_history_rows": 100, "max_attachment_bytes": 0, "max_idle_seconds": 86400}'::jsonb)
+2026-10-03 12:15:46.092 PDT [463379] ERROR:  function managed.configure_branch_quotas(unknown, jsonb) does not exist at character 8
+2026-10-03 12:15:46.092 PDT [463379] HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2026-10-03 12:15:46.092 PDT [463379] STATEMENT:  SELECT managed.configure_branch_quotas('a7c82dc0-b50f-4bd8-aa61-54ad2b25a49e','{"max_branches": 4, "max_current_rows": 100, "max_snapshot_rows": 100, "max_current_bytes": 1048576, "max_snapshot_bytes": 1048576, "max_source_rows": 100, "max_source_bytes": 1048576, "max_history_rows": 100, "max_attachment_bytes": 0, "max_idle_seconds": 86400}'::jsonb)
+2026-10-03 12:15:46.144 PDT [463380] ERROR:  function managed.configure_branch_quotas(unknown, jsonb) does not exist at character 8
+2026-10-03 12:15:46.144 PDT [463380] HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2026-10-03 12:15:46.144 PDT [463380] STATEMENT:  SELECT managed.configure_branch_quotas('0e14ebd1-586c-4326-b265-b5656768fb3b','{"max_branches": 4, "max_current_rows": 100, "max_snapshot_rows": 100, "max_current_bytes": 1048576, "max_snapshot_bytes": 1048576, "max_source_rows": 100, "max_source_bytes": 1048576, "max_history_rows": 100, "max_attachment_bytes": 0, "max_idle_seconds": 86400}'::jsonb)
+2026-10-03 12:15:46.149 PDT [463337] LOG:  received fast shutdown request
+2026-10-03 12:15:46.155 PDT [463337] LOG:  aborting any active transactions
+2026-10-03 12:15:46.155 PDT [463337] LOG:  background worker "logical replication launcher" (PID 463343) exited with exit code 1
+2026-10-03 12:15:46.155 PDT [463338] LOG:  shutting down
+2026-10-03 12:15:46.162 PDT [463338] LOG:  checkpoint starting: shutdown immediate
+2026-10-03 12:15:48.075 PDT [463338] LOG:  checkpoint complete: wrote 2010 buffers (12.3%); 0 WAL file(s) added, 0 removed, 1 recycled; write=0.022 s, sync=1.849 s, total=1.920 s; sync files=375, longest=0.007 s, average=0.005 s; distance=13984 kB, estimate=13984 kB
+2026-10-03 12:15:48.078 PDT [463337] LOG:  database system is shut down

@@ -1,0 +1,6 @@
+{
+  "task": "DB-02",
+  "pid": 474255,
+  "synthetic_only": true,
+  "fixture_producer": "prototype.database.Cluster"
+}
