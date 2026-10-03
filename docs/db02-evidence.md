@@ -1,5 +1,24 @@
 # DB-02 local acceptance evidence
 
+Latest reviewed-finding repair: clean implementation
+`3d2448b972df99da921d18dd8d0802d46d952495` passes **12/12 DB-02** and
+**28/28 DB-01/schema** real cases with zero skips. The
+[successor receipt](../evidence/db02/review-repair.json) preserves the original
+receipt below and records the actual failure and repair. Independent integrator
+review remains pending.
+
+The initial constraint loops touched every managed group. Independent review
+identified that this could flush another group's pending constraints and race
+its schema DDL. A new real test reproduced an unrelated group's UniqueViolation
+during a group A edit (12 cases, 1 error in `db02-review-baseline-001`). The
+repair joins constraints to registered physical tables in the locked group and
+matches their literal per-dataset prefix. Both new two-group cases now pass,
+including an actual simultaneous group B metadata lock and uncommitted
+constraint-drop DDL while A completes. Original same-group contention tests
+still pass. Prototype/reference sources are unchanged, so their earlier passing
+receipts remain applicable; both affected managed suites were rerun.
+
+
 Issue [#3](https://github.com/aloerch/ambisgis-geodb/issues/3), repository
 `aloerch/ambisgis-geodb` (ID `1376927417`), branch `db-02/schema-validation`.
 Implementation base is accepted DB-01 merge

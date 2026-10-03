@@ -1,0 +1,7 @@
+{
+  "task": "DB-01",
+  "synthetic_only": true,
+  "pid": 455406,
+  "cluster": "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/.runs/db01-review-final-001/cluster-y640ur_z",
+  "socket": "/tmp/ambisgis-fnd04-socket-at1zyiz3"
+}

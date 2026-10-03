@@ -3,9 +3,9 @@
 Issue #3, branch `db-02/schema-validation`, base
 `ef9ef7364a7babc2ebcb4841c2c670633af59d59` (accepted DB-01 PR #11).
 [Schema rules and migration contract](docs/schema-rules.md) documents the bounded
-implementation. The [DB-02 evidence](docs/db02-evidence.md) records 10/10 real DB-02 cases,
+implementation. The [DB-02 evidence](docs/db02-evidence.md) records 12/12 real DB-02 cases,
 28/28 DB-01/schema regressions and 25/25 prototype cases passing at
-`5c3cf1e3f1d152bc5a0bffecc9eda6726449586e`, with zero skips. Independent review,
+`3d2448b972df99da921d18dd8d0802d46d952495`, with zero skips. Independent review,
 exact-head integration and remote PR are pending. This is
 not a product release or complete branch-editing acceptance.
 
