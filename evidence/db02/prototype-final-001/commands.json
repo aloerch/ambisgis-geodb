@@ -1,0 +1,4302 @@
+[
+  {
+    "tool": "initdb",
+    "seconds": 0.527115083001263,
+    "exit_code": 0
+  },
+  {
+    "tool": "pg_ctl",
+    "seconds": 0.10297455600084504,
+    "exit_code": 0
+  },
+  {
+    "tool": "createdb",
+    "seconds": 0.08076130100380396,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.221544628002448,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012664059002418071,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002193687003455125,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.6758558550063754,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002874990997952409,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012850781000452116,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0025995609976234846,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.016314803004206624,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.018049753998639062,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.005979554000077769,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.005610138003248721,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0017823910020524636,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01759691000188468,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002077396995446179,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015879040998697747,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00465806300053373,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00489922799897613,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.019296785001643002,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.6852052140020533,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0032873480013222434,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015899370002443902,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0025047130038728938,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01189756399980979,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0050409350005793385,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013596997996501159,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0021821449990966357,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012391284995828755,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0024979000008897856,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011036830001103226,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.005197109996515792,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00609644599899184,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004278467000403907,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014464122999925166,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004580897999403533,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01487233299849322,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004739285999676213,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0043220389998168685,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01113985500705894,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.5518179419959779,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0024465630049235187,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015206984004180413,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018172269992646761,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011960542004089803,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0145073340027011,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0020021859963890165,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011347647006914485,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00233697600197047,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013595014999737032,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013561861997004598,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0020421310036908835,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002915217002737336,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013325796004210133,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015321480001148302,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002214093998190947,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.016701291002391372,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004131490000872873,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.010344244998123031,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.4933081370036234,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0027254990054643713,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.016610851002042182,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003468049006187357,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015486400996451266,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014679409003292676,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014769207999052014,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016975909966276959,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012207829000544734,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0026495459969737567,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0179643430019496,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.3856353239971213,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0036523270027828403,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.023597864994371776,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0026681110030040145,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01572100300109014,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013496968997060321,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002724006997596007,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011789308999141213,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0136462099981145,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01453873299760744,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.001656261993048247,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011928823005291633,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0035532400070223957,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015087549982126802,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0026272830000380054,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0043687479992513545,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012703512998996302,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.5594953990002978,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0029864709940738976,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01576709900109563,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018647060060175136,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012739831996441353,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013591407005151268,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014520819997414947,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013727345001825597,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0021256379986880347,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012615177001862321,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002989647000504192,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002935124000941869,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013794190002954565,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.5500450300023658,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0029363270004978403,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01572790699719917,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018225670064566657,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01305154000147013,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013770194003882352,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016467449968331493,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013089011001284234,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015216690007946454,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012274304004677106,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014659340995422099,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013801474000501912,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0027294069950585254,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011954991998209152,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0024105150005198084,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004113746996154077,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0036877829988952726,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002468705002684146,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0022062499992898665,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014229150001483504,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.553475446999073,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0036559539948939346,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01990674599801423,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.001970746001461521,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011874810006702319,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014516381997964345,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016275489979307167,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012303217998123728,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.001937143002578523,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012550665996968746,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013806353003019467,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014679489999252837,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004857057996559888,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004478424998524133,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0024085910044959746,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002358707002713345,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018924590040114708,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015515560007770546,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002102414997352753,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018883009979617782,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004362396000942681,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003733630001079291,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015136139991227537,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.001920219998282846,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.001736124002491124,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004916240002785344,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004115280004043598,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0019058540055993944,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0022323689991026185,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011163508999743499,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003919130002032034,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011645629005215596,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.5538578089981456,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0037989029951859266,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014871981999021955,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0025366730042151175,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012195315001008566,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013853812997695059,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014649884004029445,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015794380014995113,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01227192000078503,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.001539532997412607,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013099128998874221,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013922963000368327,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014813421003054827,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013847701004124247,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014652598001703154,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016907780009205453,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0023234920008690096,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0020214010000927374,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0024839629986672662,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0027228740000282414,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00633714900322957,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0019624300039140508,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015495287996600382,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.5499629440018907,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0035318000009283423,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014859107999654952,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018099019944202155,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012879565001640003,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013721281997277401,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0019610170056694187,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012671262004005257,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0023297430016100407,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011354570000548847,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014630997997301165,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016333899984601885,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01289779000217095,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.5462005599983968,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0032656580006005242,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015736312001536135,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0032673210007487796,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012479832003009506,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012784236001607496,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0021422389982035384,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0073233579969382845,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002034385994193144,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012715855998976622,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013743875002546702,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.001947251003002748,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01394789000187302,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.5515827880008146,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0030610120011260733,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015650149995053653,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0020107510063098744,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012835232002544217,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013711032996070571,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0026139889960177243,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011901441001100466,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0017415639958926477,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01196178499958478,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014708262999192812,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0029250750012579374,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01138057899515843,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.5550270530002308,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002942257997347042,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01553381999838166,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.001958913999260403,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011650648004433606,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01477358700503828,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0027429920010035858,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.016249319996859413,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0020170030038570985,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011493942998640705,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0071527269974467345,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0017359029952785932,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01625476000481285,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.5540990330046043,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0037198540012468584,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01508727899636142,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002267455005494412,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012286767996556591,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013785433999146335,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002808725999784656,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002690352004719898,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004195891997369472,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003958624001825228,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004006814997410402,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016523760059499182,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.010165366998990066,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.5486775509998552,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002988004001963418,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0156853759981459,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0030838050006423146,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011451682999904733,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0021508360005100258,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016920999987632968,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011036420000891667,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.5479386969964253,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003920813003787771,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014653990998340305,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0024149339951691218,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012352401005045976,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013833042998157907,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0024964070034911856,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0027532919993973337,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014612683000450488,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.5473824080036138,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002899437000451144,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015558227001747582,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.001925290001963731,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012761292004142888,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.02303226900403388,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01461540799937211,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.009358204995805863,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004029236995847896,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01601547800237313,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.5530934869966586,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0029751399997621775,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015445564000401646,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002252827995107509,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012324819996138103,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013872889001504518,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014638451997598168,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013747881996096112,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003392297003301792,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015845237001485657,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0025616709972382523,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012948445000802167,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.5528444070005207,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0041724870025063865,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014434887998504564,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003676371998153627,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015289368995581754,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.006061750005756039,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012857212997914758,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0017870599986054003,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012872412000433542,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0017774420048226602,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011988194994046353,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003835912997601554,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00351121999847237,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011487340001622215,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002442714998323936,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004363578002084978,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004350654002337251,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013335835996258538,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.001930139995238278,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011753712999052368,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016876520021469332,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012989933995413594,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003732847995706834,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0040000220033107325,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015505116003623698,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0021100390003994107,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004626082998584025,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0036905290035065264,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013591077004093677,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002251295001769904,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01133052500517806,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0019891010015271604,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0129248609955539,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0037402020025183447,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004216540000925306,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015349483001045883,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0019018459934159182,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003798793004534673,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003431760997045785,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015099480995559134,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0020246779968147166,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011706814002536703,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0017608100024517626,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012977960999705829,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.005089266996947117,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003925361001165584,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014352302998304367,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018130489988834597,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00402045100054238,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003407364994927775,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015130660001887009,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.001781159000529442,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012332434002019,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0022544110033777542,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012435637996532023,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004576449005980976,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0037601500007440336,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014965438000217546,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015927330023259856,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.005349546001525596,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004182456999842543,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013184691000788007,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018266639963258058,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011843883003166411,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0024786040012259036,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012166369997430593,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0048669070019968785,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003861632001644466,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014764058003493119,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0024385380020248704,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004199639006401412,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003885325997543987,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0134110469953157,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016496299940627068,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011904015998879913,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0017344410007353872,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0128977889980888,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0049670750013319775,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004156458002398722,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014039652000064962,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.001671992999035865,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003916875000868458,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0034745110024232417,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015349141998740379,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016542890007258393,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012092129996744916,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016062990034697577,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013149915001122281,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0038439779964392073,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004813255000044592,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014373161000548862,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0021097479984746315,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004298104999179486,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004101113001524936,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013666738996107597,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0019201309987693094,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011747270997148007,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0019763660020544194,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012641426001209766,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004527937002421822,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0036792979954043403,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015033597002911847,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.001714742997137364,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0037905869976384565,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013524711997888517,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002547563002735842,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.016420551997725852,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00409643400053028,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004551461999653839,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.010278050001943484,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0017221669986611232,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013029508001636714,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018524030019761994,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011748483004339505,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0039108040000428446,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00355366100120591,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01151991100050509,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018727619972196408,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0038591760021517985,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01324786899931496,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015707620041212067,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013085904996842146,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0051410640007816255,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00464802399801556,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013516086000890937,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002236817999801133,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012486835003073793,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018104729970218614,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0118855410037213,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0038790739999967627,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0035418679981376044,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.016929491997871082,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0023073210031725466,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004546704003587365,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003845520994218532,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01243650999822421,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0020100509937037714,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012546777994430158,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002299906002008356,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011586568005441222,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0036713229928864166,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003631257000961341,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011509021001984365,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018566500002634712,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003961358997912612,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003524384999764152,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01464912200026447,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015750900056445971,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012148446003266145,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0017636760021559894,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012913177997688763,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0036675849987659603,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0038789039972471073,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015842492000956554,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016278590046567842,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0040194489993155,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003472486998362001,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015377124997030478,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015496630003326572,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012253984998096712,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0020265010025468655,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012627650001377333,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004231678998621646,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0036633069976232946,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015441325995197985,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018777809964376502,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004079703001480084,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.022572883004613686,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015444519958691671,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012993139003810938,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0037266960061970167,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.005799014994408935,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013766798001597635,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018591460029711016,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012781009005266242,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.001813839997339528,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011869201000081375,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003476113997749053,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004130589004489593,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011242066997510847,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015943059988785535,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003974004001065623,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013481750997016206,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0020699929955299012,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01691873199888505,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0039713180012768134,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003643769996415358,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011412769999878947,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0024145920033333823,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012258595001185313,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0017058360026567243,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01212547400064068,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003630584993516095,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0035486109991325065,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01180270499753533,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015633479997632094,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0037763709988212213,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004695102994446643,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014128299000731204,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0017935119976755232,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011927078994631302,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015565950016025454,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013202233996707946,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0035099579981761053,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004874712001765147,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014847155005554669,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0019111329966108315,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003923828997358214,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0036742079973919317,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014039552996109705,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018806459993356839,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011872996998135932,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018028790000244044,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012972912001714576,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003763986998819746,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0044334599951980636,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015017967998574022,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0017971790002775379,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004752852000819985,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0034940480036311783,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01406581199989887,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015587590023642406,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012175597999885213,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.001754046999849379,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012902367998322006,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003879474999848753,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.005180838001251686,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01415926800109446,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0019527820040821098,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003946561002521776,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003659891001007054,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01454574699891964,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015276709964382462,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012183974002255127,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0017205949989147484,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01303468800324481,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004870463002589531,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004174159999820404,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014016269000421744,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0021977439973852597,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004259781999280676,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01256467099301517,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0019222240007366054,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012609015000634827,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004392773000290617,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0037250640016281977,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015118517003429588,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0019871969998348504,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012626058000023477,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015924529943731613,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012012790997687262,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003711027995450422,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0039391069949488156,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.016469885005790275,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018365630021435209,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004162409000855405,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003541457997926045,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013935466995462775,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002124175000062678,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01249302599899238,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0020962929993402213,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011555397999472916,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0039643149939365685,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003385433003131766,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011461041001894046,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015641900026821531,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0034800220018951222,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01375880299747223,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0014922339978511445,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01318033200368518,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003395653002371546,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003940741000405978,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011776565996115096,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0020136169987381436,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0117658949966426,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015440610004588962,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013021211998420767,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0052380960041773506,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004230807993735652,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013659205003932584,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0020180759966024198,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004754574998514727,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012032498001644854,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016579059956711717,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01292480100528337,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003750420997675974,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004007326002465561,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011230386000534054,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015931739981169812,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011991962004685774,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0019896320009138435,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012639101994864177,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0045704579970333725,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0036996359995100647,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015092517998709809,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016082119982456788,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00370550699881278,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013544568995712325,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00152222000178881,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01306850099354051,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00427214599767467,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0036661530029959977,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.010848434998479206,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0021086859997012652,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011688008002238348,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018220650017610751,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012815093999961391,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004655568998714443,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003645603996119462,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015102115998161025,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016854479981702752,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003973401995608583,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01332311199803371,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0017055260032066144,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013025770997046493,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003842145000817254,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0047392959968419746,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014706489993841387,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0026011139998445287,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012185696999949869,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018019679991994053,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012105345995223615,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0036626860019168817,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0037685049974243157,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.016544846999750007,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.001893831002234947,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004336767000495456,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012795515998732299,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0023433679962181486,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011356492999766488,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004093278999789618,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003906416000972968,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.010895033999986481,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016460030019516125,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01287893400149187,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00153075600246666,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012241832999279723,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004454469002666883,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004653585005144123,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014827167004114017,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018865180027205497,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0036790370068047196,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01341217900335323,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0024524840046069585,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.016264218000287656,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003933476997190155,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004371403003460728,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.015237421001074836,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002336867000849452,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012370595999527723,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018142210028599948,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011771716999646742,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003816456002823543,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00399284900049679,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.016371249002986588,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.001844768994487822,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003729521995410323,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0037205359985819086,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013955303002148867,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015584979992127046,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013088178995531052,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0024726629999349825,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011233801997150294,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0037712919947807677,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003639943002781365,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.016614047002804,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018721200030995533,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003944496995245572,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0034056910008075647,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.013814097001159098,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018403899957775138,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012923688998853322,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.001722999004414305,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012453350995201617,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004720450997410808,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0038944429979892448,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.023772684995492455,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002523208000638988,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004884370006038807,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014588347003154922,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018137099978048354,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011303393002890516,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.005000899996957742,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0038023599990992807,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.010735832998761907,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015620359990862198,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00946587799990084,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0022868619998916984,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011807754999608733,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0046127479945425875,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0051017599980696104,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011999164998997003,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0021580600005108863,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004261404996213969,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.016130265001265798,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0025782009979593568,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012067994997778442,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004393133996927645,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004236168002535123,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.009707363999041263,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.001593134002177976,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.009941063995938748,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002491778999683447,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01086863400269067,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0043918609953834675,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0038006460017641075,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.021925342000031378,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016529869972146116,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00378018800256541,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.010406692999822553,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018583540004328825,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011112833999504801,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004420935998496134,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0038965069979894906,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01023897599952761,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018730319934547879,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01064905000384897,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015806299998075701,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.010257299996737856,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004248461002134718,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003899272000126075,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012747576998663135,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0019629509988590144,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00368129199341638,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003637319001427386,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014468291003140621,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018700660002650693,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.009359146999486256,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002183758006140124,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.010486332001164556,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003911906998837367,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004521897004451603,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012161040998762473,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0017093729984480888,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003940610004065093,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011167796998051926,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015874029995757155,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011153922001540195,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004776485999173019,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.006470050000643823,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0121672520035645,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016013800050131977,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.009237108002707828,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0015047679989947937,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01004688400280429,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004926169000100344,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0038564319984288886,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011402149000787176,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002354058000491932,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004806714001460932,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011445431002357509,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002592418997664936,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.010835932000190951,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004390679001517128,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011760736000724137,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.30369894599425606,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002985780003655236,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014540687996486668,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0024291200024890713,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.010411381001176778,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01468693399510812,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0020090879988856614,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.009319352000602521,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00170497500221245,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011175671999808401,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012515098002040759,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011911439993127715,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002388603999861516,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011500635999254882,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011442596005508676,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00181375999818556,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0076383429986890405,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002376860997173935,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.008159455996064935,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01184387199464254,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011018525998224504,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016150550000020303,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.010351037999498658,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003842796002572868,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01193498399516102,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.3011946640035603,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0033842010016087443,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011528367002028972,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0032760269969003275,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01313353500154335,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003918900001735892,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003906325000571087,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0028351959990686737,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0017445289995521307,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00948915199842304,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016289619961753488,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.010115963996213395,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0023755090005579405,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0042443630009074695,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003982428999734111,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012891919002868235,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.3035979859996587,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002949811998405494,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011952607004786842,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018677419939194806,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.009809677001612727,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011138222005683929,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018437969993101433,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0070448129990836605,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003307847000542097,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012925120994623285,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012222997997014318,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011282543993729632,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0021488619968295097,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011726040000212379,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004009811003925279,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004499524999118876,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004032263001136016,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011261804997047875,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.30691206399933435,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002889428003982175,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01225727199926041,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0020236860000295565,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00963175099604996,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018502279999665916,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.014155791999655776,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.010904722003033385,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01079736999963643,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012738719997287262,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011183857997821178,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0020271920002414845,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011003168001479935,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004037352999148425,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0033519400021759793,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011458726003183983,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.3048122260006494,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0030394310015253723,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.016039202993852086,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018611699997563846,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.010985334003635217,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.010435707998112775,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003736806000233628,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.003662645998701919,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004109449000679888,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0019398169970372692,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0019213519990444183,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.006449299995438196,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0019223749986849725,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002156126000045333,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00400509199971566,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0017872899989015423,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002056678000371903,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004741661003208719,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002102284001011867,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011812403005023953,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.3033168559995829,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0029007589982938953,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.011386169004254043,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002011263000895269,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012968753006134648,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.01211497300391784,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0019540940047590993,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012281477997021284,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0019947710025007837,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.009272794995922595,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.012721578001219314,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0020993279977119528,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0020819350029341877,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002177374997700099,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0029324990027816966,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018714079997153021,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.001655863001360558,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0018638949986780062,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0030224189977161586,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0022496120000141673,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.001824540006055031,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0021708439962822013,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0026322330013499595,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002119987999321893,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016900769987842068,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.0016864900026121177,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.002494303000275977,
+    "exit_code": 3
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.004190291001577862,
+    "exit_code": 0
+  },
+  {
+    "tool": "psql",
+    "seconds": 0.00376040099945385,
+    "exit_code": 0
+  },
+  {
+    "tool": "pg_ctl",
+    "seconds": 1.6023982260012417,
+    "exit_code": 0
+  }
+]

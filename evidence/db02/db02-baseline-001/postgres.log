@@ -1,0 +1,11 @@
+2026-10-03 11:16:02.398 PDT [450771] LOG:  starting PostgreSQL 15.19 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit
+2026-10-03 11:16:02.398 PDT [450771] LOG:  listening on Unix socket "/tmp/ambisgis-fnd04-socket-da1wq1nj/.s.PGSQL.55484"
+2026-10-03 11:16:02.418 PDT [450774] LOG:  database system was shut down at 2026-10-03 11:16:02 PDT
+2026-10-03 11:16:02.437 PDT [450771] LOG:  database system is ready to accept connections
+2026-10-03 11:16:02.941 PDT [450771] LOG:  received fast shutdown request
+2026-10-03 11:16:02.947 PDT [450771] LOG:  aborting any active transactions
+2026-10-03 11:16:02.947 PDT [450771] LOG:  background worker "logical replication launcher" (PID 450777) exited with exit code 1
+2026-10-03 11:16:02.947 PDT [450772] LOG:  shutting down
+2026-10-03 11:16:02.954 PDT [450772] LOG:  checkpoint starting: shutdown immediate
+2026-10-03 11:16:04.697 PDT [450772] LOG:  checkpoint complete: wrote 1953 buffers (11.9%); 0 WAL file(s) added, 0 removed, 1 recycled; write=0.021 s, sync=1.693 s, total=1.751 s; sync files=345, longest=0.008 s, average=0.005 s; distance=13718 kB, estimate=13718 kB
+2026-10-03 11:16:04.702 PDT [450771] LOG:  database system is shut down
