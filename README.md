@@ -21,8 +21,10 @@ python3 tools/benchmark.py \
   --evidence .runs/benchmark
 ```
 
-Both commands create a fresh job-owned cluster under `/tmp`, with a private Unix
-socket and no TCP listener. Only generated synthetic fixtures are loaded. The
+Both commands create a fresh job-owned cluster in the evidence directory, with a
+short private Unix socket under `/tmp` and no TCP listener. Database and WAL
+storage use the evidence filesystem rather than potentially small tmpfs. Only
+generated synthetic fixtures are loaded. The
 cluster is stopped and retained with an ownership marker; no existing database
 or source build is reset. Evidence records build identities, actual binary
 hashes, schema hash, timings and errors. The `--baseline` acceptance option proves

@@ -28,10 +28,11 @@ class Cluster:
         self.prefix = Path(prefix).resolve()
         self.evidence = Path(evidence).resolve()
         self.evidence.mkdir(parents=True, exist_ok=True)
-        self.root = Path(tempfile.mkdtemp(prefix='ambisgis-fnd04-'))
+        # Database/WAL may exceed tmpfs. Retain data on the evidence filesystem;
+        # keep only the short Unix-socket path in /tmp (PostgreSQL path limit).
+        self.root = Path(tempfile.mkdtemp(prefix='cluster-', dir=self.evidence))
         self.data = self.root / 'data'
-        self.socket = self.root / 'socket'
-        self.socket.mkdir(mode=0o700)
+        self.socket = Path(tempfile.mkdtemp(prefix='ambisgis-fnd04-socket-'))
         (self.root / 'JOB_OWNERSHIP.json').write_text(json.dumps({
             'task': 'FND-04', 'pid': os.getpid(), 'synthetic_only': True}))
         self.env = {k: v for k, v in os.environ.items() if not k.startswith('PG')}

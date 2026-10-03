@@ -310,3 +310,24 @@ class DatabaseAcceptance(unittest.TestCase):
         self.db.sql(self.post_sql(plan))
         self.assertEqual('other',self.state(DEFAULT)[FID]['name'])
         self.assertEqual('seed',self.state(DEFAULT)[other]['name'])
+
+    def test_24_null_or_invalid_edit_selector_never_inserts(self):
+        branch = self.branch()
+        before = self.state(branch)
+        for dataset,operation in [('assets',None),(None,'insert'),('bad','insert'),('assets','bad')]:
+            self.db.sql(f"SELECT edit('{branch}',0,{literal(dataset)},{literal(operation)},'{uuid4()}','new',2,'{GEO}');",error='INVALID_OPERATION')
+            self.assertEqual(before,self.state(branch))
+            self.assertEqual(0,self.head(branch))
+
+    def test_25_null_or_invalid_resolution_never_clears_conflict(self):
+        branch = self.branch()
+        self.edit(branch,value=2)
+        self.edit(DEFAULT,value=3)
+        plan = self.prepare(branch)
+        for dataset,choice in [('assets',None),(None,'ours'),('bad','ours'),('assets','bad')]:
+            self.db.sql(f"SELECT resolve_conflict('{plan}',{literal(dataset)},'{FID}',{literal(choice)});",error='INVALID_RESOLUTION')
+            self.assertEqual('1',self.db.sql(f"SELECT count(*) FROM conflicts WHERE plan_id='{plan}';"))
+            self.assertEqual('f',self.db.sql(f"SELECT sealed FROM snapshots WHERE id=(SELECT candidate FROM plans WHERE id='{plan}');"))
+            self.db.sql(f"SELECT accept_reconcile('{plan}');",error='UNRESOLVED_CONFLICT')
+        self.assertEqual(2,self.state(branch)[FID]['value'])
+        self.assertEqual(3,self.state(DEFAULT)[FID]['value'])

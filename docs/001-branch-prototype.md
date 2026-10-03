@@ -50,6 +50,14 @@ in UUID order, rejects stale heads/generation, promotes changed rows, and commit
 the target/source checkpoints plus events/outbox/idempotency together. A durable
 candidate becomes the new base by reference.
 
+Prepare refreshes current/snapshot relation statistics before accept acquires
+version locks. A recorded million-row EXPLAIN diagnostic found the old statistics
+estimated one branch row and selected a nested-loop anti-join; refreshed
+statistics estimated about 500,000 rows in that layer and chose a hash anti-join.
+The diagnostic accept then completed in 1.42 seconds. This is a measured reason
+for the refresh, whose cost is included in reconcile timings, not an unrecorded
+manual tuning prerequisite. The final ten-branch measurement remains separate.
+
 The implementation still scans full candidate tables to identify the changed
 rows during accept/post. Consequently the post transaction time grows with total
 rows even for one change; it is not a constant-cost delta index. The measurements

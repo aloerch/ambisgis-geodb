@@ -96,7 +96,7 @@ END $$;
 CREATE FUNCTION edit(v uuid, expected bigint, dataset text, operation text, fid uuid,
   n text DEFAULT NULL, val numeric DEFAULT NULL, wkt text DEFAULT NULL) RETURNS bigint LANGUAGE plpgsql AS $$
 DECLARE h bigint; changed integer; BEGIN
-  IF dataset NOT IN ('assets','observations') OR operation NOT IN ('insert','update','delete') THEN
+  IF dataset IS NULL OR operation IS NULL OR dataset NOT IN ('assets','observations') OR operation NOT IN ('insert','update','delete') THEN
     RAISE EXCEPTION 'INVALID_OPERATION';
   END IF;
   SELECT head INTO h FROM versions WHERE id=v FOR UPDATE;
@@ -156,12 +156,19 @@ DECLARE p uuid; s uuid; c uuid; d text; base_id uuid; sh bigint; th bigint; g in
   END LOOP;
   -- Conflict-free candidates are sealed immediately. Conflicted ones need explicit resolution.
   IF NOT EXISTS(SELECT 1 FROM conflicts WHERE plan_id=p) THEN UPDATE snapshots SET sealed=true WHERE id=c; END IF;
+  -- Fresh branch/candidate UUIDs are absent from older statistics. Refresh them
+  -- before accept/post acquire version locks; otherwise large anti-joins can
+  -- be planned as one-row nested loops. Measured cost belongs to prepare.
+  FOREACH d IN ARRAY ARRAY['assets','observations'] LOOP
+    EXECUTE format('ANALYZE current_%I',d);
+    EXECUTE format('ANALYZE snapshot_%I',d);
+  END LOOP;
   RETURN p;
 END $$;
 
 CREATE FUNCTION resolve_conflict(p uuid, dataset text, fid uuid, choice text) RETURNS void LANGUAGE plpgsql AS $$
 DECLARE r jsonb; c uuid; BEGIN
-  IF dataset NOT IN ('assets','observations') OR choice NOT IN ('ours','theirs','base') THEN RAISE EXCEPTION 'INVALID_RESOLUTION'; END IF;
+  IF dataset IS NULL OR choice IS NULL OR dataset NOT IN ('assets','observations') OR choice NOT IN ('ours','theirs','base') THEN RAISE EXCEPTION 'INVALID_RESOLUTION'; END IF;
   SELECT candidate INTO c FROM plans WHERE id=p AND status='prepared' FOR UPDATE;
   IF c IS NULL THEN RAISE EXCEPTION 'INVALID_PLAN'; END IF;
   SELECT CASE choice WHEN 'ours' THEN ours WHEN 'theirs' THEN theirs ELSE base END INTO r
