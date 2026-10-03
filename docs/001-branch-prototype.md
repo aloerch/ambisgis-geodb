@@ -65,6 +65,22 @@ must make this limitation visible. Production implementation needs bounded
 work, explicit delta indexing and quotas supported by actual workloads; it may
 adopt shared immutable snapshots if the same oracle/race suite passes.
 
+Final corrected-code measurements, with ten active branches in each workload:
+
+| Group rows / two layers | Branch creation median (range) | Relation bytes before / after ten branches | Reconcile / accept / post seconds |
+| --- | --- | --- | --- |
+| 100,000 | 1.63 s (1.50–1.80) | 37,740,544 / 737,828,864 | 3.088 / 0.147 / 0.144 |
+| 1,000,000 | 24.21 s (17.33–26.43) | 373,571,584 / 7,325,302,784 | 27.265 / 1.570 / 1.769 |
+
+Branch-creation WAL growth was 1,039,916,176 and 13,078,642,408 bytes respectively.
+Post changed one feature after 20 sequential edits of that same branch feature.
+Reconcile/accept still inspect full states. These outcomes support eager copies
+as the correctness prototype, while visibly exposing proportional storage and
+nonconstant post cost. They do not select a production quota. The real DB suite
+must remain an invariant gate for later delta/shared-snapshot optimization.
+See [complete evidence and conditions](evidence.md), including smaller query/edit
+samples and all interrupted/failed attempts.
+
 No new donor code, fork, package, source successor, workflow or release is
 introduced by this choice. Further schema, relationship, policy, retention and
 recovery work remains mandatory as listed in the prototype contract.

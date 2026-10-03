@@ -1,0 +1,30 @@
+test_01_base_isolation_across_datasets (test_database.DatabaseAcceptance.test_01_base_isolation_across_datasets) ... ok
+test_02_field_merge_matches_reference_and_accept_is_private (test_database.DatabaseAcceptance.test_02_field_merge_matches_reference_and_accept_is_private) ... ok
+test_03_same_field_conflict_requires_explicit_resolution (test_database.DatabaseAcceptance.test_03_same_field_conflict_requires_explicit_resolution) ... ok
+test_04_target_changed_during_review_rejects_accept (test_database.DatabaseAcceptance.test_04_target_changed_during_review_rejects_accept) ... ok
+test_05_target_changed_after_accept_rejects_post (test_database.DatabaseAcceptance.test_05_target_changed_after_accept_rejects_post) ... ok
+test_06_branch_edit_after_accept_rejects_post (test_database.DatabaseAcceptance.test_06_branch_edit_after_accept_rejects_post) ... ok
+test_07_atomic_group_post_and_idempotent_retry (test_database.DatabaseAcceptance.test_07_atomic_group_post_and_idempotent_retry) ... ok
+test_08_post_backend_crash_rolls_back_heads_rows_audit_request (test_database.DatabaseAcceptance.test_08_post_backend_crash_rolls_back_heads_rows_audit_request) ... ok
+test_09_two_concurrent_posts_only_one_wins (test_database.DatabaseAcceptance.test_09_two_concurrent_posts_only_one_wins) ... ok
+test_10_geometry_z_is_atomic (test_database.DatabaseAcceptance.test_10_geometry_z_is_atomic) ... ok
+test_11_delete_update_conflict (test_database.DatabaseAcceptance.test_11_delete_update_conflict) ... ok
+test_12_duplicate_identity_insert_conflict (test_database.DatabaseAcceptance.test_12_duplicate_identity_insert_conflict) ... ok
+test_13_combined_natural_key_collision_rolls_back_plan (test_database.DatabaseAcceptance.test_13_combined_natural_key_collision_rolls_back_plan) ... ok
+test_14_stale_head_and_typed_constraints (test_database.DatabaseAcceptance.test_14_stale_head_and_typed_constraints) ... ok
+test_15_no_public_direct_write_or_function_bypass (test_database.DatabaseAcceptance.test_15_no_public_direct_write_or_function_bypass) ... ok
+test_16_immutable_snapshot_and_isolation_level (test_database.DatabaseAcceptance.test_16_immutable_snapshot_and_isolation_level) ... ok
+test_17_schema_change_invalidates_reconcile (test_database.DatabaseAcceptance.test_17_schema_change_invalidates_reconcile) ... ok
+test_18_request_reuse_changed_payload_rejected (test_database.DatabaseAcceptance.test_18_request_reuse_changed_payload_rejected) ... ok
+test_19_randomized_database_merge_against_pure_oracle (test_database.DatabaseAcceptance.test_19_randomized_database_merge_against_pure_oracle) ... ok
+test_20_equal_change_and_both_delete_coalesce (test_database.DatabaseAcceptance.test_20_equal_change_and_both_delete_coalesce) ... ok
+test_21_creation_uses_one_snapshot_during_concurrent_target_edit (test_database.DatabaseAcceptance.test_21_creation_uses_one_snapshot_during_concurrent_target_edit) ... ok
+test_22_prefiltered_post_preserves_insert_and_delete (test_database.DatabaseAcceptance.test_22_prefiltered_post_preserves_insert_and_delete) ... ok
+test_23_deferred_natural_key_swap_is_atomic (test_database.DatabaseAcceptance.test_23_deferred_natural_key_swap_is_atomic) ... ok
+test_24_null_or_invalid_edit_selector_never_inserts (test_database.DatabaseAcceptance.test_24_null_or_invalid_edit_selector_never_inserts) ... ok
+test_25_null_or_invalid_resolution_never_clears_conflict (test_database.DatabaseAcceptance.test_25_null_or_invalid_resolution_never_clears_conflict) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 18.592s
+
+OK

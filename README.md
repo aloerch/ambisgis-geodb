@@ -19,6 +19,9 @@ python3 tools/run_acceptance.py \
 python3 tools/benchmark.py \
   --prefix /home/revelberry/Projects/AmbisGIS/build-worktrees/postgis-slice/run-003/prefix \
   --evidence .runs/benchmark
+
+# Dependency-free reference examples for hosted CI (not DB acceptance):
+python3 -m unittest discover -s tests -p test_reference.py -v
 ```
 
 Both commands create a fresh job-owned cluster in the evidence directory, with a
@@ -33,7 +36,7 @@ the harness fails explicitly; missing databases are never reported as skips.
 
 Read [the implementation choice](docs/001-branch-prototype.md),
 [prototype contracts and remaining work](docs/prototype-contract.md), and
-[STATUS](STATUS.md). SQL files are experimental bootstrap definitions for empty
+[measured evidence](docs/evidence.md) and [STATUS](STATUS.md). SQL files are experimental bootstrap definitions for empty
 disposable databases; they are not a supported upgrade migration. Do not grant
 ordinary users or notebooks ownership of this schema.
 

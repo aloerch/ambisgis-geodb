@@ -1,0 +1,17 @@
+test_both_delete_merges_to_absence (test_reference.ReferenceExamples.test_both_delete_merges_to_absence) ... ok
+test_branch_only_change_is_preserved (test_reference.ReferenceExamples.test_branch_only_change_is_preserved) ... ok
+test_delete_and_unchanged_merges_to_absence (test_reference.ReferenceExamples.test_delete_and_unchanged_merges_to_absence) ... ok
+test_delete_update_is_existence_conflict (test_reference.ReferenceExamples.test_delete_update_is_existence_conflict) ... ok
+test_different_inserts_same_uuid_do_not_field_merge (test_reference.ReferenceExamples.test_different_inserts_same_uuid_do_not_field_merge) ... ok
+test_disjoint_fields_combine (test_reference.ReferenceExamples.test_disjoint_fields_combine) ... ok
+test_distinct_uuid_inserts_union (test_reference.ReferenceExamples.test_distinct_uuid_inserts_union) ... ok
+test_equal_concurrent_change_coalesces (test_reference.ReferenceExamples.test_equal_concurrent_change_coalesces) ... ok
+test_geometry_and_scalar_conflicts_report_both (test_reference.ReferenceExamples.test_geometry_and_scalar_conflicts_report_both) ... ok
+test_identical_inserts_can_coalesce (test_reference.ReferenceExamples.test_identical_inserts_can_coalesce) ... ok
+test_output_does_not_alias_input (test_reference.ReferenceExamples.test_output_does_not_alias_input) ... ok
+test_target_changes_are_taken_only_when_branch_unchanged (test_reference.ReferenceExamples.test_target_changes_are_taken_only_when_branch_unchanged) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.001s
+
+OK

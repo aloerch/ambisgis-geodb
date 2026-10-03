@@ -1,0 +1,167 @@
+{
+  "host": {
+    "platform": "Linux-7.2.5-1-default-x86_64-with-glibc2.44",
+    "cpu_count": 32,
+    "memory": "MemTotal:       32626152 kB"
+  },
+  "conditions": "local warm shared runner; 128MB shared_buffers; psql connection startup included; no policy checks; no cold-cache assertion",
+  "fixture": "Half assets and half observations; deterministic UUID from md5(dataset || index); 30-character name; numeric(14,3); PointZ EPSG:4326; all synthetic",
+  "workloads": [
+    {
+      "group_rows": 100000,
+      "layers": 2,
+      "branches": 10,
+      "fixture_load_seconds": 0.8746688060000452,
+      "before_sizes": {
+        "plans": 16384,
+        "events": 16384,
+        "outbox": 8192,
+        "requests": 16384,
+        "versions": 49152,
+        "conflicts": 16384,
+        "snapshots": 8192,
+        "version_group": 24576,
+        "current_assets": 18808832,
+        "snapshot_assets": 24576,
+        "current_observations": 18726912,
+        "snapshot_observations": 24576
+      },
+      "branch_creation_seconds": [
+        1.499644575000275,
+        1.5858665480000127,
+        1.5949954660000003,
+        1.6130893839999771,
+        1.5909596439996676,
+        1.6437733659995502,
+        1.6921919390006224,
+        1.7185193860004802,
+        1.6569648270005928,
+        1.804090680999252
+      ],
+      "after_branch_sizes": {
+        "plans": 16384,
+        "events": 32768,
+        "outbox": 24576,
+        "requests": 16384,
+        "versions": 49152,
+        "conflicts": 16384,
+        "snapshots": 24576,
+        "version_group": 24576,
+        "current_assets": 203988992,
+        "snapshot_assets": 164814848,
+        "current_observations": 203644928,
+        "snapshot_observations": 165175296
+      },
+      "branch_storage_amplification": 19.55003255914912,
+      "branch_wal_bytes": 1039916176,
+      "query_seconds": {
+        "n": 30,
+        "median": 0.009255181000298762,
+        "p95": 0.012540643000647833,
+        "includes_psql_startup": true
+      },
+      "edit_seconds": {
+        "n": 20,
+        "median": 0.018231355999432708,
+        "p95": 0.02224911399935081
+      },
+      "reconcile_seconds": 3.087635339999906,
+      "accept_seconds": 0.14689883600021858,
+      "post_transaction_seconds": 0.14448640599948703,
+      "post_changed_feature_count": 1,
+      "after_reconcile_post_sizes": {
+        "plans": 32768,
+        "events": 32768,
+        "outbox": 24576,
+        "requests": 32768,
+        "versions": 49152,
+        "conflicts": 16384,
+        "snapshots": 24576,
+        "version_group": 24576,
+        "current_assets": 203988992,
+        "snapshot_assets": 196255744,
+        "current_observations": 203644928,
+        "snapshot_observations": 196427776
+      },
+      "persisted_branch_rows": 1100000
+    },
+    {
+      "group_rows": 1000000,
+      "layers": 2,
+      "branches": 10,
+      "fixture_load_seconds": 9.893667309999728,
+      "before_sizes": {
+        "plans": 16384,
+        "events": 16384,
+        "outbox": 8192,
+        "requests": 16384,
+        "versions": 49152,
+        "conflicts": 16384,
+        "snapshots": 8192,
+        "version_group": 24576,
+        "current_assets": 186392576,
+        "snapshot_assets": 24576,
+        "current_observations": 186974208,
+        "snapshot_observations": 24576
+      },
+      "branch_creation_seconds": [
+        17.325173720999373,
+        18.014734794000105,
+        19.28857210300066,
+        22.432018427000003,
+        26.383216140000513,
+        26.294923927999662,
+        23.559442163999847,
+        24.863919684000393,
+        25.829985680999926,
+        26.426480137999533
+      ],
+      "after_branch_sizes": {
+        "plans": 16384,
+        "events": 32768,
+        "outbox": 24576,
+        "requests": 16384,
+        "versions": 49152,
+        "conflicts": 16384,
+        "snapshots": 24576,
+        "version_group": 24576,
+        "current_assets": 2004738048,
+        "snapshot_assets": 1651736576,
+        "current_observations": 2022744064,
+        "snapshot_observations": 1645879296
+      },
+      "branch_storage_amplification": 19.608832945923425,
+      "branch_wal_bytes": 13078642408,
+      "query_seconds": {
+        "n": 30,
+        "median": 0.0068742514999939885,
+        "p95": 0.009846443000242289,
+        "includes_psql_startup": true
+      },
+      "edit_seconds": {
+        "n": 20,
+        "median": 0.011249804999351909,
+        "p95": 0.014511372000015399
+      },
+      "reconcile_seconds": 27.265304202000152,
+      "accept_seconds": 1.5696907930005182,
+      "post_transaction_seconds": 1.769474577999972,
+      "post_changed_feature_count": 1,
+      "after_reconcile_post_sizes": {
+        "plans": 32768,
+        "events": 32768,
+        "outbox": 24576,
+        "requests": 32768,
+        "versions": 49152,
+        "conflicts": 16384,
+        "snapshots": 24576,
+        "version_group": 24576,
+        "current_assets": 2004738048,
+        "snapshot_assets": 1964064768,
+        "current_observations": 2022744064,
+        "snapshot_observations": 1957937152
+      },
+      "persisted_branch_rows": 11000000
+    }
+  ]
+}
