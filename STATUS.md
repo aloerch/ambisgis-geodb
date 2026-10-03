@@ -1,3 +1,15 @@
+# DB-02 implementation candidate
+
+Issue #3, branch `db-02/schema-validation`, base
+`ef9ef7364a7babc2ebcb4841c2c670633af59d59` (accepted DB-01 PR #11).
+[Schema rules and migration contract](docs/schema-rules.md) documents the bounded
+implementation. The [DB-02 evidence](docs/db02-evidence.md) records 12/12 real DB-02 cases,
+28/28 DB-01/schema regressions passing at
+`3d2448b972df99da921d18dd8d0802d46d952495`, with zero skips. The 25/25 prototype
+run at the prior implementation is reused against unchanged prototype source. Independent review,
+exact-head integration and remote PR are pending. This is
+not a product release or complete branch-editing acceptance.
+
 # Current geodatabase work: DB-01
 
 Repository `aloerch/ambisgis-geodb` / ID `1376927417`.

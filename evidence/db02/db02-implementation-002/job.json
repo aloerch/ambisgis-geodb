@@ -1,0 +1,7 @@
+{
+  "task": "DB-01",
+  "synthetic_only": true,
+  "pid": 451229,
+  "cluster": "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/.runs/db02-implementation-002/cluster-m4qdcqjv",
+  "socket": "/tmp/ambisgis-fnd04-socket-72pl5ys9"
+}

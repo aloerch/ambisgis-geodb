@@ -1,0 +1,77 @@
+test_defaults_domains_subtypes_and_atomic_rejection (test_schema_rules_database.SchemaRulesDatabaseTests.test_defaults_domains_subtypes_and_atomic_rejection) ... ERROR
+test_relation_group_atomicity_restrict_cardinality_and_version_scope (test_schema_rules_database.SchemaRulesDatabaseTests.test_relation_group_atomicity_restrict_cardinality_and_version_scope) ... ERROR
+test_retained_schema_revision_and_failed_change_preserve_identity (test_schema_rules_database.SchemaRulesDatabaseTests.test_retained_schema_revision_and_failed_change_preserve_identity) ... ERROR
+test_service_cannot_execute_raw_or_schema_functions (test_schema_rules_database.SchemaRulesDatabaseTests.test_service_cannot_execute_raw_or_schema_functions) ... ERROR
+
+======================================================================
+ERROR: test_defaults_domains_subtypes_and_atomic_rejection (test_schema_rules_database.SchemaRulesDatabaseTests.test_defaults_domains_subtypes_and_atomic_rejection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/tests/test_schema_rules_database.py", line 30, in test_defaults_domains_subtypes_and_atomic_rejection
+    d=self.dataset(definition());row=self.row2({"kind":2})
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/tests/test_managed_database.py", line 38, in dataset
+    return create_dataset(self.connection, managed_name='d_'+uuid.uuid4().hex,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/managed/database.py", line 28, in create_dataset
+    definition = normalized(definition)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/managed/schema.py", line 21, in normalized
+    raise ValueError('unsupported typed definition envelope')
+ValueError: unsupported typed definition envelope
+
+======================================================================
+ERROR: test_relation_group_atomicity_restrict_cardinality_and_version_scope (test_schema_rules_database.SchemaRulesDatabaseTests.test_relation_group_atomicity_restrict_cardinality_and_version_scope)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/tests/test_schema_rules_database.py", line 45, in test_relation_group_atomicity_restrict_cardinality_and_version_scope
+    child=self.dataset(value,version_group_id=parent["version_group_id"])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/tests/test_managed_database.py", line 38, in dataset
+    return create_dataset(self.connection, managed_name='d_'+uuid.uuid4().hex,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/managed/database.py", line 28, in create_dataset
+    definition = normalized(definition)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/managed/schema.py", line 21, in normalized
+    raise ValueError('unsupported typed definition envelope')
+ValueError: unsupported typed definition envelope
+
+======================================================================
+ERROR: test_retained_schema_revision_and_failed_change_preserve_identity (test_schema_rules_database.SchemaRulesDatabaseTests.test_retained_schema_revision_and_failed_change_preserve_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/tests/test_schema_rules_database.py", line 61, in test_retained_schema_revision_and_failed_change_preserve_identity
+    d=self.dataset(definition());row=self.row2()
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/tests/test_managed_database.py", line 38, in dataset
+    return create_dataset(self.connection, managed_name='d_'+uuid.uuid4().hex,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/managed/database.py", line 28, in create_dataset
+    definition = normalized(definition)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/managed/schema.py", line 21, in normalized
+    raise ValueError('unsupported typed definition envelope')
+ValueError: unsupported typed definition envelope
+
+======================================================================
+ERROR: test_service_cannot_execute_raw_or_schema_functions (test_schema_rules_database.SchemaRulesDatabaseTests.test_service_cannot_execute_raw_or_schema_functions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/tests/test_schema_rules_database.py", line 75, in test_service_cannot_execute_raw_or_schema_functions
+    d=self.dataset(definition());writer="rules_"+uuid.uuid4().hex
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/tests/test_managed_database.py", line 38, in dataset
+    return create_dataset(self.connection, managed_name='d_'+uuid.uuid4().hex,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/managed/database.py", line 28, in create_dataset
+    definition = normalized(definition)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/managed/schema.py", line 21, in normalized
+    raise ValueError('unsupported typed definition envelope')
+ValueError: unsupported typed definition envelope
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.181s
+
+FAILED (errors=4)

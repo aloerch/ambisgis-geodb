@@ -1,0 +1,77 @@
+test_canonical_is_versioned_explicit_and_ordered (test_schema.SchemaTests.test_canonical_is_versioned_explicit_and_ordered) ... ok
+test_exact_large_identity_projection (test_schema.SchemaTests.test_exact_large_identity_projection) ... ok
+test_rejects_ambiguous_or_executable_definitions (test_schema.SchemaTests.test_rejects_ambiguous_or_executable_definitions) ... ok
+test_all_scalar_types_and_lossless_native_oid (test_managed_database.ManagedDatabaseTests.test_all_scalar_types_and_lossless_native_oid) ... ok
+test_concurrent_migrations_wait_and_apply_once (test_managed_database.ManagedDatabaseTests.test_concurrent_migrations_wait_and_apply_once) ... FAIL
+test_default_group_and_cross_dataset_constraints (test_managed_database.ManagedDatabaseTests.test_default_group_and_cross_dataset_constraints) ... FAIL
+test_exact_decimal_and_unicode_length_database_constraints (test_managed_database.ManagedDatabaseTests.test_exact_decimal_and_unicode_length_database_constraints) ... ok
+test_failed_initial_install_leaves_no_schema (test_managed_database.ManagedDatabaseTests.test_failed_initial_install_leaves_no_schema) ... ok
+test_geometry_null_empty_invalid_nonfinite (test_managed_database.ManagedDatabaseTests.test_geometry_null_empty_invalid_nonfinite) ... ok
+test_geometry_srid_type_dimensions_4326_2230 (test_managed_database.ManagedDatabaseTests.test_geometry_srid_type_dimensions_4326_2230) ... ok
+test_import_uuid_namespace_is_per_dataset_not_row_position (test_managed_database.ManagedDatabaseTests.test_import_uuid_namespace_is_per_dataset_not_row_position) ... ok
+test_invalid_batch_rolls_back_rows_registry_and_head (test_managed_database.ManagedDatabaseTests.test_invalid_batch_rolls_back_rows_registry_and_head) ... ok
+test_library_does_not_commit_callers_existing_transaction (test_managed_database.ManagedDatabaseTests.test_library_does_not_commit_callers_existing_transaction) ... ok
+test_migration_reapply_checksum_and_failure_atomicity (test_managed_database.ManagedDatabaseTests.test_migration_reapply_checksum_and_failure_atomicity) ... ERROR
+test_ordinary_roles_cannot_bypass_managed_writes (test_managed_database.ManagedDatabaseTests.test_ordinary_roles_cannot_bypass_managed_writes) ... ok
+test_owner_cannot_be_mistaken_for_safe_role_after_acl_revocation (test_managed_database.ManagedDatabaseTests.test_owner_cannot_be_mistaken_for_safe_role_after_acl_revocation) ... ok
+test_prototype_and_unmarked_schema_are_not_adopted (test_managed_database.ManagedDatabaseTests.test_prototype_and_unmarked_schema_are_not_adopted) ... ok
+test_real_export_and_physical_types (test_managed_database.ManagedDatabaseTests.test_real_export_and_physical_types) ... ok
+test_reorder_republish_delete_reinsert_preserves_identity (test_managed_database.ManagedDatabaseTests.test_reorder_republish_delete_reinsert_preserves_identity) ... ok
+test_request_shape_null_and_schema_creation_failure (test_managed_database.ManagedDatabaseTests.test_request_shape_null_and_schema_creation_failure) ... ok
+test_schema_hash_immutable_and_policy_is_only_a_reference (test_managed_database.ManagedDatabaseTests.test_schema_hash_immutable_and_policy_is_only_a_reference) ... ok
+test_server_capability_memberships_are_not_backend_roles (test_managed_database.ManagedDatabaseTests.test_server_capability_memberships_are_not_backend_roles) ... ok
+test_service_grant_rejects_direct_inherited_and_owner_bypass (test_managed_database.ManagedDatabaseTests.test_service_grant_rejects_direct_inherited_and_owner_bypass) ... ok
+test_stale_concurrent_allocation_and_retry (test_managed_database.ManagedDatabaseTests.test_stale_concurrent_allocation_and_retry) ... ok
+test_utf8_prerequisite_and_successful_forward_migration (test_managed_database.ManagedDatabaseTests.test_utf8_prerequisite_and_successful_forward_migration) ... ok
+
+======================================================================
+ERROR: test_migration_reapply_checksum_and_failure_atomicity (test_managed_database.ManagedDatabaseTests.test_migration_reapply_checksum_and_failure_atomicity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/tests/test_managed_database.py", line 86, in test_migration_reapply_checksum_and_failure_atomicity
+    with self.assertRaises(psycopg2.Error):migrate(self.connection,directory)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/managed/migrate.py", line 36, in migrate
+    if applied != [row[:3] for row in manifests[:len(applied)]]: raise ValueError('MIGRATION_IDENTITY_MISMATCH')
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: MIGRATION_IDENTITY_MISMATCH
+
+======================================================================
+FAIL: test_concurrent_migrations_wait_and_apply_once (test_managed_database.ManagedDatabaseTests.test_concurrent_migrations_wait_and_apply_once)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/tests/test_managed_database.py", line 143, in test_concurrent_migrations_wait_and_apply_once
+    c.execute('SELECT version FROM managed.migration_history');self.assertEqual(c.fetchall(),[(1,)])
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [(1,), (2,)] != [(1,)]
+
+First list contains 1 additional elements.
+First extra element 1:
+(2,)
+
+- [(1,), (2,)]
++ [(1,)]
+
+======================================================================
+FAIL: test_default_group_and_cross_dataset_constraints (test_managed_database.ManagedDatabaseTests.test_default_group_and_cross_dataset_constraints)
+----------------------------------------------------------------------
+psycopg2.errors.RaiseException: STALE_HEAD
+CONTEXT:  PL/pgSQL function apply_group(uuid,uuid,jsonb) line 15 at RAISE
+PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 5 at RETURN
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/tests/test_managed_database.py", line 263, in test_default_group_and_cross_dataset_constraints
+    with self.assertRaisesRegex(psycopg2.Error,'DATASET_VERSION_MISMATCH'):apply_rows(self.connection,changed,[row])
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "DATASET_VERSION_MISMATCH" does not match "STALE_HEAD
+CONTEXT:  PL/pgSQL function apply_group(uuid,uuid,jsonb) line 15 at RAISE
+PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 5 at RETURN
+"
+
+----------------------------------------------------------------------
+Ran 25 tests in 2.901s
+
+FAILED (failures=2, errors=1)

@@ -39,3 +39,48 @@ class SchemaTests(unittest.TestCase):
         self.assertEqual(object_id_int32(2147483647),2147483647)
         for value in [0,-1,2147483648,True,1.0,'1']:
             with self.assertRaises(ValueError): object_id_int32(value)
+
+
+class SchemaRulesTests(unittest.TestCase):
+    def definition(self):
+        return {'schema_version':2,'fields':[
+            {'name':'kind','type':'int32','nullable':False,'default':1},
+            {'name':'value','type':'decimal','nullable':False,'precision':38,'scale':2,
+             'default':'999999999999999999999999999999999999.99',
+             'domain':{'kind':'range','min':'0','max':'999999999999999999999999999999999999.99'}}],
+            'geometry':None,'subtypes':None,'relationships':[],'rules':[]}
+
+    def test_canonical_v2_preserves_exact_literals_and_changes_rule_hash(self):
+        value=self.definition();self.assertEqual(normalized(value),value)
+        self.assertEqual(canonical(value),canonical(dict(reversed(list(value.items())))))
+        modified=copy.deepcopy(value);modified['rules']=[{'name':'nonnegative','kind':'compare','field':'value','operator':'ge','operand':{'literal':'0'}}]
+        self.assertNotEqual(fingerprint(value),fingerprint(modified))
+
+    def test_typed_defaults_domains_and_nonexecutable_rules(self):
+        value=self.definition()
+        cases=[]
+        for v in (1,1.0,True,'NaN','Infinity','1e3','1.123',None):
+            d=copy.deepcopy(value);d['fields'][1]['default']=v;cases.append(d)
+        for dom in ({'kind':'sql','expression':'SELECT 1'},
+                    {'kind':'range','min':'9','max':'1'},
+                    {'kind':'coded','values':['1','1.0']},
+                    {'kind':'coded','values':[]}):
+            d=copy.deepcopy(value);d['fields'][1]['domain']=dom;cases.append(d)
+        for operand in ({'sql':'SELECT 1'},{'python':'print(1)'},{'field':'kind'},{'literal':1}):
+            d=copy.deepcopy(value);d['rules']=[{'name':'rule','kind':'compare','field':'value','operator':'eq','operand':operand}];cases.append(d)
+        for op in ('execute','like','regex',None,[]):
+            d=copy.deepcopy(value);d['rules']=[{'name':'rule','kind':'compare','field':'value','operator':op,'operand':{'literal':'1'}}];cases.append(d)
+        for d in cases:
+            with self.subTest(d=d),self.assertRaises(ValueError):normalized(d)
+
+    def test_domain_defaults_subtypes_and_relationship_envelopes_fail_closed(self):
+        value=self.definition()
+        value['subtypes']={'field':'kind','variants':[{'code':1,'defaults':{},'domains':{}}]}
+        self.assertEqual(normalized(value),value)
+        cases=[]
+        d=copy.deepcopy(value);d['subtypes']['variants'][0]['code']=2;cases.append(d)
+        d=copy.deepcopy(value);d['subtypes']['variants'][0]['defaults']={'kind':1};cases.append(d)
+        d=copy.deepcopy(value);d['subtypes']['field']=[];cases.append(d)
+        d=copy.deepcopy(value);d['relationships']=[{'name':'ref','field':'kind','target_dataset':'10000000-0000-4000-8000-000000000001','cardinality':'one-to-one','on_delete':'cascade'}];cases.append(d)
+        for d in cases:
+            with self.subTest(d=d),self.assertRaises(ValueError):normalized(d)

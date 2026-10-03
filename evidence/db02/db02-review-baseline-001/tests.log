@@ -1,0 +1,30 @@
+test_defaults_domains_subtypes_and_atomic_rejection (test_schema_rules_database.SchemaRulesDatabaseTests.test_defaults_domains_subtypes_and_atomic_rejection) ... ok
+test_relation_group_atomicity_restrict_cardinality_and_version_scope (test_schema_rules_database.SchemaRulesDatabaseTests.test_relation_group_atomicity_restrict_cardinality_and_version_scope) ... ok
+test_retained_schema_revision_and_failed_change_preserve_identity (test_schema_rules_database.SchemaRulesDatabaseTests.test_retained_schema_revision_and_failed_change_preserve_identity) ... ok
+test_service_cannot_execute_raw_or_schema_functions (test_schema_rules_database.SchemaRulesDatabaseTests.test_service_cannot_execute_raw_or_schema_functions) ... ok
+test_existing_v1_backup_restore_and_forward_migration_preserve_grants (test_schema_rules_database.SchemaRulesDatabaseTests.test_existing_v1_backup_restore_and_forward_migration_preserve_grants) ... ok
+test_relation_revision_rejects_existing_orphan_and_cross_group_target (test_schema_rules_database.SchemaRulesDatabaseTests.test_relation_revision_rejects_existing_orphan_and_cross_group_target) ... ok
+test_group_constraints_fail_inside_call_and_no_raw_execution (test_schema_rules_database.SchemaRulesDatabaseTests.test_group_constraints_fail_inside_call_and_no_raw_execution) ... ok
+test_group_and_schema_change_serialize_with_stale_head (test_schema_rules_database.SchemaRulesDatabaseTests.test_group_and_schema_change_serialize_with_stale_head) ... ok
+test_typed_rules_literals_unknown_operators_and_null_semantics (test_schema_rules_database.SchemaRulesDatabaseTests.test_typed_rules_literals_unknown_operators_and_null_semantics) ... ok
+test_exact_decimal_date_and_literal_comparison_constraints (test_schema_rules_database.SchemaRulesDatabaseTests.test_exact_decimal_date_and_literal_comparison_constraints) ... ok
+test_constraint_checks_do_not_flush_unrelated_group_work (test_schema_rules_database.SchemaRulesDatabaseTests.test_constraint_checks_do_not_flush_unrelated_group_work) ... ERROR
+test_unrelated_schema_ddl_does_not_block_group_edit (test_schema_rules_database.SchemaRulesDatabaseTests.test_unrelated_schema_ddl_does_not_block_group_edit) ... ok
+
+======================================================================
+ERROR: test_constraint_checks_do_not_flush_unrelated_group_work (test_schema_rules_database.SchemaRulesDatabaseTests.test_constraint_checks_do_not_flush_unrelated_group_work)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/tests/test_schema_rules_database.py", line 231, in test_constraint_checks_do_not_flush_unrelated_group_work
+    cursor.execute('SELECT managed.apply_rows(%s,%s,%s,%s::jsonb,false)',
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "db02_b61ef96bee904bd785e407e732ac0be3_7"
+DETAIL:  Key (version_id, parent)=(92af470f-e05d-4e6b-a8e1-138f92647f32, 479156fc-115f-42c0-8d7a-d22fe21d8305) already exists.
+CONTEXT:  SQL statement "SET CONSTRAINTS managed.db02_b61ef96bee904bd785e407e732ac0be3_7 IMMEDIATE"
+PL/pgSQL function apply_group(uuid,uuid,jsonb) line 70 at EXECUTE
+PL/pgSQL function apply_rows(uuid,uuid,uuid,jsonb,boolean) line 9 at RETURN
+
+
+----------------------------------------------------------------------
+Ran 12 tests in 1.970s
+
+FAILED (errors=1)

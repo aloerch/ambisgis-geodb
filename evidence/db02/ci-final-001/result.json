@@ -1,0 +1,40 @@
+{
+  "head": "5c3cf1e3f1d152bc5a0bffecc9eda6726449586e",
+  "python": "3.12.14 (main, Sep 07 2026, 17:37:11) [GCC]",
+  "results": [
+    {
+      "command": [
+        "/home/revelberry/Projects/AmbisGIS/build-worktrees/geonode-role-propagation/run-003/venv/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_reference.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/.runs/ci-final-001/0.log",
+      "sha256": "b4388293928a2a591deec2672882d03ba04aaedf7cfbfeea516a7eac224a44d8"
+    },
+    {
+      "command": [
+        "/home/revelberry/Projects/AmbisGIS/build-worktrees/geonode-role-propagation/run-003/venv/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_schema.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "/home/revelberry/Projects/AmbisGIS_Codex_Plan/db02-worktree/.runs/ci-final-001/1.log",
+      "sha256": "007b89f0162badcc476381c6a84aa15992139602400e735d23fa076d205f1718"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "actual_results": {
+    "db01-review-final-001": {
+      "baseline": false,
+      "database_stopped": true,
+      "errors": 0,
+      "failures": 0,
+      "inputs_sha256": "7ea9647bb8ec1dde726d40197f2d8d883e794cc760c0968adddc671ea3a39d63",
+      "passed": true,
+      "seconds": 6.183253394003259,
+      "skipped": 0,
+      "source_unchanged": true,
+      "task": "DB-01",
+      "test_log_sha256": "d3961240a661248e386cf1859127fd2b2db80988312251a12b81c3f880c138da",
+      "tests": 28
+    },
+    "db02-review-baseline-001": {
+      "baseline": false,
+      "database_stopped": true,
+      "errors": 1,
+      "failures": 0,
+      "inputs_sha256": "cd31ae9ecfb94778a4fc18e51c78a2868ac5b30cddd40241f984fb6f80c5bcb3",
+      "passed": false,
+      "seconds": 7.088860489995568,
+      "skipped": 0,
+      "source_unchanged": true,
+      "task": "DB-02",
+      "test_log_sha256": "f1b2e62e3065bdf1f3ea21200c7b5d13e3b88be78eccd76784ae7a6ba5a7d016",
+      "tests": 12
+    },
+    "db02-review-final-001": {
+      "baseline": false,
+      "database_stopped": true,
+      "errors": 0,
+      "failures": 0,
+      "inputs_sha256": "9137dc73a9c74850d6644efb9c89ab0a589d390b10888953d2c8bbe6bef03eb8",
+      "passed": true,
+      "seconds": 5.132575976997032,
+      "skipped": 0,
+      "source_unchanged": true,
+      "task": "DB-02",
+      "test_log_sha256": "c7340ad412f18357fccb98e3fe548e2ff7817289e383089b6da04a303b6b9a96",
+      "tests": 12
+    }
+  },
+  "base": "ef9ef7364a7babc2ebcb4841c2c670633af59d59",
+  "independent_review": "Integrator final review pending; parent supplied finding.",
+  "previous_implementation": "5c3cf1e3f1d152bc5a0bffecc9eda6726449586e",
+  "prior_receipt_sha256": "f1be3f74ae61f7c58274b3f79c7a4879adb5a2914233b8c7772050cffe159104",
+  "regressions": [
+    "Group A cannot flush group B pending deferred one-to-one violation.",
+    "Group A completes while another connection holds group B metadata lock and uncommitted constraint-drop DDL."
+  ],
+  "remote_mutations": [],
+  "repair": "Both loops select only registered physical tables in the locked group and match the exact literal per-dataset prefix.",
+  "repaired_tested_head": "3d2448b972df99da921d18dd8d0802d46d952495",
+  "repository": "aloerch/ambisgis-geodb",
+  "reused_unchanged_tests": "Prototype 25 cases and pure reference12/schema6 receipts at previous implementation; respective source files identical under both tested manifests.",
+  "reviewed_issue": "SET CONSTRAINTS scanned all groups, changing unrelated transaction timing and racing unlocked unrelated DDL.",
+  "schema_version": 1,
+  "task": "DB-02",
+  "tested_sources": {
+    "managed/__init__.py": "5be4a4e358240fef5c0a2d7d82e725a603a7d18ae7f4e3466d1df2feeb773a6b",
+    "managed/database.py": "1e0883dadef7f15246340dc51a002ea6aff7e0134df9c0d915b53c483d2f381a",
+    "managed/migrate.py": "b1540e8f94dc739ec2f028df90acec48a1cf08301830b40cb97dbec9504b53bf",
+    "managed/rules.py": "b0fb720a30c5e8f9989a32517b4bdf94e58c5e3eb72ea726a8660a97801499db",
+    "managed/schema.py": "31826a34a941cee918a92d7d31061678579718ea0b33dcd80b8adb23ba42217f",
+    "migrations/001_managed.sql": "b462f947fcc5914f8e2c50dbab0e8505fc3868e5b973017789020cd8de5a33dd",
+    "migrations/002_schema_rules.sql": "e90974f1bebe95cbc3dc0eb847a2cd204248f79d59a04214ca1643b7d4a57be5",
+    "prototype/__init__.py": "88369c224b481071a5e01e0d1392d646787f74ba4d641a18a7729c5f40f23082",
+    "prototype/database.py": "4b12e46c98a610297bd2bffa240955c43b0c91e8c024337a91a6bcfa73c17451",
+    "prototype/reference.py": "ac4882ce9d8c15d5c1435dd8e835a85a297df7ad03df246d22d28cb92440f76d",
+    "tests/test_database.py": "8485f0bdf6dcb9b6794d4fbf20aa5624bd169f641d72098ecb5c7f6b9065b86f",
+    "tests/test_managed_database.py": "dc45fc8692326d26dc5e8cf5053259436ef7071d43ad3ea3d911da6ef83f04e1",
+    "tests/test_reference.py": "aadf48581e0f370015385e98875d456bd9c81e3fd46d72df63414022ca1c4c4e",
+    "tests/test_schema.py": "9a1de7140a8838eda37c456a494fdb970c00fa9493d056c8ebb079267c454434",
+    "tests/test_schema_rules_database.py": "4dfbbffd91fc103deb9c66dbab26a9b2872cd77cb0c0c8bb035b1ea4d6c90a6f",
+    "tools/benchmark.py": "c0bde168bb5dc7020e2ec199a68676f96411a0b061cb2cb4761857314ab77f84",
+    "tools/run_acceptance.py": "3fda170c7be825b80653b97cdb76406dbdf8b57cefeb1712f876ea9d482d246f",
+    "tools/run_managed_acceptance.py": "33c2f6e151eefdd2db9f3a62ca8eb34b2906495a5940bbe88638400f3bfb4685",
+    "tools/summarize_managed.py": "8f4ebb5a7aa00a1ec7c57683cebf87130a82a7797a6546534abf068778b14b99"
+  }
+}

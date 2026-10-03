@@ -1,0 +1,114 @@
+2026-10-03 11:24:46.858 PDT [451672] LOG:  starting PostgreSQL 15.19 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit
+2026-10-03 11:24:46.858 PDT [451672] LOG:  listening on Unix socket "/tmp/ambisgis-fnd04-socket-4m2tp8sq/.s.PGSQL.55484"
+2026-10-03 11:24:46.894 PDT [451683] LOG:  database system was shut down at 2026-10-03 11:24:46 PDT
+2026-10-03 11:24:46.932 PDT [451672] LOG:  database system is ready to accept connections
+2026-10-03 11:24:49.552 PDT [451837] ERROR:  UNRESOLVED_CONFLICT
+2026-10-03 11:24:49.552 PDT [451837] CONTEXT:  PL/pgSQL function lock_plan(uuid) line 16 at RAISE
+	PL/pgSQL function accept_reconcile(uuid) line 3 at assignment
+2026-10-03 11:24:49.552 PDT [451837] STATEMENT:  SELECT accept_reconcile('7c45ed02-5611-4a68-8276-2a060c85d5c3');
+2026-10-03 11:24:50.192 PDT [451891] ERROR:  STALE_RECONCILE
+2026-10-03 11:24:50.192 PDT [451891] CONTEXT:  PL/pgSQL function lock_plan(uuid) line 13 at RAISE
+	PL/pgSQL function accept_reconcile(uuid) line 3 at assignment
+2026-10-03 11:24:50.192 PDT [451891] STATEMENT:  SELECT accept_reconcile('bd0dc403-4c75-4ff6-b55b-fb189ead6a7c');
+2026-10-03 11:24:50.720 PDT [451924] ERROR:  STALE_RECONCILE
+2026-10-03 11:24:50.720 PDT [451924] CONTEXT:  PL/pgSQL function lock_plan(uuid) line 13 at RAISE
+	PL/pgSQL function post(uuid,bigint,bigint,uuid) line 11 at assignment
+2026-10-03 11:24:50.720 PDT [451924] STATEMENT:  SELECT post('4213b04c-aa8c-4c72-9b97-ace8db307e61',2,2,'b5893db2-43fe-4a58-8a1d-dbe67e2c429e');
+2026-10-03 11:24:51.393 PDT [451953] ERROR:  STALE_RECONCILE
+2026-10-03 11:24:51.393 PDT [451953] CONTEXT:  PL/pgSQL function lock_plan(uuid) line 13 at RAISE
+	PL/pgSQL function post(uuid,bigint,bigint,uuid) line 11 at assignment
+2026-10-03 11:24:51.393 PDT [451953] STATEMENT:  SELECT post('6bda42ad-d733-4c3c-8497-d255267735dd',1,2,'93096ed5-b242-4aa1-9262-502b294ab932');
+2026-10-03 11:24:52.821 PDT [452035] FATAL:  terminating connection due to administrator command
+2026-10-03 11:24:52.821 PDT [452035] STATEMENT:  SELECT pg_sleep(25);
+2026-10-03 11:24:55.589 PDT [452106] ERROR:  STALE_RECONCILE
+2026-10-03 11:24:55.589 PDT [452106] CONTEXT:  PL/pgSQL function lock_plan(uuid) line 13 at RAISE
+	PL/pgSQL function post(uuid,bigint,bigint,uuid) line 11 at assignment
+2026-10-03 11:24:55.589 PDT [452106] STATEMENT:  SELECT post('4865ab14-472c-49e5-9b43-e4088750269a',2,2,'eac4abf1-dcce-4a9d-be93-79b8e74236e5');
+2026-10-03 11:24:58.216 PDT [452224] ERROR:  duplicate key value violates unique constraint "snapshot_assets_snapshot_id_name_key"
+2026-10-03 11:24:58.216 PDT [452224] DETAIL:  Key (snapshot_id, name)=(32d27b26-4404-4c4f-957f-6855322bd598, collision) already exists.
+2026-10-03 11:24:58.216 PDT [452224] STATEMENT:  COMMIT;
+2026-10-03 11:24:58.839 PDT [452242] ERROR:  STALE_BRANCH_HEAD
+2026-10-03 11:24:58.839 PDT [452242] CONTEXT:  PL/pgSQL function edit(uuid,bigint,text,text,uuid,text,numeric,text) line 7 at RAISE
+2026-10-03 11:24:58.839 PDT [452242] STATEMENT:  SELECT edit('dec6479c-0d43-4fef-9914-8ca646c99a15',1,'assets','update','10000000-0000-0000-0000-000000000001','seed',4,'SRID=4326;POINT Z(1 2 3)');
+2026-10-03 11:24:58.841 PDT [452244] ERROR:  STALE_BRANCH_HEAD
+2026-10-03 11:24:58.841 PDT [452244] CONTEXT:  PL/pgSQL function edit(uuid,bigint,text,text,uuid,text,numeric,text) line 7 at RAISE
+2026-10-03 11:24:58.841 PDT [452244] STATEMENT:  SELECT edit('dec6479c-0d43-4fef-9914-8ca646c99a15',NULL,'assets','update','10000000-0000-0000-0000-000000000001','seed',4,'SRID=4326;POINT Z(1 2 3)');
+2026-10-03 11:24:58.846 PDT [452246] ERROR:  new row for relation "current_assets" violates check constraint "current_assets_value_check"
+2026-10-03 11:24:58.846 PDT [452246] DETAIL:  Failing row contains (dec6479c-0d43-4fef-9914-8ca646c99a15, 10000000-0000-0000-0000-000000000001, seed, -1.000, 01010000A0E6100000000000000000F03F000000000000004000000000000008...).
+2026-10-03 11:24:58.846 PDT [452246] CONTEXT:  SQL statement "UPDATE current_assets SET name=$3,value=$4,geom=ST_GeomFromEWKT($5) WHERE version_id=$1 AND feature_id=$2"
+	PL/pgSQL function edit(uuid,bigint,text,text,uuid,text,numeric,text) line 11 at EXECUTE
+2026-10-03 11:24:58.846 PDT [452246] STATEMENT:  SELECT edit('dec6479c-0d43-4fef-9914-8ca646c99a15',0,'assets','update','10000000-0000-0000-0000-000000000001','seed',-1,'SRID=4326;POINT Z(1 2 3)');
+2026-10-03 11:24:58.850 PDT [452248] ERROR:  Geometry SRID (3857) does not match column SRID (4326)
+2026-10-03 11:24:58.850 PDT [452248] CONTEXT:  SQL statement "UPDATE current_assets SET name=$3,value=$4,geom=ST_GeomFromEWKT($5) WHERE version_id=$1 AND feature_id=$2"
+	PL/pgSQL function edit(uuid,bigint,text,text,uuid,text,numeric,text) line 11 at EXECUTE
+2026-10-03 11:24:58.850 PDT [452248] STATEMENT:  SELECT edit('dec6479c-0d43-4fef-9914-8ca646c99a15',0,'assets','update','10000000-0000-0000-0000-000000000001','seed',1,'SRID=3857;POINT Z(1 2 3)');
+2026-10-03 11:24:58.854 PDT [452250] ERROR:  Column has Z dimension but geometry does not
+2026-10-03 11:24:58.854 PDT [452250] CONTEXT:  SQL statement "UPDATE current_assets SET name=$3,value=$4,geom=ST_GeomFromEWKT($5) WHERE version_id=$1 AND feature_id=$2"
+	PL/pgSQL function edit(uuid,bigint,text,text,uuid,text,numeric,text) line 11 at EXECUTE
+2026-10-03 11:24:58.854 PDT [452250] STATEMENT:  SELECT edit('dec6479c-0d43-4fef-9914-8ca646c99a15',0,'assets','update','10000000-0000-0000-0000-000000000001','seed',1,'SRID=4326;POINT(1 2)');
+2026-10-03 11:24:59.450 PDT [452267] ERROR:  permission denied for schema geodb at character 8
+2026-10-03 11:24:59.450 PDT [452267] STATEMENT:  UPDATE geodb.current_assets SET value=999;
+2026-10-03 11:24:59.452 PDT [452269] ERROR:  permission denied for schema geodb at character 8
+2026-10-03 11:24:59.452 PDT [452269] STATEMENT:  SELECT geodb.create_branch('bypass');
+2026-10-03 11:25:00.061 PDT [452285] ERROR:  IMMUTABLE_SNAPSHOT
+2026-10-03 11:25:00.061 PDT [452285] CONTEXT:  PL/pgSQL function guard_snapshot() line 5 at RAISE
+2026-10-03 11:25:00.061 PDT [452285] STATEMENT:  UPDATE snapshot_assets SET value=9 WHERE snapshot_id=(SELECT base FROM versions WHERE id='9dab3a2a-be33-404c-bec2-48e320f4d631');
+2026-10-03 11:25:00.063 PDT [452287] ERROR:  REPEATABLE_READ_REQUIRED
+2026-10-03 11:25:00.063 PDT [452287] CONTEXT:  PL/pgSQL function require_repeatable_read() line 4 at RAISE
+	SQL statement "SELECT require_repeatable_read()"
+	PL/pgSQL function create_branch(text) line 3 at PERFORM
+2026-10-03 11:25:00.063 PDT [452287] STATEMENT:  SELECT create_branch('unsafe');
+2026-10-03 11:25:00.710 PDT [452308] ERROR:  STALE_RECONCILE
+2026-10-03 11:25:00.710 PDT [452308] CONTEXT:  PL/pgSQL function lock_plan(uuid) line 13 at RAISE
+	PL/pgSQL function accept_reconcile(uuid) line 3 at assignment
+2026-10-03 11:25:00.710 PDT [452308] STATEMENT:  SELECT accept_reconcile('f23a2ff3-0126-4ae5-9003-7624db749323');
+2026-10-03 11:25:01.377 PDT [452333] ERROR:  IDEMPOTENCY_CONFLICT
+2026-10-03 11:25:01.377 PDT [452333] CONTEXT:  PL/pgSQL function post(uuid,bigint,bigint,uuid) line 8 at RAISE
+2026-10-03 11:25:01.377 PDT [452333] STATEMENT:  SELECT post('c25ad1c0-9a93-42a4-859f-4062ca2b2b49',999,999,'f39e798a-e154-44b3-b65f-0d36d664d65a');
+2026-10-03 11:25:09.212 PDT [453433] ERROR:  INVALID_OPERATION
+2026-10-03 11:25:09.212 PDT [453433] CONTEXT:  PL/pgSQL function edit(uuid,bigint,text,text,uuid,text,numeric,text) line 4 at RAISE
+2026-10-03 11:25:09.212 PDT [453433] STATEMENT:  SELECT edit('740fdcfc-2117-49a9-a69b-43c7f91ff81f',0,'assets',NULL,'c532d415-a6ce-4958-99a8-6dfed9aee6f3','new',2,'SRID=4326;POINT Z(1 2 3)');
+2026-10-03 11:25:09.220 PDT [453439] ERROR:  INVALID_OPERATION
+2026-10-03 11:25:09.220 PDT [453439] CONTEXT:  PL/pgSQL function edit(uuid,bigint,text,text,uuid,text,numeric,text) line 4 at RAISE
+2026-10-03 11:25:09.220 PDT [453439] STATEMENT:  SELECT edit('740fdcfc-2117-49a9-a69b-43c7f91ff81f',0,NULL,'insert','d3305c99-e35c-4b7e-ae15-009a0678aeb8','new',2,'SRID=4326;POINT Z(1 2 3)');
+2026-10-03 11:25:09.231 PDT [453445] ERROR:  INVALID_OPERATION
+2026-10-03 11:25:09.231 PDT [453445] CONTEXT:  PL/pgSQL function edit(uuid,bigint,text,text,uuid,text,numeric,text) line 4 at RAISE
+2026-10-03 11:25:09.231 PDT [453445] STATEMENT:  SELECT edit('740fdcfc-2117-49a9-a69b-43c7f91ff81f',0,'bad','insert','f756939b-9d36-4557-9d4f-220d9e5cbe1b','new',2,'SRID=4326;POINT Z(1 2 3)');
+2026-10-03 11:25:09.239 PDT [453451] ERROR:  INVALID_OPERATION
+2026-10-03 11:25:09.239 PDT [453451] CONTEXT:  PL/pgSQL function edit(uuid,bigint,text,text,uuid,text,numeric,text) line 4 at RAISE
+2026-10-03 11:25:09.239 PDT [453451] STATEMENT:  SELECT edit('740fdcfc-2117-49a9-a69b-43c7f91ff81f',0,'assets','bad','0cec2a8b-085e-477d-ad08-9f98e53d7282','new',2,'SRID=4326;POINT Z(1 2 3)');
+2026-10-03 11:25:09.643 PDT [453481] ERROR:  INVALID_RESOLUTION
+2026-10-03 11:25:09.643 PDT [453481] CONTEXT:  PL/pgSQL function resolve_conflict(uuid,text,uuid,text) line 3 at RAISE
+2026-10-03 11:25:09.643 PDT [453481] STATEMENT:  SELECT resolve_conflict('9c8c608f-21d4-4b87-8e1b-cc78559d0d99','assets','10000000-0000-0000-0000-000000000001',NULL);
+2026-10-03 11:25:09.650 PDT [453487] ERROR:  UNRESOLVED_CONFLICT
+2026-10-03 11:25:09.650 PDT [453487] CONTEXT:  PL/pgSQL function lock_plan(uuid) line 16 at RAISE
+	PL/pgSQL function accept_reconcile(uuid) line 3 at assignment
+2026-10-03 11:25:09.650 PDT [453487] STATEMENT:  SELECT accept_reconcile('9c8c608f-21d4-4b87-8e1b-cc78559d0d99');
+2026-10-03 11:25:09.652 PDT [453489] ERROR:  INVALID_RESOLUTION
+2026-10-03 11:25:09.652 PDT [453489] CONTEXT:  PL/pgSQL function resolve_conflict(uuid,text,uuid,text) line 3 at RAISE
+2026-10-03 11:25:09.652 PDT [453489] STATEMENT:  SELECT resolve_conflict('9c8c608f-21d4-4b87-8e1b-cc78559d0d99',NULL,'10000000-0000-0000-0000-000000000001','ours');
+2026-10-03 11:25:09.659 PDT [453495] ERROR:  UNRESOLVED_CONFLICT
+2026-10-03 11:25:09.659 PDT [453495] CONTEXT:  PL/pgSQL function lock_plan(uuid) line 16 at RAISE
+	PL/pgSQL function accept_reconcile(uuid) line 3 at assignment
+2026-10-03 11:25:09.659 PDT [453495] STATEMENT:  SELECT accept_reconcile('9c8c608f-21d4-4b87-8e1b-cc78559d0d99');
+2026-10-03 11:25:09.661 PDT [453497] ERROR:  INVALID_RESOLUTION
+2026-10-03 11:25:09.661 PDT [453497] CONTEXT:  PL/pgSQL function resolve_conflict(uuid,text,uuid,text) line 3 at RAISE
+2026-10-03 11:25:09.661 PDT [453497] STATEMENT:  SELECT resolve_conflict('9c8c608f-21d4-4b87-8e1b-cc78559d0d99','bad','10000000-0000-0000-0000-000000000001','ours');
+2026-10-03 11:25:09.668 PDT [453503] ERROR:  UNRESOLVED_CONFLICT
+2026-10-03 11:25:09.668 PDT [453503] CONTEXT:  PL/pgSQL function lock_plan(uuid) line 16 at RAISE
+	PL/pgSQL function accept_reconcile(uuid) line 3 at assignment
+2026-10-03 11:25:09.668 PDT [453503] STATEMENT:  SELECT accept_reconcile('9c8c608f-21d4-4b87-8e1b-cc78559d0d99');
+2026-10-03 11:25:09.670 PDT [453505] ERROR:  INVALID_RESOLUTION
+2026-10-03 11:25:09.670 PDT [453505] CONTEXT:  PL/pgSQL function resolve_conflict(uuid,text,uuid,text) line 3 at RAISE
+2026-10-03 11:25:09.670 PDT [453505] STATEMENT:  SELECT resolve_conflict('9c8c608f-21d4-4b87-8e1b-cc78559d0d99','assets','10000000-0000-0000-0000-000000000001','bad');
+2026-10-03 11:25:09.676 PDT [453511] ERROR:  UNRESOLVED_CONFLICT
+2026-10-03 11:25:09.676 PDT [453511] CONTEXT:  PL/pgSQL function lock_plan(uuid) line 16 at RAISE
+	PL/pgSQL function accept_reconcile(uuid) line 3 at assignment
+2026-10-03 11:25:09.676 PDT [453511] STATEMENT:  SELECT accept_reconcile('9c8c608f-21d4-4b87-8e1b-cc78559d0d99');
+2026-10-03 11:25:09.685 PDT [451672] LOG:  received fast shutdown request
+2026-10-03 11:25:09.690 PDT [451672] LOG:  aborting any active transactions
+2026-10-03 11:25:09.691 PDT [451672] LOG:  background worker "logical replication launcher" (PID 451686) exited with exit code 1
+2026-10-03 11:25:09.691 PDT [451681] LOG:  shutting down
+2026-10-03 11:25:09.696 PDT [451681] LOG:  checkpoint starting: shutdown immediate
+2026-10-03 11:25:11.209 PDT [451681] LOG:  checkpoint complete: wrote 2484 buffers (15.2%); 0 WAL file(s) added, 0 removed, 1 recycled; write=0.031 s, sync=1.415 s, total=1.519 s; sync files=1562, longest=0.007 s, average=0.001 s; distance=24200 kB, estimate=24200 kB
+2026-10-03 11:25:11.213 PDT [451672] LOG:  database system is shut down

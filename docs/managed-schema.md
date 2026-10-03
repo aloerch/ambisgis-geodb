@@ -1,5 +1,9 @@
 # Managed dataset foundation v1
 
+DB-02 extends this foundation in [schema-rules.md](schema-rules.md). Statements
+below describe the retained v1 foundation; the successor documents new managed
+domains, subtypes, relationships and validation behavior.
+
 DB-01 adds an authoritative schema library and transactional migrations for
 managed datasets. Its native contract is owned here. The platform's accepted
 FND06 query profile remains a separate, bounded consumer experiment. No service

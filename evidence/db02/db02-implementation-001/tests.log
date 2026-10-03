@@ -1,0 +1,9 @@
+test_defaults_domains_subtypes_and_atomic_rejection (test_schema_rules_database.SchemaRulesDatabaseTests.test_defaults_domains_subtypes_and_atomic_rejection) ... ok
+test_relation_group_atomicity_restrict_cardinality_and_version_scope (test_schema_rules_database.SchemaRulesDatabaseTests.test_relation_group_atomicity_restrict_cardinality_and_version_scope) ... ok
+test_retained_schema_revision_and_failed_change_preserve_identity (test_schema_rules_database.SchemaRulesDatabaseTests.test_retained_schema_revision_and_failed_change_preserve_identity) ... ok
+test_service_cannot_execute_raw_or_schema_functions (test_schema_rules_database.SchemaRulesDatabaseTests.test_service_cannot_execute_raw_or_schema_functions) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.381s
+
+OK
