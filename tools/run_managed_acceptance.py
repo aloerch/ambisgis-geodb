@@ -68,8 +68,9 @@ def sources():
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--prefix',type=Path,required=True)
     parser.add_argument('--runtime-evidence',type=Path,required=True);parser.add_argument('--evidence',type=Path,required=True)
-    parser.add_argument('--baseline',action='store_true');parser.add_argument('--schema-rules',action='store_true',help='run DB-02 schema/rule acceptance against installed migrations');args=parser.parse_args()
-    task='DB-02' if args.schema_rules else 'DB-01'
+    parser.add_argument('--baseline',action='store_true');parser.add_argument('--schema-rules',action='store_true',help='run DB-02 schema/rule acceptance against installed migrations');parser.add_argument('--branches',action='store_true',help='run DB-03 typed snapshot and branch lifecycle acceptance');args=parser.parse_args()
+    if args.branches and args.schema_rules:parser.error('choose branches or schema-rules')
+    task='DB-03' if args.branches else ('DB-02' if args.schema_rules else 'DB-01')
     args.prefix=args.prefix.resolve();args.evidence=args.evidence.resolve();args.evidence.mkdir(parents=True,exist_ok=False,mode=0o700)
     before=sources();runtime=verify_runtime(args.prefix,args.runtime_evidence.resolve())
     for relative,digest in before.items():
@@ -81,7 +82,7 @@ def main():
                 'sources':before,'runtime':runtime,'python':sys.executable,'argv':sys.argv,'baseline':args.baseline}
     (args.evidence/'inputs.json').write_text(json.dumps(provenance,indent=2,sort_keys=True)+'\n')
     loader=unittest.TestLoader();suite=unittest.TestSuite()
-    for pattern in (('test_schema_rules_database.py',) if args.schema_rules else ('test_schema.py','test_managed_database.py')):suite.addTests(loader.discover(str(ROOT/'tests'),pattern=pattern))
+    for pattern in (('test_branch_snapshot_database.py',) if args.branches else (('test_schema_rules_database.py',) if args.schema_rules else ('test_schema.py','test_managed_database.py'))):suite.addTests(loader.discover(str(ROOT/'tests'),pattern=pattern))
     module=sys.modules['test_managed_database'];module.BASELINE=args.baseline
     start=time.monotonic();cluster=ManagedCluster(args.prefix,args.evidence,task=task)
     with cluster:
