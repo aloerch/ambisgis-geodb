@@ -82,10 +82,11 @@ class ManagedDatabaseTests(unittest.TestCase):
             (directory/'001_managed.sql').write_text((MIGRATIONS/'001_managed.sql').read_text()+'\n-- modified\n')
             with self.assertRaisesRegex(ValueError,'IDENTITY_MISMATCH'):migrate(self.connection,directory)
             (directory/'001_managed.sql').write_bytes((MIGRATIONS/'001_managed.sql').read_bytes())
-            (directory/'002_failure.sql').write_text('CREATE TABLE managed.partial_migration(x int); SELECT 1/0;')
+            for source in MIGRATIONS.glob('*.sql'):(directory/source.name).write_bytes(source.read_bytes())
+            (directory/'003_failure.sql').write_text('CREATE TABLE managed.partial_migration(x int); SELECT 1/0;')
             with self.assertRaises(psycopg2.Error):migrate(self.connection,directory)
         self.assertEqual(self.query("SELECT to_regclass('managed.partial_migration')"),[(None,)])
-        self.assertEqual(self.query('SELECT version FROM managed.migration_history'),[(1,)])
+        self.assertEqual(self.query('SELECT version FROM managed.migration_history'),[(1,),(2,)])
 
     def test_failed_initial_install_leaves_no_schema(self):
         with self.empty_database() as conn, tempfile.TemporaryDirectory() as td:
@@ -140,7 +141,7 @@ class ManagedDatabaseTests(unittest.TestCase):
                 self.assertEqual(count,2);self.assertFalse(any(t.done() for t in tasks))
                 conn.commit();self.assertEqual(tasks[0].result(10),tasks[1].result(10))
             with conn,conn.cursor() as c:
-                c.execute('SELECT version FROM managed.migration_history');self.assertEqual(c.fetchall(),[(1,)])
+                c.execute('SELECT version FROM managed.migration_history');self.assertEqual(c.fetchall(),[(1,),(2,)])
 
     def test_reorder_republish_delete_reinsert_preserves_identity(self):
         d=self.dataset();rows=[self.row(values={'name':str(i),'amount':'0.000'}) for i in range(40)]

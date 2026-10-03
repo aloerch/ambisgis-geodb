@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: GPL-3.0-or-later
-"""Owned disposable DB-01 tests; no package fetching or existing database DSN."""
+"""Owned disposable managed-schema tests; no package fetching or existing database DSN."""
 import argparse
 import hashlib
 import json
@@ -18,10 +18,11 @@ from prototype.database import Cluster,sha256
 
 
 class ManagedCluster(Cluster):
-    def __init__(self,*args,**kwargs):
+    def __init__(self,*args,task='DB-01',**kwargs):
+        self.task=task
         super().__init__(*args,**kwargs)
         marker=self.root/'JOB_OWNERSHIP.json'
-        record=json.loads(marker.read_text());record.update(task='DB-01',fixture_producer='prototype.database.Cluster')
+        record=json.loads(marker.read_text());record.update(task=self.task,fixture_producer='prototype.database.Cluster')
         marker.write_text(json.dumps(record,indent=2)+'\n')
 
     def __enter__(self):
@@ -30,7 +31,7 @@ class ManagedCluster(Cluster):
             legacy=self.evidence/'runtime.json';legacy.rename(self.evidence/'fixture-runtime.json')
             record=json.loads((self.evidence/'fixture-runtime.json').read_text())
             record['fixture_prototype_reference_sha256']=record.pop('schema_sha256')
-            record.update(task='DB-01',database_encoding=self.sql('SHOW server_encoding;'),
+            record.update(task=self.task,database_encoding=self.sql('SHOW server_encoding;'),
                 fixture_runtime_sha256=sha256(self.evidence/'fixture-runtime.json'),
                 managed_migrations={p.name:sha256(p) for p in sorted((ROOT/'migrations').glob('*.sql'))},
                 schema_scope='Managed migrations under test; inherited prototype SQL hash is a fixture source reference only, not executed managed DDL.')
@@ -67,31 +68,32 @@ def sources():
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--prefix',type=Path,required=True)
     parser.add_argument('--runtime-evidence',type=Path,required=True);parser.add_argument('--evidence',type=Path,required=True)
-    parser.add_argument('--baseline',action='store_true');args=parser.parse_args()
+    parser.add_argument('--baseline',action='store_true');parser.add_argument('--schema-rules',action='store_true',help='run DB-02 schema/rule acceptance against installed migrations');args=parser.parse_args()
+    task='DB-02' if args.schema_rules else 'DB-01'
     args.prefix=args.prefix.resolve();args.evidence=args.evidence.resolve();args.evidence.mkdir(parents=True,exist_ok=False,mode=0o700)
     before=sources();runtime=verify_runtime(args.prefix,args.runtime_evidence.resolve())
     for relative,digest in before.items():
         target=args.evidence/'source-snapshot'/relative;target.parent.mkdir(parents=True,exist_ok=True)
         shutil.copyfile(ROOT/relative,target)
         if sha256(target)!=digest:raise ValueError('source changed during snapshot')
-    provenance={'task':'DB-01','head':subprocess.check_output(['git','-C',str(ROOT),'rev-parse','HEAD'],text=True).strip(),
+    provenance={'task':task,'head':subprocess.check_output(['git','-C',str(ROOT),'rev-parse','HEAD'],text=True).strip(),
                 'working_diff':subprocess.check_output(['git','-C',str(ROOT),'status','--porcelain'],text=True),
                 'sources':before,'runtime':runtime,'python':sys.executable,'argv':sys.argv,'baseline':args.baseline}
     (args.evidence/'inputs.json').write_text(json.dumps(provenance,indent=2,sort_keys=True)+'\n')
     loader=unittest.TestLoader();suite=unittest.TestSuite()
-    for pattern in ('test_schema.py','test_managed_database.py'):suite.addTests(loader.discover(str(ROOT/'tests'),pattern=pattern))
+    for pattern in (('test_schema_rules_database.py',) if args.schema_rules else ('test_schema.py','test_managed_database.py')):suite.addTests(loader.discover(str(ROOT/'tests'),pattern=pattern))
     module=sys.modules['test_managed_database'];module.BASELINE=args.baseline
-    start=time.monotonic();cluster=ManagedCluster(args.prefix,args.evidence)
+    start=time.monotonic();cluster=ManagedCluster(args.prefix,args.evidence,task=task)
     with cluster:
         # Reuse the accepted no-TCP, private-socket fixture unchanged. This
-        # receipt identifies this new DB-01 invocation, not old FND04 evidence.
-        (args.evidence/'job.json').write_text(json.dumps({'task':'DB-01','synthetic_only':True,'pid':os.getpid(),'cluster':str(cluster.root),'socket':str(cluster.socket)},indent=2)+'\n')
+        # receipt identifies this new managed-test invocation, not old FND04 evidence.
+        (args.evidence/'job.json').write_text(json.dumps({'task':task,'synthetic_only':True,'pid':os.getpid(),'cluster':str(cluster.root),'socket':str(cluster.socket)},indent=2)+'\n')
         module.CLUSTER=cluster
         with (args.evidence/'tests.log').open('x') as log:
             result=unittest.TextTestRunner(verbosity=2,stream=log).run(suite)
     after=sources();unchanged=before==after
     stopped=not (cluster.data/'postmaster.pid').exists()
-    report={'task':'DB-01','baseline':args.baseline,'tests':result.testsRun,'failures':len(result.failures),'errors':len(result.errors),
+    report={'task':task,'baseline':args.baseline,'tests':result.testsRun,'failures':len(result.failures),'errors':len(result.errors),
             'skipped':len(result.skipped),'seconds':time.monotonic()-start,'source_unchanged':unchanged,'database_stopped':stopped,
             'passed':result.wasSuccessful() and unchanged and stopped,'inputs_sha256':sha256(args.evidence/'inputs.json'),
             'test_log_sha256':sha256(args.evidence/'tests.log')}

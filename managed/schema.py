@@ -17,6 +17,9 @@ def identifier(value):
 
 
 def normalized(value):
+    if isinstance(value, dict) and value.get("schema_version")==2:
+        from .rules import normalized_v2
+        return normalized_v2(value)
     if not isinstance(value, dict) or set(value) != {'schema_version', 'fields', 'geometry'} or type(value['schema_version']) is not int or value['schema_version'] != 1:
         raise ValueError('unsupported typed definition envelope')
     fields = value['fields']

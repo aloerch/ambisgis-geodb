@@ -1,6 +1,8 @@
 # ambisgis-geodb
 
-Owned AmbisGIS geodatabase source. DB-01 adds the [managed dataset/schema and
+Owned AmbisGIS geodatabase source. DB-02 adds [versioned domains, subtypes,
+relationships and deterministic validation rules](docs/schema-rules.md), with
+atomic same-group writes and retained schema revisions. DB-01 adds the [managed dataset/schema and
 identity foundation](docs/managed-schema.md), with real typed per-dataset
 PostgreSQL/PostGIS tables, immutable schema revisions, stable UUID/ObjectID
 mappings and DEFAULT version identity. Its migrations are separate from the

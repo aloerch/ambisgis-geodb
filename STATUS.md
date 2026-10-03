@@ -1,3 +1,12 @@
+# DB-02 implementation candidate
+
+Issue #3, branch `db-02/schema-validation`, base
+`ef9ef7364a7babc2ebcb4841c2c670633af59d59` (accepted DB-01 PR #11).
+[Schema rules and migration contract](docs/schema-rules.md) documents the bounded
+implementation. Local real acceptance and regression work are in progress;
+independent review, exact-head integration and remote PR are pending. This is
+not a product release or complete branch-editing acceptance.
+
 # Current geodatabase work: DB-01
 
 Repository `aloerch/ambisgis-geodb` / ID `1376927417`.

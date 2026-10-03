@@ -51,7 +51,7 @@ def create_dataset(connection, *, managed_name, catalog_item_id, policy_ref, def
                            (dataset_id,managed_name,identity(catalog_item_id),identity(policy_ref),group_id,schema_id))
             text = canonical(definition)
             cursor.execute('INSERT INTO managed.schema_revision VALUES(%s,%s,%s,%s,%s::jsonb,%s)',
-                           (schema_id,dataset_id,'ambisgis-typed-schema-json-v1',text,text,fingerprint(definition)))
+                           (schema_id,dataset_id,encoding(definition),text,text,fingerprint(definition)))
             sequence = 'oid_' + uuid.UUID(dataset_id).hex
             cursor.execute(f'CREATE SEQUENCE managed."{sequence}" AS bigint MINVALUE 1 MAXVALUE 9223372036854775807 NO CYCLE')
             fixed = [f"dataset_id uuid NOT NULL CHECK(dataset_id='{dataset_id}'::uuid)",
@@ -62,6 +62,7 @@ def create_dataset(connection, *, managed_name, catalog_item_id, policy_ref, def
                      'FOREIGN KEY(version_group_id,version_id) REFERENCES managed.version(group_id,version_id)',
                      'FOREIGN KEY(dataset_id,fid,object_id) REFERENCES managed.feature_identity(dataset_id,fid,object_id)']
             cursor.execute(f'CREATE TABLE managed."{table(dataset_id)}" (' + ','.join(fixed + columns(definition)) + ')')
+            install_constraints(cursor,dataset_id,group_id,definition)
             if definition['geometry'] is not None:
                 cursor.execute(f'CREATE INDEX ON managed."{table(dataset_id)}" USING gist(geom)')
             cursor.execute(f'REVOKE ALL ON TABLE managed."{table(dataset_id)}" FROM PUBLIC')
@@ -85,7 +86,7 @@ def export_schema(connection, dataset_id):
     return {'schema_version': 1, 'contract': 'ambisgis-managed-dataset-v1', 'dataset_id': str(row[0]),
             'managed_name': row[1], 'catalog_item_id': str(row[2]), 'policy_ref': str(row[3]),
             'version_group_id': str(row[4]), 'default_version_id': str(row[5]), 'schema_revision_id': str(row[6]),
-            'schema_sha256': row[7], 'canonical_encoding': 'ambisgis-typed-schema-json-v1',
+            'schema_sha256': row[7], 'canonical_encoding': encoding(definition),
             'definition': definition, 'group_schema_generation': row[9],
             'identity': {'feature_uuid_field': 'fid', 'object_id_field': 'object_id', 'object_id_type': 'int64',
                          'object_id_json_encoding': 'positive-decimal-string', 'never_recycled': True,
@@ -139,13 +140,84 @@ def grant_service(connection, role):
                     EXISTS(SELECT 1 FROM pg_class c JOIN pg_namespace n ON n.oid=c.relnamespace
                       WHERE CASE WHEN n.nspname='managed' AND c.relkind='S' THEN has_sequence_privilege(%s,c.oid,'USAGE,UPDATE') ELSE false END),
                     EXISTS(SELECT 1 FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace
-                      WHERE n.nspname='managed' AND p.oid<>'managed.apply_rows(uuid,uuid,uuid,jsonb,boolean)'::regprocedure
+                      WHERE n.nspname='managed' AND p.oid NOT IN ('managed.apply_rows(uuid,uuid,uuid,jsonb,boolean)'::regprocedure,'managed.apply_group(uuid,uuid,jsonb)'::regprocedure)
                       AND has_function_privilege(%s,p.oid,'EXECUTE'))''',(actor,)*11)
                 if any(cursor.fetchone()): raise ValueError('backend role has existing managed bypass privileges')
             cursor.execute(f'GRANT USAGE ON SCHEMA managed TO "{role}"')
-            cursor.execute(f'GRANT EXECUTE ON FUNCTION managed.apply_rows(uuid,uuid,uuid,jsonb,boolean) TO "{role}"')
+            cursor.execute(f'GRANT EXECUTE ON FUNCTION managed.apply_rows(uuid,uuid,uuid,jsonb,boolean), managed.apply_group(uuid,uuid,jsonb) TO "{role}"')
 
 
 def export_identity(fid, object_id, feature_revision):
     if type(object_id) is not int or not 1 <= object_id <= 9223372036854775807: raise ValueError('invalid native ObjectID')
     return {'fid': identity(fid), 'object_id': str(object_id), 'feature_revision': identity(feature_revision)}
+
+
+def encoding(definition):
+    return 'ambisgis-typed-schema-json-v'+str(definition['schema_version'])
+
+
+def install_constraints(cursor, dataset_id, group_id, definition):
+    """Migrator-only; validated finite CHECK/relationship constraints."""
+    from .rules import checks
+    prefix='db02_'+uuid.UUID(dataset_id).hex+'_'
+    clauses=['CHECK ('+p+')' for p in checks(definition)]
+    for relation in definition.get('relationships',[]):
+        target=relation['target_dataset']
+        cursor.execute('SELECT group_id FROM managed.dataset WHERE dataset_id=%s',(target,))
+        row=cursor.fetchone()
+        if row is None or str(row[0])!=group_id:raise ValueError('relationship target must be in same group')
+        field='"'+relation['field']+'"'
+        clauses.append('FOREIGN KEY(version_id,'+field+') REFERENCES managed."'+table(target)+'"(version_id,fid) DEFERRABLE INITIALLY IMMEDIATE')
+        if relation['cardinality']=='one-to-one':
+            clauses.append('UNIQUE(version_id,'+field+') DEFERRABLE INITIALLY IMMEDIATE')
+    for index,clause in enumerate(clauses):
+        cursor.execute('ALTER TABLE managed."'+table(dataset_id)+'" ADD CONSTRAINT "'+prefix+str(index)+'" '+clause)
+
+
+def revise_schema(connection, descriptor, definition):
+    """Change rules/defaults/domains/relations only, validating all existing rows."""
+    require_idle(connection)
+    definition=normalized(definition);dataset_id=identity(descriptor['dataset_id'])
+    with connection:
+        with connection.cursor() as cursor:
+            cursor.execute("SET LOCAL lock_timeout='5s'; SET LOCAL statement_timeout='30s'; SET LOCAL timezone='UTC'")
+            cursor.execute('SELECT group_id FROM managed.dataset WHERE dataset_id=%s',(dataset_id,))
+            found=cursor.fetchone()
+            if found is None:raise ValueError('unknown dataset')
+            group_id=str(found[0])
+            cursor.execute('SELECT default_version_id FROM managed.version_group WHERE group_id=%s FOR UPDATE',(group_id,))
+            version_id=str(cursor.fetchone()[0])
+            cursor.execute('SELECT head_revision FROM managed.version WHERE version_id=%s FOR UPDATE',(version_id,))
+            head=str(cursor.fetchone()[0])
+            cursor.execute('SELECT d.active_schema_revision,r.definition FROM managed.dataset d JOIN managed.schema_revision r ON r.schema_revision_id=d.active_schema_revision WHERE d.dataset_id=%s',(dataset_id,))
+            revision,old=cursor.fetchone()
+            if str(revision)!=descriptor['schema_revision_id'] or head!=descriptor['current']['head_revision']:raise ValueError('STALE_SCHEMA')
+            cursor.execute('SELECT count(*) FROM managed.version WHERE group_id=%s',(group_id,))
+            if cursor.fetchone()[0]!=1:raise ValueError('ACTIVE_BRANCH_SCHEMA_CHANGE_UNSUPPORTED')
+            def physical(value):
+                return {'geometry':value['geometry'],'fields':[{k:v for k,v in f.items() if k not in ('default','domain')} for f in value['fields']]}
+            if physical(old)!=physical(definition):raise ValueError('PHYSICAL_SCHEMA_CHANGE_REQUIRES_MIGRATION')
+            if canonical(old)!=canonical(definition):
+                prefix='db02_'+uuid.UUID(dataset_id).hex+'_'
+                cursor.execute('SELECT conname FROM pg_constraint WHERE conrelid=%s::regclass',('managed.'+table(dataset_id),))
+                for (name,) in cursor.fetchall():
+                    if name.startswith(prefix):cursor.execute('ALTER TABLE managed."'+table(dataset_id)+'" DROP CONSTRAINT "'+name+'"')
+                install_constraints(cursor,dataset_id,group_id,definition)
+                revision_id=str(uuid.uuid4());text=canonical(definition)
+                cursor.execute('INSERT INTO managed.schema_revision VALUES(%s,%s,%s,%s,%s::jsonb,%s)',
+                               (revision_id,dataset_id,encoding(definition),text,text,fingerprint(definition)))
+                cursor.execute('UPDATE managed.dataset SET active_schema_revision=%s WHERE dataset_id=%s',(revision_id,dataset_id))
+                cursor.execute('UPDATE managed.version_group SET schema_generation=schema_generation+1 WHERE group_id=%s',(group_id,))
+                cursor.execute('UPDATE managed.version SET head_revision=%s WHERE version_id=%s',(str(uuid.uuid4()),version_id))
+    return export_schema(connection,dataset_id)
+
+
+def apply_group(connection, descriptor, edits):
+    require_idle(connection)
+    with connection:
+        with connection.cursor() as cursor:
+            cursor.execute("SET LOCAL lock_timeout='5s'; SET LOCAL statement_timeout='30s'; SET LOCAL timezone='UTC'")
+            cursor.execute('SELECT managed.apply_group(%s,%s,%s::jsonb)',
+                           (descriptor['current']['version_id'],descriptor['current']['head_revision'],
+                            json.dumps(edits,ensure_ascii=False,separators=(',',':'),allow_nan=False)))
+            return str(cursor.fetchone()[0])
