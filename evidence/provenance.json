@@ -1,0 +1,56 @@
+{
+  "task": "FND-04",
+  "requirements": [
+    "R06",
+    "R07"
+  ],
+  "repository": "aloerch/ambisgis-geodb",
+  "repository_id": 1376927417,
+  "base": "41fbb62b9967fc3409aa60a960823b7747f76523",
+  "implementation_head": "2fff211ba954ac9f2ab0955a73cb80f258042e93",
+  "source_files": {
+    "prototype/__init__.py": "88369c224b481071a5e01e0d1392d646787f74ba4d641a18a7729c5f40f23082",
+    "prototype/database.py": "4b12e46c98a610297bd2bffa240955c43b0c91e8c024337a91a6bcfa73c17451",
+    "prototype/reference.py": "ac4882ce9d8c15d5c1435dd8e835a85a297df7ad03df246d22d28cb92440f76d",
+    "sql/001_prototype.sql": "998abaf163fb7720da9c82dc5176e14c4fd353624fd81d91246640ab36c1efd5",
+    "tests/test_database.py": "8485f0bdf6dcb9b6794d4fbf20aa5624bd169f641d72098ecb5c7f6b9065b86f",
+    "tests/test_reference.py": "aadf48581e0f370015385e98875d456bd9c81e3fd46d72df63414022ca1c4c4e",
+    "tools/benchmark.py": "c0bde168bb5dc7020e2ec199a68676f96411a0b061cb2cb4761857314ab77f84",
+    "tools/run_acceptance.py": "3fda170c7be825b80653b97cdb76406dbdf8b57cefeb1712f876ea9d482d246f"
+  },
+  "commands": [
+    "python3 -m unittest discover -s tests -p test_reference.py -v",
+    "python3 tools/run_acceptance.py --prefix /home/revelberry/Projects/AmbisGIS/build-worktrees/postgis-slice/run-003/prefix --evidence .runs/acceptance-006",
+    "python3 tools/benchmark.py --prefix /home/revelberry/Projects/AmbisGIS/build-worktrees/postgis-slice/run-003/prefix --evidence .runs/benchmark-003",
+    "python3 -m compileall -q prototype tools tests",
+    "git diff --check"
+  ],
+  "postgis_module_sha256": "8d3326c0fbce2c6a0af5eff858748a20e110d1b898dad76e17b10402a817c7d3",
+  "baseline": "20 tests errored against empty real database before prototype installation; this is expected failing evidence",
+  "independent_review": "Separate-context agent /root/fnd03_identity reviewed actual diff and independently reproduced NULL-selector failure; final approval is recorded by integrator, not asserted by implementer",
+  "full_product_acceptance": false,
+  "results": {
+    "database_tests": 25,
+    "database_failures": 0,
+    "database_errors": 0,
+    "database_skips": 0,
+    "reference_examples": 12,
+    "benchmark_workloads": [
+      100000,
+      1000000
+    ],
+    "branches_per_workload": 10,
+    "all_test_clusters_stopped": true
+  },
+  "evidence_files": {
+    "acceptance.json": "e7f6d3a3f610bc4bd40e848341509f53828c21edac074ff0b9632b5b501172e3",
+    "acceptance.log": "9c62ed671c607b01d032f88900a63306e60f5423d091b9148ba350effbe16119",
+    "baseline.json": "1d93a68cdf546fbbc5d0e60daf796cde32e244f9ebd36841495c9e8f13493a42",
+    "benchmark-runtime.json": "dbcdb2903a32162882482b0e8c8c55441fde7dcdeb53c4184c44f8fc3e0c50f3",
+    "benchmark.json": "2ea5281a53bf4e3a8568a1c243994ee0a12ee121667a4bf485fda046de0ddabd",
+    "benchmark.log": "1ea4ef08696c866a797a1364c334ea10239f51ea870b4a6c71232ee348f5f554",
+    "queryplan.json": "d039484a5811b528c6dee7521d4ec016b7daf1a784ad549ddb00d8f11af76335",
+    "reference.log": "996e15dba65e2bb156dae0b0b1ede959b31e0cd2601d4f06f08aac2823a87b98",
+    "runtime.json": "acb930f10c57514bc01f47b8db99c96e27769ee4590a9d59dd0fbee7cffa7611"
+  }
+}
