@@ -206,6 +206,53 @@ class SchemaRulesDatabaseTests(ManagedDatabaseTests):
         self.rejects(d,[self.row2({'when_date':'2027-01-01'})])
         self.rejects(d,[self.row2({'when_date':'2026-02-30'})])
 
+    def related_group(self):
+        parent=self.dataset({'schema_version':1,'geometry':None,'fields':[{'name':'x','type':'int32','nullable':False}]})
+        value=definition();value['fields'].append({'name':'parent','type':'uuid','nullable':False})
+        value['relationships']=[{'name':'ref','field':'parent','target_dataset':parent['dataset_id'],'cardinality':'one-to-one','on_delete':'restrict'}]
+        child=self.dataset(value,version_group_id=parent['version_group_id'])
+        parents=[{'fid':str(uuid.uuid4()),'values':{'x':i}} for i in (1,2)]
+        children=[self.row2({'parent':p['fid']}) for p in parents]
+        database.apply_group(self.connection,self.refresh(child),[
+            {'dataset_id':parent['dataset_id'],'rows':parents,'replace':False},
+            {'dataset_id':child['dataset_id'],'rows':children,'replace':False}])
+        constraints=self.query("SELECT conname FROM pg_constraint WHERE conrelid=%s::regclass AND condeferrable ORDER BY conname",('managed.'+database.table(child['dataset_id']),))
+        return child,parents,children,[name for (name,) in constraints]
+
+    def test_constraint_checks_do_not_flush_unrelated_group_work(self):
+        group_a=self.dataset(definition());group_b,parents,children,constraints=self.related_group()
+        descriptor=self.refresh(group_a)
+        # Trusted fixture stages a temporarily invalid B state. A must not
+        # change B constraint timing or flush B pending deferred checks.
+        try:
+            with self.connection.cursor() as cursor:
+                for name in constraints:cursor.execute('SET CONSTRAINTS managed."'+name+'" DEFERRED')
+                cursor.execute('UPDATE managed."'+database.table(group_b['dataset_id'])+'" SET parent=%s',(parents[0]['fid'],))
+                cursor.execute('SELECT managed.apply_rows(%s,%s,%s,%s::jsonb,false)',
+                    (group_a['dataset_id'],descriptor['current']['version_id'],descriptor['current']['head_revision'],'[]'))
+                self.assertIsNotNone(cursor.fetchone()[0])
+        finally:self.connection.rollback()
+        self.assertEqual(self.refresh(group_a)['current'],descriptor['current'])
+
+    def test_unrelated_schema_ddl_does_not_block_group_edit(self):
+        import concurrent.futures
+        group_a=self.dataset(definition());group_b,parents,children,constraints=self.related_group()
+        other=connect()
+        try:
+            with other.cursor() as cursor:
+                cursor.execute('SELECT 1 FROM managed.version_group WHERE group_id=%s FOR UPDATE',(group_b['version_group_id'],))
+                cursor.execute('ALTER TABLE managed."'+database.table(group_b['dataset_id'])+'" DROP CONSTRAINT "'+constraints[0]+'"')
+            def edit_a():
+                conn=connect()
+                try:return database.apply_rows(conn,group_a,[self.row2()])
+                finally:conn.close()
+            with concurrent.futures.ThreadPoolExecutor() as pool:
+                result=pool.submit(edit_a)
+                try:self.assertIsNotNone(result.result(timeout=3))
+                finally:other.rollback()
+            self.assertEqual(len(self.mapping(group_a)),1)
+        finally:other.close()
+
 
 def load_tests(loader, tests, pattern):
     return unittest.TestSuite(SchemaRulesDatabaseTests(name) for name in SchemaRulesDatabaseTests.__dict__ if name.startswith("test_"))

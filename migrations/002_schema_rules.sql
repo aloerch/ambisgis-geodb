@@ -128,8 +128,12 @@ BEGIN
   PERFORM 1 FROM managed.version_group WHERE group_id=group_value FOR UPDATE;
   SELECT head_revision INTO current_head FROM managed.version WHERE version_id=p_version FOR UPDATE;
   IF current_head IS DISTINCT FROM p_expected THEN RAISE EXCEPTION 'STALE_HEAD'; END IF;
-  FOR constraint_row IN SELECT c.conname FROM pg_constraint c JOIN pg_namespace n ON n.oid=c.connamespace
-    WHERE n.nspname='managed' AND c.condeferrable AND c.conname LIKE 'db02_%' LOOP
+  FOR constraint_row IN SELECT c.conname FROM pg_constraint c
+    JOIN pg_class t ON t.oid=c.conrelid
+    JOIN pg_namespace n ON n.oid=t.relnamespace
+    JOIN managed.dataset d ON t.relname='d_'||replace(d.dataset_id::text,'-','')
+    WHERE n.nspname='managed' AND d.group_id=group_value AND c.condeferrable
+      AND position(('db02_'||replace(d.dataset_id::text,'-','')||'_') IN c.conname::text)=1 LOOP
     EXECUTE format('SET CONSTRAINTS managed.%I DEFERRED',constraint_row.conname);
   END LOOP;
   FOR edit IN SELECT value FROM jsonb_array_elements(p_edits) LOOP
@@ -180,8 +184,12 @@ BEGIN
   END LOOP;
   -- Validate the whole candidate before returning, including reordered deletes
   -- and inserts. Leave these managed constraints immediate for the caller.
-  FOR constraint_row IN SELECT c.conname FROM pg_constraint c JOIN pg_namespace n ON n.oid=c.connamespace
-    WHERE n.nspname='managed' AND c.condeferrable AND c.conname LIKE 'db02_%' LOOP
+  FOR constraint_row IN SELECT c.conname FROM pg_constraint c
+    JOIN pg_class t ON t.oid=c.conrelid
+    JOIN pg_namespace n ON n.oid=t.relnamespace
+    JOIN managed.dataset d ON t.relname='d_'||replace(d.dataset_id::text,'-','')
+    WHERE n.nspname='managed' AND d.group_id=group_value AND c.condeferrable
+      AND position(('db02_'||replace(d.dataset_id::text,'-','')||'_') IN c.conname::text)=1 LOOP
     EXECUTE format('SET CONSTRAINTS managed.%I IMMEDIATE',constraint_row.conname);
   END LOOP;
   RETURN current_head;

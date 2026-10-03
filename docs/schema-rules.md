@@ -92,8 +92,10 @@ receives a fresh feature revision; only the final head becomes visible at commit
 Both Python entry points require dedicated idle transactional connections and
 commit only on success. SQL backend callers must also use a dedicated bounded
 transaction, set transaction timeouts/timezone, and commit before reporting
-success; a function return does not itself commit. Managed relation constraints
-are immediate on successful return. Neither operation is a field-patch or
+success; a function return does not itself commit. Only constraints on the locked version group's registered dataset tables
+are deferred/checked; other groups' constraint timing is untouched. Their exact
+per-dataset constraint prefix is matched literally. Managed relation constraints
+in this group are immediate on successful return. Neither operation is a field-patch or
 idempotency-journal API. Catalog authorization still precedes backend invocation.
 
 ## Privileges, migration and retained revisions
